@@ -51,4 +51,44 @@ jobs:
         run: |
           echo "✅ CI validation passed!"
 
+  
+  test-migrations:
+    name: Test database migrations
+    runs-on: ubuntu-latest
+    container:
+      image: catthehacker/ubuntu:act-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Prepare CI env
+        run: cp .env.ci .env
+
+      - name: Start compose stack
+        run: docker compose up -d db
+
+      - name: Wait for MariaDB to be healthy
+        run: |
+          for i in $(seq 1 30); do
+            STATUS=$(docker inspect --format='{{.State.Health.Status}}' cengkeh-db-1 2>/dev/null || echo "unknown")
+            echo "  Attempt $i: $STATUS"
+            [ "$STATUS" = "healthy" ] && exit 0
+            sleep 2
+          done
+          docker compose logs db
+          exit 1
+
+      - name: Apply migrations
+        run: docker compose --profile tools run --rm dbmate up
+
+      - name: Verify schema
+        run: |
+          docker compose exec -T db mariadb -uci_user -pci_user_pass ci_test_db -e "SHOW TABLES;"
+          docker compose exec -T db mariadb -uci_user -pci_user_pass ci_test_db -e "SELECT COUNT(*) FROM tb_kategori;"
+
+      - name: Tear down
+        if: always()
+        run: docker compose --profile tools down -v
+
       
