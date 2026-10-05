@@ -75,7 +75,7 @@ jobs:
         if: failure()
         run: docker compose logs db
 
-        
+
       - name: Wait for MariaDB to be healthy
         run: |
           echo "⏳ Waiting for db to be healthy..."
@@ -97,6 +97,26 @@ jobs:
           echo "❌ MariaDB never became healthy"
           docker compose logs db
           exit 1
+
+      - name: Debug — show workspace and files
+        run: |
+          echo "=== pwd (inside job container) ==="
+          pwd
+          echo ""
+          echo "=== ls -la (current dir) ==="
+          ls -la
+          echo ""
+          echo "=== ls -la db ==="
+          ls -la db || echo "❌ no db folder"
+          echo ""
+          echo "=== ls -la db/migrations ==="
+          ls -la db/migrations || echo "❌ no db/migrations folder"
+          echo ""
+          echo "=== docker compose config (resolved paths) ==="
+          docker compose config | grep -A 5 "dbmate:" || true
+          echo ""
+          echo "=== Inspect what the volume path resolves to ==="
+          docker compose --profile tools config | grep -B 2 -A 4 "source:.*db"
 
       - name: Apply migrations
         run: docker compose --profile tools run --rm dbmate up
