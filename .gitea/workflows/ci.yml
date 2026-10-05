@@ -67,9 +67,9 @@ jobs:
 
       - name: Start compose stack and wait for healthy
         run: |
-          echo "🚀 Starting db and waiting for it to be healthy..."
-          docker compose up -d --wait db
-          echo "✅ db is healthy"
+          echo "🚀 Starting full stack and waiting for all services to be healthy..."
+          docker compose up -d --wait
+          echo "✅ All healthy services started"
 
       - name: Show db logs if previous step failed
         if: failure()
@@ -98,25 +98,25 @@ jobs:
           docker compose logs db
           exit 1
 
-      - name: Debug — show workspace and files
-        run: |
-          echo "=== pwd (inside job container) ==="
-          pwd
-          echo ""
-          echo "=== ls -la (current dir) ==="
-          ls -la
-          echo ""
-          echo "=== ls -la db ==="
-          ls -la db || echo "❌ no db folder"
-          echo ""
-          echo "=== ls -la db/migrations ==="
-          ls -la db/migrations || echo "❌ no db/migrations folder"
-          echo ""
-          echo "=== docker compose config (resolved paths) ==="
-          docker compose config | grep -A 5 "dbmate:" || true
-          echo ""
-          echo "=== Inspect what the volume path resolves to ==="
-          docker compose --profile tools config | grep -B 2 -A 4 "source:.*db"
+      # - name: Debug — show workspace and files
+      #   run: |
+      #     echo "=== pwd (inside job container) ==="
+      #     pwd
+      #     echo ""
+      #     echo "=== ls -la (current dir) ==="
+      #     ls -la
+      #     echo ""
+      #     echo "=== ls -la db ==="
+      #     ls -la db || echo "❌ no db folder"
+      #     echo ""
+      #     echo "=== ls -la db/migrations ==="
+      #     ls -la db/migrations || echo "❌ no db/migrations folder"
+      #     echo ""
+      #     echo "=== docker compose config (resolved paths) ==="
+      #     docker compose config | grep -A 5 "dbmate:" || true
+      #     echo ""
+      #     echo "=== Inspect what the volume path resolves to ==="
+      #     docker compose --profile tools config | grep -B 2 -A 4 "source:.*db"
 
      
       - name: Apply migrations
@@ -127,6 +127,49 @@ jobs:
         run: |
           docker compose exec -T db mariadb -uci_user -pci_user_pass ci_test_db -e "SHOW TABLES;"
           docker compose exec -T db mariadb -uci_user -pci_user_pass ci_test_db -e "SELECT COUNT(*) FROM tb_kategori;"
+
+      - name: Ensure curl is available
+        run: |
+          if command -v curl >/dev/null 2>&1; then
+            echo "✅ curl already present: $(curl --version | head -1)"
+          else
+            echo "📦 Installing curl..."
+            apt-get update -qq && apt-get install -y -qq curl
+          fi
+
+      - name: Verify phpMyAdmin is reachable on port 8081
+        run: |
+          echo "🔍 Waiting for phpMyAdmin to respond on localhost:8081..."
+          for i in $(seq 1 30); do
+            if curl -sS -f -o /dev/null http://localhost:8081/ 2>/dev/null; then
+              echo "✅ phpMyAdmin is reachable on port 8081 (attempt $i)"
+              # Show a bit of the response to prove it's phpMyAdmin
+              echo "--- First 3 lines of response ---"
+              curl -sS http://localhost:8081/ | head -3
+              exit 0
+            fi
+            echo "  Attempt $i: not ready yet"
+            sleep 2
+          done
+          echo "❌ phpMyAdmin never became reachable"
+          docker compose logs phpmyadmin
+          exit 1
+
+              - name: Verify phpMyAdmin responds
+        run: |
+          CID=$(docker compose ps -q phpmyadmin)
+          IP=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$CID")
+          echo "phpMyAdmin container IP: $IP"
+          for i in $(seq 1 30); do
+            if curl -sS -f -o /dev/null "http://$IP:80/" 2>/dev/null; then
+              echo "✅ phpMyAdmin responds on port 80 (internal)"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "❌ phpMyAdmin never responded"
+          docker compose logs phpmyadmin
+          exit 1
 
       - name: Tear down
         if: always()
