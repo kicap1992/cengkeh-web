@@ -118,6 +118,17 @@ jobs:
           echo "=== Inspect what the volume path resolves to ==="
           docker compose --profile tools config | grep -B 2 -A 4 "source:.*db"
 
+      - name: Diagnose Docker daemon's view of the workspace
+        run: |
+          echo "=== Job container PWD ==="
+          pwd
+          echo ""
+          echo "=== Does the mount source exist AS THE DAEMON SEES IT? ==="
+          docker run --rm -v "$PWD:/check:ro" alpine sh -c "ls -la /check/ && echo '---' && ls -la /check/db/ && echo '---' && ls -la /check/db/migrations/"
+          echo ""
+          echo "=== Try a different path convention ==="
+          docker run --rm -v "/workspace/kicap/cengkeh-web:/check:ro" alpine sh -c "ls -la /check/db/migrations/" || echo "not found with explicit path"
+
       - name: Apply migrations
         env:
           HOST_WORKSPACE: ${{ github.workspace }}
