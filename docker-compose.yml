@@ -31,9 +31,9 @@ services:
     image: amacneil/dbmate:latest
     profiles: ["tools"]
     user: "${HOST_UID:-1000}:${HOST_GID:-1000}" # <-- ADD THIS LINE
-    working_dir: /workspace
+    #working_dir: /workspace
     volumes:
-      - ${HOST_WORKSPACE:-.}/db:/workspace/db:rw
+      - ./db:/db:rw
     environment:
       DATABASE_URL: "mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}"
     depends_on:
