@@ -137,6 +137,26 @@ jobs:
             apt-get update -qq && apt-get install -y -qq curl
           fi
 
+      -name: install lsof
+        run: |
+          if command -v lsof >/dev/null 2>&1; then
+            echo "✅ lsof already present: $(lsof -v | head -1)"
+          else
+            echo "📦 Installing lsof..."
+            apt-get update -qq && apt-get install -y -qq lsof
+          fi
+
+      -name: check port 18081 by lsof
+        run: |
+          echo "🔍 Checking if port 18081 is in use..."
+          if lsof -i :18081 >/dev/null 2>&1; then
+            echo "❌ Port 18081 is already in use"
+            lsof -i :18081
+            exit 1
+          else
+            echo "✅ Port 18081 is free"
+          fi
+
       - name: Verify phpMyAdmin is reachable on port 18081
         run: |
           echo "🔍 Waiting for phpMyAdmin to respond on localhost:18081..."
