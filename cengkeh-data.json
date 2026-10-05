@@ -1,0 +1,4876 @@
+{
+  "schema_version": "2.0",
+  "title": "Knowledge Base & Diagnostic Graph Cengkeh",
+  "language": "id-ID",
+  "categories": [
+    "Cara Tanam",
+    "Perawatan",
+    "Nutrisi & Kesuburan",
+    "Hama",
+    "Penyakit",
+    "Diagnosa Tanaman",
+    "Bunga & Pembentukan Bunga",
+    "Panen",
+    "Cuaca & Lingkungan",
+    "Pascapanen"
+  ],
+  "types": [
+    "informational",
+    "diagnostic",
+    "solution"
+  ],
+  "source_catalog": {
+    "S1": "Kementan — Buku Saku Pengenalan dan Pengendalian OPT pada Tanaman Cengkeh (2021)",
+    "S2": "Kementan — Teknik Persemaian Tanaman Cengkeh",
+    "S3": "Balittro/Kementan — Petunjuk Teknis Pembenihan/Perbenihan Tanaman Cengkeh",
+    "S4": "Ditjenbun/Kementan — BPKC/Pseudomonas syzygii",
+    "S5": "Kementan — pedoman teknis budidaya, lingkungan, pembungaan, panen dan pascapanen",
+    "S6": "Kementan/Ditjenbun — monitoring, sanitasi dan pengelolaan OPT"
+  },
+  "records": [
+    {
+      "id": "Q001",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Bagaimana memilih bibit cengkeh yang baik?",
+      "variations": [
+        "Cara memilih bibit cengkeh yang baik?"
+      ],
+      "keywords": [
+        "memilih",
+        "bibit"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q002"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q002",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Kapan waktu yang baik untuk menanam cengkeh?",
+      "variations": [
+        "Kapan waktu yang baik untuk menanam cengkeh?"
+      ],
+      "keywords": [
+        "waktu",
+        "tanam"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q001",
+        "Q003"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q003",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Bagaimana menyiapkan lubang tanam cengkeh?",
+      "variations": [
+        "Cara menyiapkan lubang tanam cengkeh?"
+      ],
+      "keywords": [
+        "lubang",
+        "tanam"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q002",
+        "Q004"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q004",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Berapa jarak tanam cengkeh?",
+      "variations": [
+        "Berapa jarak tanam cengkeh?"
+      ],
+      "keywords": [
+        "jarak",
+        "tanam"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q003",
+        "Q005"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q005",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Media seperti apa untuk bibit cengkeh?",
+      "variations": [
+        "Media seperti apa untuk bibit cengkeh?"
+      ],
+      "keywords": [
+        "media",
+        "tanam"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q004",
+        "Q006"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q006",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Bagaimana memindahkan bibit cengkeh?",
+      "variations": [
+        "Cara memindahkan bibit cengkeh?"
+      ],
+      "keywords": [
+        "pindah",
+        "tanam"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q005",
+        "Q007"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q007",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Seberapa dalam bibit cengkeh ditanam?",
+      "variations": [
+        "Seberapa dalam bibit cengkeh ditanam?"
+      ],
+      "keywords": [
+        "kedalaman",
+        "tanam"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q006",
+        "Q008"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q008",
+      "category": "Cara Tanam",
+      "type": "solution",
+      "question": "Kapan bibit cengkeh perlu disulam?",
+      "variations": [
+        "Kapan bibit cengkeh perlu disulam?"
+      ],
+      "keywords": [
+        "penyulaman"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q007",
+        "Q009"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q009",
+      "category": "Cara Tanam",
+      "type": "solution",
+      "question": "Bagaimana menyiapkan lahan cengkeh?",
+      "variations": [
+        "Cara menyiapkan lahan cengkeh?"
+      ],
+      "keywords": [
+        "persiapan",
+        "lahan"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q008",
+        "Q010"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q010",
+      "category": "Cara Tanam",
+      "type": "diagnostic",
+      "question": "Kenapa bibit cengkeh stres setelah tanam?",
+      "variations": [
+        "Kok bibit cengkeh stres setelah tanam?"
+      ],
+      "keywords": [
+        "adaptasi",
+        "bibit"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F010-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q011",
+                "Q012",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q012",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q011",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q020"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F010-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q011",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q012",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q011",
+                "Q012",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q020"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q009",
+        "Q011"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q011",
+      "category": "Perawatan",
+      "type": "diagnostic",
+      "question": "Bagaimana menyiram cengkeh dengan benar?",
+      "variations": [
+        "Cara menyiram cengkeh dengan benar?"
+      ],
+      "keywords": [
+        "penyiraman"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F011-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q012",
+                "Q013",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q013",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q012",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q020"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F011-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q012",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q013",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q012",
+                "Q013",
+                "Q020"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q020"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q010",
+        "Q012"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q012",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Bagaimana mengatur naungan bibit cengkeh?",
+      "variations": [
+        "Cara mengatur naungan bibit cengkeh?"
+      ],
+      "keywords": [
+        "naungan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q011",
+        "Q013"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q013",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Bagaimana mengendalikan gulma di kebun cengkeh?",
+      "variations": [
+        "Cara mengendalikan gulma di kebun cengkeh?"
+      ],
+      "keywords": [
+        "gulma"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q012",
+        "Q014"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q014",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Perlukah memangkas ranting kering cengkeh?",
+      "variations": [
+        "Perlukah memangkas ranting kering cengkeh?"
+      ],
+      "keywords": [
+        "pemangkasan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q013",
+        "Q015"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q015",
+      "category": "Perawatan",
+      "type": "solution",
+      "question": "Bagaimana membersihkan alat pangkas cengkeh?",
+      "variations": [
+        "Cara membersihkan alat pangkas cengkeh?"
+      ],
+      "keywords": [
+        "sanitasi",
+        "alat"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q014",
+        "Q016"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q016",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Seberapa sering kebun cengkeh dipantau?",
+      "variations": [
+        "Seberapa sering kebun cengkeh dipantau?"
+      ],
+      "keywords": [
+        "monitoring"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q015",
+        "Q017"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q017",
+      "category": "Perawatan",
+      "type": "diagnostic",
+      "question": "Bagaimana mengetahui drainase kebun bermasalah?",
+      "variations": [
+        "Cara mengetahui drainase kebun bermasalah?"
+      ],
+      "keywords": [
+        "drainase"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F017-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q018",
+                "Q019",
+                "Q038"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q019",
+                "Q038"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q018",
+                "Q038"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q038"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F017-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q018",
+                "Q038"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q019",
+                "Q038"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q018",
+                "Q019",
+                "Q038"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q038"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q016",
+        "Q018"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q018",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Apa yang dilakukan pada pohon cengkeh yang mati?",
+      "variations": [
+        "Gimana yang dilakukan pada pohon cengkeh yang mati?"
+      ],
+      "keywords": [
+        "pohon",
+        "mati"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q017",
+        "Q019"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q019",
+      "category": "Perawatan",
+      "type": "diagnostic",
+      "question": "Kenapa pertumbuhan cengkeh satu kebun tidak merata?",
+      "variations": [
+        "Kok pertumbuhan cengkeh satu kebun tidak merata?"
+      ],
+      "keywords": [
+        "pertumbuhan",
+        "tidak",
+        "merata"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F019-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q020",
+                "Q021",
+                "Q039"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q021",
+                "Q039"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q020",
+                "Q039"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q039"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F019-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q020",
+                "Q039"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q021",
+                "Q039"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q020",
+                "Q021",
+                "Q039"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q039"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q018",
+        "Q020"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q020",
+      "category": "Perawatan",
+      "type": "solution",
+      "question": "Apa checklist perawatan rutin cengkeh?",
+      "variations": [
+        "Gimana checklist perawatan rutin cengkeh?"
+      ],
+      "keywords": [
+        "perawatan",
+        "rutin"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q019",
+        "Q021"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q021",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Apakah cengkeh perlu pupuk?",
+      "variations": [
+        "Apakah cengkeh perlu pupuk?"
+      ],
+      "keywords": [
+        "kebutuhan",
+        "pupuk"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q020",
+        "Q022"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q022",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Kenapa daun cengkeh menguning?",
+      "variations": [
+        "Kok daun cengkeh menguning?"
+      ],
+      "keywords": [
+        "daun",
+        "kuning"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F022-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q023",
+                "Q024",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q024",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q023",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q050"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F022-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q023",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q024",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q023",
+                "Q024",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q050"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q021",
+        "Q023"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q023",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Daun tua cengkeh menguning, apa yang diperiksa?",
+      "variations": [
+        "Daun tua cengkeh menguning, apa yang diperiksa?"
+      ],
+      "keywords": [
+        "daun",
+        "tua",
+        "kuning"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F023-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q024",
+                "Q025",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q025",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q024",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q050"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F023-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q024",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q025",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q024",
+                "Q025",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q050"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q022",
+        "Q024"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q024",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Daun muda cengkeh menguning, apa yang diperiksa?",
+      "variations": [
+        "Daun muda cengkeh menguning, apa yang diperiksa?"
+      ],
+      "keywords": [
+        "daun",
+        "muda",
+        "kuning"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F024-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q025",
+                "Q026",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q026",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q025",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q050"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F024-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q025",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q026",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q025",
+                "Q026",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q050"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q023",
+        "Q025"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q025",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Mengapa analisis tanah penting sebelum memupuk?",
+      "variations": [
+        "Mengapa analisis tanah penting sebelum memupuk?"
+      ],
+      "keywords": [
+        "analisis",
+        "tanah"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q024",
+        "Q026"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q026",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Apakah pupuk organik bermanfaat untuk cengkeh?",
+      "variations": [
+        "Apakah pupuk organik bermanfaat untuk cengkeh?"
+      ],
+      "keywords": [
+        "pupuk",
+        "organik"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q025",
+        "Q027"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q027",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Kapan pemupukan cengkeh dilakukan?",
+      "variations": [
+        "Kapan pemupukan cengkeh dilakukan?"
+      ],
+      "keywords": [
+        "waktu",
+        "pemupukan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q026",
+        "Q028"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q028",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Apakah pupuk berlebihan bisa merugikan cengkeh?",
+      "variations": [
+        "Apakah pupuk berlebihan bisa merugikan cengkeh?"
+      ],
+      "keywords": [
+        "pupuk",
+        "berlebihan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q027",
+        "Q029"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q029",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Cengkeh sudah dipupuk tetapi tetap kurang subur, kenapa?",
+      "variations": [
+        "Cengkeh sudah dipupuk tetapi tetap kurang subur, kenapa?"
+      ],
+      "keywords": [
+        "kurang",
+        "subur"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F029-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q030",
+                "Q031",
+                "Q073"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q031",
+                "Q073"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q030",
+                "Q073"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q073"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F029-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q030",
+                "Q073"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q031",
+                "Q073"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q030",
+                "Q031",
+                "Q073"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q073"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q028",
+        "Q030"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q030",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Apakah analisis daun membantu menentukan nutrisi cengkeh?",
+      "variations": [
+        "Apakah analisis daun membantu menentukan nutrisi cengkeh?"
+      ],
+      "keywords": [
+        "analisis",
+        "daun"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q029",
+        "Q031"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q031",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Kenapa batang cengkeh saya berlubang?",
+      "variations": [
+        "Kok batang cengkeh saya berlubang?"
+      ],
+      "keywords": [
+        "batang",
+        "berlubang"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F031-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q032",
+                "Q033",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q033",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q032",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q074"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F031-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q032",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q033",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q032",
+                "Q033",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q074"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q030",
+        "Q032"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q032",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Ada lubang dan serbuk kayu pada cengkeh, apakah penggerek?",
+      "variations": [
+        "Ada lubang dan serbuk kayu pada cengkeh, apakah penggerek?"
+      ],
+      "keywords": [
+        "serbuk",
+        "kayu"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F032-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q033",
+                "Q034",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q034",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q033",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q074"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F032-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q033",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q034",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q033",
+                "Q034",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q074"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q031",
+        "Q033"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q033",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Bagaimana menangani penggerek batang cengkeh?",
+      "variations": [
+        "Cara menangani penggerek batang cengkeh?"
+      ],
+      "keywords": [
+        "penggerek",
+        "batang"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F033-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q034",
+                "Q035",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q035",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q034",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q074"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F033-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q034",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q035",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q034",
+                "Q035",
+                "Q074"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q074"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q032",
+        "Q034"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q034",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Kenapa ranting cengkeh berlubang kecil?",
+      "variations": [
+        "Kok ranting cengkeh berlubang kecil?"
+      ],
+      "keywords": [
+        "penggerek",
+        "ranting"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F034-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q035",
+                "Q036",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q036",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q035",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q075"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F034-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q035",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q036",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q035",
+                "Q036",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q075"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q033",
+        "Q035"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q035",
+      "category": "Hama",
+      "type": "informational",
+      "question": "Bagaimana memeriksa lubang kecil pada ranting?",
+      "variations": [
+        "Cara memeriksa lubang kecil pada ranting?"
+      ],
+      "keywords": [
+        "lubang",
+        "kecil"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q034",
+        "Q036"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q036",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Bagaimana menilai tingkat serangan penggerek?",
+      "variations": [
+        "Cara menilai tingkat serangan penggerek?"
+      ],
+      "keywords": [
+        "tingkat",
+        "serangan"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F036-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q037",
+                "Q038",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q038",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q037",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q075"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F036-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q037",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q038",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q037",
+                "Q038",
+                "Q075"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q075"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q035",
+        "Q037"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q037",
+      "category": "Hama",
+      "type": "solution",
+      "question": "Apa penanganan awal penggerek ringan?",
+      "variations": [
+        "Gimana penanganan awal penggerek ringan?"
+      ],
+      "keywords": [
+        "pengendalian",
+        "ringan"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q036",
+        "Q038"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q038",
+      "category": "Hama",
+      "type": "solution",
+      "question": "Apa penanganan penggerek tingkat sedang?",
+      "variations": [
+        "Gimana penanganan penggerek tingkat sedang?"
+      ],
+      "keywords": [
+        "pengendalian",
+        "sedang"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q037",
+        "Q039"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q039",
+      "category": "Hama",
+      "type": "solution",
+      "question": "Apa yang dilakukan jika penggerek sudah berat?",
+      "variations": [
+        "Gimana yang dilakukan jika penggerek sudah berat?"
+      ],
+      "keywords": [
+        "serangan",
+        "berat"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q038",
+        "Q040"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q040",
+      "category": "Hama",
+      "type": "informational",
+      "question": "Bagaimana monitoring penggerek cengkeh?",
+      "variations": [
+        "Cara monitoring penggerek cengkeh?"
+      ],
+      "keywords": [
+        "monitoring",
+        "penggerek"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q039",
+        "Q041"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q041",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Daun cengkeh tiba-tiba gugur, apa penyebabnya?",
+      "variations": [
+        "Daun cengkeh tiba-tiba gugur, apa penyebabnya?"
+      ],
+      "keywords": [
+        "daun",
+        "gugur"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F041-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q042",
+                "Q043",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q043",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q042",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q078"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F041-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q042",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q043",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q042",
+                "Q043",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q078"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q040",
+        "Q042"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q042",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Apakah gugur daun dan pucuk mati mengarah ke BPKC?",
+      "variations": [
+        "Apakah gugur daun dan pucuk mati mengarah ke BPKC?"
+      ],
+      "keywords": [
+        "bpkc"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F042-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q043",
+                "Q044",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q044",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q043",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q078"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F042-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q043",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q044",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q043",
+                "Q044",
+                "Q078"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q078"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q041",
+        "Q043"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q043",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Ranting cengkeh kering tanpa lubang, apa kemungkinan penyebabnya?",
+      "variations": [
+        "Ranting cengkeh kering tanpa lubang, apa kemungkinan penyebabnya?"
+      ],
+      "keywords": [
+        "ranting",
+        "kering"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F043-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q044",
+                "Q045",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q045",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q044",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q079"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F043-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q044",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q045",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q044",
+                "Q045",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q079"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q042",
+        "Q044"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q044",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Daun cengkeh bercak, apa penyebabnya?",
+      "variations": [
+        "Daun cengkeh bercak, apa penyebabnya?"
+      ],
+      "keywords": [
+        "bercak",
+        "daun"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F044-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q045",
+                "Q046",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q046",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q045",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q079"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F044-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q045",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q046",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q045",
+                "Q046",
+                "Q079"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q079"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q043",
+        "Q045"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q045",
+      "category": "Penyakit",
+      "type": "informational",
+      "question": "Bintik kecil pada daun cengkeh, apa yang diperiksa?",
+      "variations": [
+        "Bintik kecil pada daun cengkeh, apa yang diperiksa?"
+      ],
+      "keywords": [
+        "bintik",
+        "daun"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q044",
+        "Q046"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q046",
+      "category": "Penyakit",
+      "type": "informational",
+      "question": "Apa itu cacar atau bercak daun cengkeh?",
+      "variations": [
+        "Gimana itu cacar atau bercak daun cengkeh?"
+      ],
+      "keywords": [
+        "cacar",
+        "daun"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q045",
+        "Q047"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q047",
+      "category": "Penyakit",
+      "type": "informational",
+      "question": "Kenapa daun cengkeh menjadi cokelat seperti terbakar?",
+      "variations": [
+        "Kok daun cengkeh menjadi cokelat seperti terbakar?"
+      ],
+      "keywords": [
+        "daun",
+        "cokelat"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q046",
+        "Q048"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q048",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Cengkeh layu, apakah pasti penyakit?",
+      "variations": [
+        "Cengkeh layu, apakah pasti penyakit?"
+      ],
+      "keywords": [
+        "tanaman",
+        "layu"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F048-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q049",
+                "Q050",
+                "Q080"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q050",
+                "Q080"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q049",
+                "Q080"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q080"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F048-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q049",
+                "Q080"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q050",
+                "Q080"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q049",
+                "Q050",
+                "Q080"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q080"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q047",
+        "Q049"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q049",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Apa yang dilakukan jika gejala penyakit cengkeh menyebar cepat?",
+      "variations": [
+        "Gimana yang dilakukan jika gejala penyakit cengkeh menyebar cepat?"
+      ],
+      "keywords": [
+        "penyakit",
+        "menyebar"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F049-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q050",
+                "Q051",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q051",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q050",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q085"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F049-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q050",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q051",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q050",
+                "Q051",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q085"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q048",
+        "Q050"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q050",
+      "category": "Penyakit",
+      "type": "solution",
+      "question": "Kapan penyakit cengkeh perlu diperiksa lebih lanjut?",
+      "variations": [
+        "Kapan penyakit cengkeh perlu diperiksa lebih lanjut?"
+      ],
+      "keywords": [
+        "pemeriksaan",
+        "penyakit"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q049",
+        "Q051"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q051",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Tanaman cengkeh terlihat tidak sehat, mulai dari mana?",
+      "variations": [
+        "Tanaman cengkeh terlihat tidak sehat, mulai dari mana?"
+      ],
+      "keywords": [
+        "mulai",
+        "diagnosis"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F051-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q052",
+                "Q053",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q053",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q052",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q085"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F051-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q052",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q053",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q052",
+                "Q053",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q085"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q050",
+        "Q052"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q052",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana membedakan hama dan penyakit pada cengkeh?",
+      "variations": [
+        "Cara membedakan hama dan penyakit pada cengkeh?"
+      ],
+      "keywords": [
+        "bedakan",
+        "hama",
+        "penyakit"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F052-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q053",
+                "Q054",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q054",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q053",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q091"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F052-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q054",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q053",
+                "Q054",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q091"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q051",
+        "Q053"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q053",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana mengetahui cengkeh kekurangan air?",
+      "variations": [
+        "Cara mengetahui cengkeh kekurangan air?"
+      ],
+      "keywords": [
+        "cek",
+        "kekurangan",
+        "air"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F053-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q054",
+                "Q055",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q055",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q054",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q091"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F053-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q054",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q055",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q054",
+                "Q055",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q091"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q052",
+        "Q054"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q054",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Apa tindakan jika gejala cengkeh cepat menyebar?",
+      "variations": [
+        "Gimana tindakan jika gejala cengkeh cepat menyebar?"
+      ],
+      "keywords": [
+        "gejala",
+        "cepat",
+        "menyebar"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F054-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q055",
+                "Q056",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q056",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q055",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q091"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F054-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q055",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q056",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q055",
+                "Q056",
+                "Q091"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q091"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q053",
+        "Q055"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q055",
+      "category": "Diagnosa Tanaman",
+      "type": "informational",
+      "question": "Mengapa foto gejala penting untuk diagnosis cengkeh?",
+      "variations": [
+        "Mengapa foto gejala penting untuk diagnosis cengkeh?"
+      ],
+      "keywords": [
+        "foto",
+        "gejala"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q054",
+        "Q056"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q056",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana menilai tingkat kerusakan cengkeh?",
+      "variations": [
+        "Cara menilai tingkat kerusakan cengkeh?"
+      ],
+      "keywords": [
+        "tingkat",
+        "kerusakan"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F056-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q057",
+                "Q058",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q058",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q057",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q096"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F056-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q057",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q058",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q057",
+                "Q058",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q096"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q055",
+        "Q057"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q057",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Cengkeh kuning dan tanah sering basah, apa yang dicek?",
+      "variations": [
+        "Cengkeh kuning dan tanah sering basah, apa yang dicek?"
+      ],
+      "keywords": [
+        "kuning",
+        "dan",
+        "tanah",
+        "basah"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F057-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q058",
+                "Q059",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q059",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q058",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q096"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F057-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q059",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q058",
+                "Q059",
+                "Q096"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q096"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q056",
+        "Q058"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q058",
+      "category": "Diagnosa Tanaman",
+      "type": "solution",
+      "question": "Apa solusi awal cengkeh pada tanah terlalu kering?",
+      "variations": [
+        "Gimana solusi awal cengkeh pada tanah terlalu kering?"
+      ],
+      "keywords": [
+        "tanah",
+        "kering"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q057",
+        "Q059"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q059",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Cengkeh layu tetapi penyebabnya tidak jelas, apa berikutnya?",
+      "variations": [
+        "Cengkeh layu tetapi penyebabnya tidak jelas, apa berikutnya?"
+      ],
+      "keywords": [
+        "layu",
+        "tidak",
+        "jelas"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F059-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q060",
+                "Q061",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q061",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q060",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F059-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q060",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q061",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q060",
+                "Q061",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q058",
+        "Q060"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q060",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Apa yang dilakukan jika akar cengkeh diduga bermasalah?",
+      "variations": [
+        "Gimana yang dilakukan jika akar cengkeh diduga bermasalah?"
+      ],
+      "keywords": [
+        "akar",
+        "bermasalah"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F060-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q061",
+                "Q062",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q062",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q061",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F060-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q061",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q062",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q061",
+                "Q062",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q059",
+        "Q061"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q061",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Kapan cengkeh mulai berbunga?",
+      "variations": [
+        "Kapan cengkeh mulai berbunga?"
+      ],
+      "keywords": [
+        "awal",
+        "berbunga"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q060",
+        "Q062"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q062",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apa pengaruh cuaca terhadap pembungaan cengkeh?",
+      "variations": [
+        "Gimana pengaruh cuaca terhadap pembungaan cengkeh?"
+      ],
+      "keywords": [
+        "cuaca",
+        "pembungaan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q061",
+        "Q063"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q063",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "diagnostic",
+      "question": "Kenapa cengkeh saya belum berbunga?",
+      "variations": [
+        "Kok cengkeh saya belum berbunga?"
+      ],
+      "keywords": [
+        "belum",
+        "berbunga"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F063-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q064",
+                "Q065",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q065",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q064",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F063-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q064",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q065",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q064",
+                "Q065",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q062",
+        "Q064"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q064",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "diagnostic",
+      "question": "Cengkeh dewasa belum berbunga, apa yang diperiksa?",
+      "variations": [
+        "Cengkeh dewasa belum berbunga, apa yang diperiksa?"
+      ],
+      "keywords": [
+        "pohon",
+        "dewasa",
+        "tidak",
+        "berbunga"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F064-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q065",
+                "Q066",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q066",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q065",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F064-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q065",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q066",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q065",
+                "Q066",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q063",
+        "Q065"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q065",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apakah cahaya memengaruhi pembungaan cengkeh?",
+      "variations": [
+        "Apakah cahaya memengaruhi pembungaan cengkeh?"
+      ],
+      "keywords": [
+        "cahaya",
+        "pembungaan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q064",
+        "Q066"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q066",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apakah nutrisi memengaruhi pembungaan cengkeh?",
+      "variations": [
+        "Apakah nutrisi memengaruhi pembungaan cengkeh?"
+      ],
+      "keywords": [
+        "nutrisi",
+        "pembungaan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q065",
+        "Q067"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q067",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Bagaimana mengenali bunga cengkeh mendekati panen?",
+      "variations": [
+        "Cara mengenali bunga cengkeh mendekati panen?"
+      ],
+      "keywords": [
+        "ciri",
+        "bunga",
+        "matang"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q066",
+        "Q068"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q068",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Kenapa pohon cengkeh dewasa bunganya sedikit?",
+      "variations": [
+        "Kok pohon cengkeh dewasa bunganya sedikit?"
+      ],
+      "keywords": [
+        "bunga",
+        "sedikit"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q067",
+        "Q069"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q069",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apa ciri pembungaan cengkeh yang sehat?",
+      "variations": [
+        "Gimana ciri pembungaan cengkeh yang sehat?"
+      ],
+      "keywords": [
+        "pembungaan",
+        "sehat"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q068",
+        "Q070"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q070",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apa yang perlu dicek jika cengkeh gagal berbunga?",
+      "variations": [
+        "Gimana yang perlu dicek jika cengkeh gagal berbunga?"
+      ],
+      "keywords": [
+        "gagal",
+        "berbunga"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q069",
+        "Q071"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q071",
+      "category": "Panen",
+      "type": "diagnostic",
+      "question": "Kapan cengkeh biasanya dipanen?",
+      "variations": [
+        "Kapan cengkeh biasanya dipanen?"
+      ],
+      "keywords": [
+        "waktu",
+        "panen"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F071-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q072",
+                "Q073",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q073",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q072",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F071-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q072",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q073",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q072",
+                "Q073",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q070",
+        "Q072"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q072",
+      "category": "Panen",
+      "type": "diagnostic",
+      "question": "Bagaimana menentukan bunga cengkeh siap dipetik?",
+      "variations": [
+        "Cara menentukan bunga cengkeh siap dipetik?"
+      ],
+      "keywords": [
+        "ciri",
+        "siap",
+        "petik"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F072-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q073",
+                "Q074",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q074",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q073",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F072-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q073",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q074",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q073",
+                "Q074",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q071",
+        "Q073"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q073",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Jika kuncup cengkeh masih hijau, apa yang dilakukan?",
+      "variations": [
+        "Jika kuncup cengkeh masih hijau, apa yang dilakukan?"
+      ],
+      "keywords": [
+        "kuncup",
+        "hijau"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q072",
+        "Q074"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q074",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Jika kuncup cengkeh mulai kemerahan atau merah, bagaimana?",
+      "variations": [
+        "Jika kuncup cengkeh mulai kemerahan atau merah, bagaimana?"
+      ],
+      "keywords": [
+        "kuncup",
+        "kemerahan"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q073",
+        "Q075"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q075",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Bagaimana memanen bunga cengkeh tanpa merusak pohon?",
+      "variations": [
+        "Cara memanen bunga cengkeh tanpa merusak pohon?"
+      ],
+      "keywords": [
+        "cara",
+        "memetik"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q074",
+        "Q076"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q076",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Apa yang dilakukan setelah bunga cengkeh dipetik?",
+      "variations": [
+        "Gimana yang dilakukan setelah bunga cengkeh dipetik?"
+      ],
+      "keywords": [
+        "setelah",
+        "petik"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q075",
+        "Q077"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q077",
+      "category": "Panen",
+      "type": "informational",
+      "question": "Bagaimana menjaga mutu saat panen cengkeh?",
+      "variations": [
+        "Cara menjaga mutu saat panen cengkeh?"
+      ],
+      "keywords": [
+        "mutu",
+        "panen"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q076",
+        "Q078"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q078",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Bagaimana menentukan waktu panen terbaik?",
+      "variations": [
+        "Cara menentukan waktu panen terbaik?"
+      ],
+      "keywords": [
+        "waktu",
+        "terbaik"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q077",
+        "Q079"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q079",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Bolehkah panen cengkeh dilakukan bertahap?",
+      "variations": [
+        "Bolehkah panen cengkeh dilakukan bertahap?"
+      ],
+      "keywords": [
+        "panen",
+        "bertahap"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q078",
+        "Q080"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q080",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Bagaimana menghindari kerusakan saat panen cengkeh?",
+      "variations": [
+        "Cara menghindari kerusakan saat panen cengkeh?"
+      ],
+      "keywords": [
+        "kerusakan",
+        "saat",
+        "panen"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q079",
+        "Q081"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q081",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Apakah cengkeh tahan kekeringan panjang?",
+      "variations": [
+        "Apakah cengkeh tahan kekeringan panjang?"
+      ],
+      "keywords": [
+        "kekeringan",
+        "panjang"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q080",
+        "Q082"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q082",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Tanah seperti apa yang cocok untuk cengkeh?",
+      "variations": [
+        "Tanah seperti apa yang cocok untuk cengkeh?"
+      ],
+      "keywords": [
+        "jenis",
+        "tanah"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q081",
+        "Q083"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q083",
+      "category": "Cuaca & Lingkungan",
+      "type": "diagnostic",
+      "question": "Kenapa cengkeh bermasalah setelah hujan deras?",
+      "variations": [
+        "Kok cengkeh bermasalah setelah hujan deras?"
+      ],
+      "keywords": [
+        "hujan",
+        "deras"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F083-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q084",
+                "Q085",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q085",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q084",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F083-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q084",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q084",
+                "Q085",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q082",
+        "Q084"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q084",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Apakah angin kencang berpengaruh pada cengkeh?",
+      "variations": [
+        "Apakah angin kencang berpengaruh pada cengkeh?"
+      ],
+      "keywords": [
+        "angin",
+        "kencang"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q083",
+        "Q085"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q085",
+      "category": "Cuaca & Lingkungan",
+      "type": "solution",
+      "question": "Bagaimana menangani genangan di kebun cengkeh?",
+      "variations": [
+        "Cara menangani genangan di kebun cengkeh?"
+      ],
+      "keywords": [
+        "genangan"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q084",
+        "Q086"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q086",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Bagaimana menjaga kelembapan tanah cengkeh?",
+      "variations": [
+        "Cara menjaga kelembapan tanah cengkeh?"
+      ],
+      "keywords": [
+        "kelembapan",
+        "tanah"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q085",
+        "Q087"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q087",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Apakah cahaya memengaruhi pertumbuhan cengkeh?",
+      "variations": [
+        "Apakah cahaya memengaruhi pertumbuhan cengkeh?"
+      ],
+      "keywords": [
+        "cahaya",
+        "kebun"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q086",
+        "Q088"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q088",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Bagaimana memperbaiki drainase lingkungan kebun?",
+      "variations": [
+        "Cara memperbaiki drainase lingkungan kebun?"
+      ],
+      "keywords": [
+        "drainase",
+        "lingkungan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q087",
+        "Q089"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q089",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Apa yang harus diperhatikan saat musim kemarau?",
+      "variations": [
+        "Gimana yang harus diperhatikan saat musim kemarau?"
+      ],
+      "keywords": [
+        "musim",
+        "kemarau"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q088",
+        "Q090"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q090",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Bagaimana perubahan cuaca memengaruhi cengkeh?",
+      "variations": [
+        "Cara perubahan cuaca memengaruhi cengkeh?"
+      ],
+      "keywords": [
+        "perubahan",
+        "cuaca"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q089",
+        "Q091"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q091",
+      "category": "Pascapanen",
+      "type": "solution",
+      "question": "Bagaimana cara mengeringkan cengkeh setelah panen?",
+      "variations": [
+        "Cara cara mengeringkan cengkeh setelah panen?"
+      ],
+      "keywords": [
+        "pengeringan"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q090",
+        "Q092"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q092",
+      "category": "Pascapanen",
+      "type": "diagnostic",
+      "question": "Bagaimana menyimpan cengkeh kering?",
+      "variations": [
+        "Cara menyimpan cengkeh kering?"
+      ],
+      "keywords": [
+        "penyimpanan"
+      ],
+      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "follow_ups": [
+        {
+          "id": "F092-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q093",
+                "Q094",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q094",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q093",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F092-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q093",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q094",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q093",
+                "Q094",
+                "Q099"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q099"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q091",
+        "Q093"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q093",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Bagaimana mencegah cengkeh menyerap air lagi?",
+      "variations": [
+        "Cara mencegah cengkeh menyerap air lagi?"
+      ],
+      "keywords": [
+        "kelembapan",
+        "produk"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q092",
+        "Q094"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q094",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Apa tanda cengkeh sudah cukup kering?",
+      "variations": [
+        "Gimana tanda cengkeh sudah cukup kering?"
+      ],
+      "keywords": [
+        "tanda",
+        "cukup",
+        "kering"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q093",
+        "Q095"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q095",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Bagaimana sortasi cengkeh setelah panen?",
+      "variations": [
+        "Cara sortasi cengkeh setelah panen?"
+      ],
+      "keywords": [
+        "sortasi"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q094",
+        "Q096"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q096",
+      "category": "Pascapanen",
+      "type": "solution",
+      "question": "Bagaimana menjaga kebersihan cengkeh setelah panen?",
+      "variations": [
+        "Cara menjaga kebersihan cengkeh setelah panen?"
+      ],
+      "keywords": [
+        "kebersihan",
+        "produk"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q095",
+        "Q097"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q097",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Apa penyebab mutu cengkeh turun saat penyimpanan?",
+      "variations": [
+        "Gimana penyebab mutu cengkeh turun saat penyimpanan?"
+      ],
+      "keywords": [
+        "mutu",
+        "penyimpanan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q096",
+        "Q098"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q098",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Kenapa cengkeh kering bisa berjamur saat disimpan?",
+      "variations": [
+        "Kok cengkeh kering bisa berjamur saat disimpan?"
+      ],
+      "keywords": [
+        "jamur",
+        "saat",
+        "simpan"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q097",
+        "Q099"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q099",
+      "category": "Pascapanen",
+      "type": "solution",
+      "question": "Wadah seperti apa untuk menyimpan cengkeh?",
+      "variations": [
+        "Wadah seperti apa untuk menyimpan cengkeh?"
+      ],
+      "keywords": [
+        "wadah",
+        "simpan"
+      ],
+      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q098",
+        "Q100"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q100",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Apa yang dilakukan jika cengkeh hasil panen terlalu lembap?",
+      "variations": [
+        "Gimana yang dilakukan jika cengkeh hasil panen terlalu lembap?"
+      ],
+      "keywords": [
+        "produk",
+        "terlalu",
+        "lembap"
+      ],
+      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q099"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    }
+  ]
+}

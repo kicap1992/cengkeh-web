@@ -1,0 +1,17 @@
+.env
+.env/
+
+# Docker volumes (if any bind-mounted data ends up here)
+db/data/
+
+# Python
+*.egg-info/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
