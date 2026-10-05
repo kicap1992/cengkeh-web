@@ -171,14 +171,24 @@ jobs:
 
       - name: Verify phpMyAdmin responds
         run: |
-          echo "🔍 Checking phpMyAdmin via helper container on compose network..."
+          echo "🔍 Discovering phpMyAdmin network..."
+          CID=$(docker compose ps -q phpmyadmin)
+          if [ -z "$CID" ]; then
+            echo "❌ phpMyAdmin container not running"
+            docker compose ps
+            exit 1
+          fi
+          NETWORK=$(docker inspect "$CID" --format '{{range $k, $v := .NetworkSettings.Networks}}{{$k}}{{end}}')
+          echo "   phpMyAdmin is on network: $NETWORK"
+          echo ""
+          echo "🔍 Checking phpMyAdmin via helper container on $NETWORK..."
           for i in $(seq 1 30); do
-            if docker run --rm --network cengkeh_default curlimages/curl \
+            if docker run --rm --network "$NETWORK" curlimages/curl \
                  -sS -f -o /dev/null http://phpmyadmin:80/ 2>/dev/null; then
               echo "✅ phpMyAdmin responds (attempt $i)"
               echo ""
               echo "--- Response preview ---"
-              docker run --rm --network cengkeh_default curlimages/curl \
+              docker run --rm --network "$NETWORK" curlimages/curl \
                 -sS http://phpmyadmin:80/ | head -5
               exit 0
             fi
