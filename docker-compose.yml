@@ -19,7 +19,7 @@ services:
     image: phpmyadmin:latest
     restart: unless-stopped
     ports:
-      - "8081:80"
+      - "${PHPMYADMIN_PORT:-8081}:80"
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
@@ -39,5 +39,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
 volumes:
   db_data:
