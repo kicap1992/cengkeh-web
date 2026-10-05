@@ -137,41 +137,35 @@ jobs:
             apt-get update -qq && apt-get install -y -qq curl
           fi
 
-      - name: install lsof
+      - name: Verify phpMyAdmin port mapping
         run: |
-          if command -v lsof >/dev/null 2>&1; then
-            echo "✅ lsof already present: $(lsof -v | head -1)"
+          echo "🔍 Checking phpMyAdmin port mapping..."
+          PORT_MAP=$(docker compose port phpmyadmin 80)
+          echo "   Host port mapping: $PORT_MAP"
+          if echo "$PORT_MAP" | grep -q "18081"; then
+            echo "✅ phpMyAdmin is published on host port 18081"
           else
-            echo "📦 Installing lsof..."
-            apt-get update -qq && apt-get install -y -qq lsof
-          fi
-
-      - name: check port 18081 by lsof
-        run: |
-          echo "🔍 Checking if port 18081 is in use..."
-          if lsof -i :18081 >/dev/null 2>&1; then
-            echo "❌ Port 18081 is already in use"
-            lsof -i :18081
+            echo "❌ Unexpected port mapping: $PORT_MAP"
             exit 1
-          else
-            echo "✅ Port 18081 is free"
           fi
 
-      - name: Verify phpMyAdmin is reachable on port 18081
+      - name: Verify phpMyAdmin serves HTTP
         run: |
-          echo "🔍 Waiting for phpMyAdmin to respond on localhost:18081..."
-          for i in $(seq 1 30); do
-            if curl -sS -f -o /dev/null http://localhost:18081/ 2>/dev/null; then
-              echo "✅ phpMyAdmin is reachable on port 18081 (attempt $i)"
-              # Show a bit of the response to prove it's phpMyAdmin
-              echo "--- First 3 lines of response ---"
-              curl -sS http://localhost:18081/ | head -3
+          echo "🔍 Checking phpMyAdmin HTTP response via compose network..."
+          for i in $(seq 1 15); do
+            if docker run --rm --network cengkeh_default curlimages/curl \
+                 -sS -f -o /dev/null http://phpmyadmin:80/ 2>/dev/null; then
+              echo "✅ phpMyAdmin is serving HTTP (attempt $i)"
+              echo ""
+              echo "--- Response preview ---"
+              docker run --rm --network cengkeh_default curlimages/curl \
+                -sS http://phpmyadmin:80/ | head -5
               exit 0
             fi
             echo "  Attempt $i: not ready yet"
             sleep 2
           done
-          echo "❌ phpMyAdmin never became reachable"
+          echo "❌ phpMyAdmin never responded"
           docker compose logs phpmyadmin
           exit 1
 
