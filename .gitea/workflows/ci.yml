@@ -155,7 +155,7 @@ jobs:
           docker compose logs phpmyadmin
           exit 1
 
-              - name: Verify phpMyAdmin responds
+      - name: Verify phpMyAdmin responds
         run: |
           CID=$(docker compose ps -q phpmyadmin)
           IP=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$CID")
