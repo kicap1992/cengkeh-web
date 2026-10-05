@@ -65,17 +65,36 @@ jobs:
       - name: Prepare CI env
         run: cp .env.ci .env
 
-      - name: Start compose stack
-        run: docker compose up -d db
+      - name: Start compose stack and wait for healthy
+        run: |
+          echo "🚀 Starting db and waiting for it to be healthy..."
+          docker compose up -d --wait db
+          echo "✅ db is healthy"
 
+      - name: Show db logs if previous step failed
+        if: failure()
+        run: docker compose logs db
+
+        
       - name: Wait for MariaDB to be healthy
         run: |
+          echo "⏳ Waiting for db to be healthy..."
           for i in $(seq 1 30); do
-            STATUS=$(docker inspect --format='{{.State.Health.Status}}' cengkeh-db-1 2>/dev/null || echo "unknown")
-            echo "  Attempt $i: $STATUS"
-            [ "$STATUS" = "healthy" ] && exit 0
+            # Get container ID for the db service — works regardless of project name
+            CID=$(docker compose ps -q db)
+            if [ -z "$CID" ]; then
+              echo "  Attempt $i: db container not found yet"
+            else
+              STATUS=$(docker inspect --format='{{.State.Health.Status}}' "$CID" 2>/dev/null || echo "unknown")
+              echo "  Attempt $i: $STATUS"
+              if [ "$STATUS" = "healthy" ]; then
+                echo "✅ MariaDB is healthy"
+                exit 0
+              fi
+            fi
             sleep 2
           done
+          echo "❌ MariaDB never became healthy"
           docker compose logs db
           exit 1
 
