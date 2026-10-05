@@ -171,14 +171,18 @@ jobs:
 
       - name: Verify phpMyAdmin responds
         run: |
-          CID=$(docker compose ps -q phpmyadmin)
-          IP=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$CID")
-          echo "phpMyAdmin container IP: $IP"
+          echo "🔍 Checking phpMyAdmin via helper container on compose network..."
           for i in $(seq 1 30); do
-            if curl -sS -f -o /dev/null "http://$IP:80/" 2>/dev/null; then
-              echo "✅ phpMyAdmin responds on port 80 (internal)"
+            if docker run --rm --network cengkeh_default curlimages/curl \
+                 -sS -f -o /dev/null http://phpmyadmin:80/ 2>/dev/null; then
+              echo "✅ phpMyAdmin responds (attempt $i)"
+              echo ""
+              echo "--- Response preview ---"
+              docker run --rm --network cengkeh_default curlimages/curl \
+                -sS http://phpmyadmin:80/ | head -5
               exit 0
             fi
+            echo "  Attempt $i: not ready yet"
             sleep 2
           done
           echo "❌ phpMyAdmin never responded"
