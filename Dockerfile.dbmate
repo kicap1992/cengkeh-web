@@ -1,0 +1,7 @@
+FROM amacneil/dbmate:latest
+
+# Copy migration files into the image at dbmate's default search path
+COPY db/migrations /db/migrations
+
+# Run from / so dbmate's default ./db/migrations resolves to /db/migrations
+WORKDIR /

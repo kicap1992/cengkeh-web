@@ -28,17 +28,16 @@ services:
         condition: service_healthy
 
   dbmate:
-    image: amacneil/dbmate:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dbmate
+    image: cengkeh-dbmate:local
     profiles: ["tools"]
-    user: "${HOST_UID:-1000}:${HOST_GID:-1000}" # <-- ADD THIS LINE
-    #working_dir: /workspace
-    volumes:
-      - ./db:/db:rw
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     environment:
       DATABASE_URL: "mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}"
     depends_on:
       db:
         condition: service_healthy
-
 volumes:
   db_data:
