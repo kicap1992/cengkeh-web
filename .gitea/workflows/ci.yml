@@ -29,8 +29,16 @@ jobs:
           echo "✅ All required files present"
 
       - name: Verify docker-compose.yml is valid YAML
+        env:
+          MYSQL_ROOT_PASSWORD: dummy
+          MYSQL_DATABASE: dummy_db
+          MYSQL_USER: dummy_user
+          MYSQL_PASSWORD: dummy_pass
+          HOST_UID: "1000"
+          HOST_GID: "1000"
         run: |
           echo "🔍 Validating docker-compose.yml syntax..."
+          docker compose config > /dev/null
           # Use Python (pre-installed on ubuntu runners) to parse YAML
           python3 -c "import yaml; yaml.safe_load(open('docker-compose.yml'))"
           echo "✅ docker-compose.yml is valid YAML"
