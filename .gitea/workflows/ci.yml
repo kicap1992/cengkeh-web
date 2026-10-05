@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate project structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show repo contents
+        run: |
+          echo "📁 Repository structure:"
+          find . -type f -not -path './.git/*' | sort
+
+      - name: Check required files exist
+        run: |
+          echo "🔍 Checking required files..."
+          test -f docker-compose.yml || (echo "❌ docker-compose.yml missing" && exit 1)
+          test -f .gitignore || (echo "❌ .gitignore missing" && exit 1)
+          test -d db/migrations || (echo "❌ db/migrations missing" && exit 1)
+          echo "✅ All required files present"
+
+      - name: Verify docker-compose.yml is valid YAML
+        run: |
+          echo "🔍 Validating docker-compose.yml syntax..."
+          # Use Python (pre-installed on ubuntu runners) to parse YAML
+          python3 -c "import yaml; yaml.safe_load(open('docker-compose.yml'))"
+          echo "✅ docker-compose.yml is valid YAML"
+
+      - name: Summary
+        run: |
+          echo "✅ CI validation passed!"
