@@ -120,10 +120,7 @@ jobs:
 
      
       - name: Apply migrations
-        env:
-          HOST_WORKSPACE: ${{ github.workspace }}
         run: |
-          echo "HOST_WORKSPACE=$HOST_WORKSPACE"
           docker compose --profile tools run --rm dbmate up
 
       - name: Verify schema
