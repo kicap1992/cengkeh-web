@@ -137,7 +137,7 @@ jobs:
             apt-get update -qq && apt-get install -y -qq curl
           fi
 
-      -name: install lsof
+      - name: install lsof
         run: |
           if command -v lsof >/dev/null 2>&1; then
             echo "✅ lsof already present: $(lsof -v | head -1)"
@@ -146,7 +146,7 @@ jobs:
             apt-get update -qq && apt-get install -y -qq lsof
           fi
 
-      -name: check port 18081 by lsof
+      - name: check port 18081 by lsof
         run: |
           echo "🔍 Checking if port 18081 is in use..."
           if lsof -i :18081 >/dev/null 2>&1; then
