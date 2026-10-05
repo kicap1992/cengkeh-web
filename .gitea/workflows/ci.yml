@@ -137,15 +137,15 @@ jobs:
             apt-get update -qq && apt-get install -y -qq curl
           fi
 
-      - name: Verify phpMyAdmin is reachable on port 8081
+      - name: Verify phpMyAdmin is reachable on port 18081
         run: |
-          echo "🔍 Waiting for phpMyAdmin to respond on localhost:8081..."
+          echo "🔍 Waiting for phpMyAdmin to respond on localhost:18081..."
           for i in $(seq 1 30); do
-            if curl -sS -f -o /dev/null http://localhost:8081/ 2>/dev/null; then
-              echo "✅ phpMyAdmin is reachable on port 8081 (attempt $i)"
+            if curl -sS -f -o /dev/null http://localhost:18081/ 2>/dev/null; then
+              echo "✅ phpMyAdmin is reachable on port 18081 (attempt $i)"
               # Show a bit of the response to prove it's phpMyAdmin
               echo "--- First 3 lines of response ---"
-              curl -sS http://localhost:8081/ | head -3
+              curl -sS http://localhost:18081/ | head -3
               exit 0
             fi
             echo "  Attempt $i: not ready yet"
