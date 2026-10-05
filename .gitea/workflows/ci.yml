@@ -119,7 +119,11 @@ jobs:
           docker compose --profile tools config | grep -B 2 -A 4 "source:.*db"
 
       - name: Apply migrations
-        run: docker compose --profile tools run --rm dbmate up
+        env:
+          HOST_WORKSPACE: ${{ github.workspace }}
+        run: |
+          echo "HOST_WORKSPACE=$HOST_WORKSPACE"
+          docker compose --profile tools run --rm dbmate up
 
       - name: Verify schema
         run: |

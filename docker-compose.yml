@@ -33,7 +33,7 @@ services:
     user: "${HOST_UID:-1000}:${HOST_GID:-1000}" # <-- ADD THIS LINE
     working_dir: /workspace
     volumes:
-      - ./db:/workspace/db:rw
+      - ${HOST_WORKSPACE:-.}/db:/workspace/db:rw
     environment:
       DATABASE_URL: "mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}"
     depends_on:
