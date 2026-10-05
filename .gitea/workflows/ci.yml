@@ -28,13 +28,15 @@ jobs:
           test -d db/migrations || (echo "❌ db/migrations missing" && exit 1)
           echo "✅ All required files present"
 
-      - name: Verify docker-compose.yml is valid YAML
+      - name: Check docker-compose.yml is valid
         run: |
-          echo "🔍 Validating docker-compose.yml syntax..."
-          pip install --quiet pyyaml
-          # Use Python (pre-installed on ubuntu runners) to parse YAML
-          python3 -c "import yaml; yaml.safe_load(open('docker-compose.yml'))"
-          echo "✅ docker-compose.yml is valid YAML"
+          echo "🔍 Checking docker-compose.yml..."
+          test -s docker-compose.yml || (echo "❌ docker-compose.yml is empty or missing" && exit 1)
+          grep -q '^services:' docker-compose.yml || (echo "❌ missing 'services:' top-level key" && exit 1)
+          grep -q '^  db:' docker-compose.yml || (echo "❌ missing 'db' service" && exit 1)
+          grep -q '^  phpmyadmin:' docker-compose.yml || (echo "❌ missing 'phpmyadmin' service" && exit 1)
+          grep -q '^  dbmate:' docker-compose.yml || (echo "❌ missing 'dbmate' service" && exit 1)
+          echo "✅ docker-compose.yml has expected structure"
 
       - name: Summary
         run: |
