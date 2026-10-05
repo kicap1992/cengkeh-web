@@ -30,15 +30,25 @@ jobs:
           test -d db/migrations || (echo "❌ db/migrations missing" && exit 1)
           echo "✅ All required files present"
 
-      - name: Check docker-compose.yml is valid
+      - name: Validate docker-compose.yml is valid YAML
         run: |
-          echo "🔍 Checking docker-compose.yml..."
-          test -s docker-compose.yml || (echo "❌ docker-compose.yml is empty or missing" && exit 1)
-          grep -q '^services:' docker-compose.yml || (echo "❌ missing 'services:' top-level key" && exit 1)
-          grep -q '^  db:' docker-compose.yml || (echo "❌ missing 'db' service" && exit 1)
-          grep -q '^  phpmyadmin:' docker-compose.yml || (echo "❌ missing 'phpmyadmin' service" && exit 1)
-          grep -q '^  dbmate:' docker-compose.yml || (echo "❌ missing 'dbmate' service" && exit 1)
-          echo "✅ docker-compose.yml has expected structure"
+          echo "🔍 Validating docker-compose.yml syntax..."
+          pip install --quiet pyyaml
+          python3 -c "import yaml; yaml.safe_load(open('docker-compose.yml'))"
+          echo "✅ docker-compose.yml is valid YAML"
+
+      - name: Validate docker-compose.yml with Docker Compose
+        env:
+          MYSQL_ROOT_PASSWORD: dummy_root
+          MYSQL_DATABASE: dummy_db
+          MYSQL_USER: dummy_user
+          MYSQL_PASSWORD: dummy_pass
+          HOST_UID: "1000"
+          HOST_GID: "1000"
+        run: |
+          echo "🔍 Validating docker-compose.yml with docker compose config..."
+          docker compose config > /dev/null
+          echo "✅ docker-compose.yml passes Compose validation"
 
       - name: Run hello-world container
         run: |
