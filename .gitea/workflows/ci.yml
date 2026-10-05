@@ -38,6 +38,12 @@ jobs:
           grep -q '^  dbmate:' docker-compose.yml || (echo "❌ missing 'dbmate' service" && exit 1)
           echo "✅ docker-compose.yml has expected structure"
 
+      - name: Run hello-world container
+        run: |
+          docker run --rm hello-world
+
       - name: Summary
         run: |
           echo "✅ CI validation passed!"
+
+      
