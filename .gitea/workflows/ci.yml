@@ -230,15 +230,14 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.PROD_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Clone the repo on the production server 
+      - name: Deploy to prod
         run: |
           echo "🚀 Deploying tag ${{ github.ref_name }} to ${{ secrets.PROD_HOST }}..."
           ssh -i ~/.ssh/deploy_key \
               -o StrictHostKeyChecking=no \
               -o UserKnownHostsFile=/dev/null \
               ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }} \
-              'bash -s' < scripts/git-clone.sh
-          echo "✅ Deploy complete"
+              'bash -s' < scripts/deploy.sh
 
       - name: Cleanup SSH key
         if: always()
