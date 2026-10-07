@@ -36,13 +36,13 @@ log "Commit: $(git rev-parse --short HEAD)"
 
 # 4. Bring up the stack
 log "Starting stack..."
-docker compose -f docker-compose.yml up -d --wait || die "compose up failed"
+sudo docker compose -f docker-compose.yml up -d --wait || die "compose up failed"
 
 # 5. Run migrations
 log "Applying migrations..."
-docker compose -f docker-compose.yml --profile tools run --rm dbmate up \
+sudo docker compose -f docker-compose.yml --profile tools run --rm dbmate up \
   || die "dbmate up failed"
 
 # 6. Status
 log "✅ Deploy complete."
-docker compose -f docker-compose.yml ps
+sudo docker compose -f docker-compose.yml ps
