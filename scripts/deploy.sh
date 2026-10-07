@@ -40,6 +40,7 @@ sudo docker compose -f docker-compose.yml up -d --wait || die "compose up failed
 
 # 5. Run migrations
 log "Applying migrations..."
+sudo docker compose -f docker-compose.yml --profile tools build dbmate || die "dbmate build failed"
 sudo docker compose -f docker-compose.yml --profile tools run --rm dbmate up \
   || die "dbmate up failed"
 
