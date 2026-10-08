@@ -19,3 +19,8 @@ Thumbs.db
 venv/
 py-db-populate/venv/
 
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
