@@ -40,7 +40,7 @@ CREATE TABLE `tb_follow_option` (
   `label` varchar(100) NOT NULL,
   `value` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `follow_up_id` (`follow_up_id`),
+  UNIQUE KEY `uq_follow_option_follow_label` (`follow_up_id`,`label`),
   CONSTRAINT `tb_follow_option_ibfk_1` FOREIGN KEY (`follow_up_id`) REFERENCES `tb_follow_up` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -57,7 +57,7 @@ CREATE TABLE `tb_follow_up` (
   `urutan` int(11) NOT NULL,
   `pertanyaan` text NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `pertanyaan_id` (`pertanyaan_id`),
+  UNIQUE KEY `uq_follow_up_pertanyaan_urutan` (`pertanyaan_id`,`urutan`),
   CONSTRAINT `tb_follow_up_ibfk_1` FOREIGN KEY (`pertanyaan_id`) REFERENCES `tb_pertanyaan` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -87,7 +87,7 @@ CREATE TABLE `tb_keyword` (
   `pertanyaan_id` int(11) NOT NULL,
   `kata` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `pertanyaan_id` (`pertanyaan_id`),
+  UNIQUE KEY `uq_keyword_pertanyaan_kata` (`pertanyaan_id`,`kata`),
   KEY `idx_kata` (`kata`),
   CONSTRAINT `tb_keyword_ibfk_1` FOREIGN KEY (`pertanyaan_id`) REFERENCES `tb_pertanyaan` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
@@ -185,7 +185,7 @@ CREATE TABLE `tb_variasi` (
   `pertanyaan_id` int(11) NOT NULL,
   `teks` text NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `pertanyaan_id` (`pertanyaan_id`),
+  UNIQUE KEY `uq_variasi_pertanyaan_teks` (`pertanyaan_id`,`teks`(255)),
   CONSTRAINT `tb_variasi_ibfk_1` FOREIGN KEY (`pertanyaan_id`) REFERENCES `tb_pertanyaan` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -212,5 +212,7 @@ CREATE TABLE `tb_variasi` (
 LOCK TABLES `schema_migrations` WRITE;
 INSERT INTO `schema_migrations` (version) VALUES
   ('20261005100000'),
-  ('20261005100001');
+  ('20261005100001'),
+  ('20261005162553'),
+  ('20261008060834');
 UNLOCK TABLES;

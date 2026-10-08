@@ -9,6 +9,8 @@ services:
       MARIADB_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
+    ports:
+      - "127.0.0.1:${DB_PORT:-3306}:3306"   
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 10s
@@ -41,6 +43,28 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
+  
+  # ---------------------------------------------------------------------------
+  # dbmate-dev — READ-WRITE, used locally to author new migrations.
+  # Uses a bind mount so dbmate new can write files to db/migrations/ on the host.
+  # Activated with `--profile dev`. Never used in CI or on prod.
+  # ---------------------------------------------------------------------------
+  dbmate-dev:
+    image: amacneil/dbmate:latest
+    profiles: ["dev"]
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    working_dir: /workspace
+    volumes:
+      - ./db:/workspace/db:rw
+    environment:
+      DATABASE_URL: "mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}"
+      DBMATE_MIGRATIONS_DIR: /workspace/db/migrations
+      DBMATE_SCHEMA_FILE: /workspace/db/schema.sql
+    depends_on:
+      db:
+        condition: service_healthy
+
 
 volumes:
   db_data:
