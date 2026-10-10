@@ -10,6 +10,10 @@
 
 	<title>Halaman Utama - ChatBot Cengkeh</title>
 
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+
 	<!-- Main Styles -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.min.css') }}">
 
@@ -47,7 +51,7 @@
 			<a href="index.html" class="logo">Cengkeh</a>
 			<button type="button" class="button-close fa fa-times js__menu_close"></button>
 			<div class="user">
-				<a href="#" class="avatar"><img src="http://placehold.it/80x80" alt=""><span
+				<a href="#" class="avatar"><img src="{{ url_for('static', filename='favicon/cengkeh.png') }}" alt=""><span
 						class="status online"></span></a>
 				<h5 class="name"><a href="profile.html">Cengkeh User</a></h5>
 				<h5 class="position">Pengguna</h5>

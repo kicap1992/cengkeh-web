@@ -114,6 +114,29 @@ def health():
     })
 
 
+
+@app.route("/api/chat", methods=["POST"])
+def api_chat():
+    """
+    Echo endpoint — receives the user's message and session id,
+    prints them to the server console, returns them as JSON.
+
+    This is a stub. It will grow into the real search/matching logic.
+    """
+    data = request.get_json(silent=True) or {}
+    message = (data.get("message") or "").strip()
+    session_id = data.get("session_id") or "unknown"
+
+    # Print to the Flask console for verification
+    print(f"📨 [{session_id}] {message}")
+
+    return jsonify({
+        "status": "received",
+        "session_id": session_id,
+        "message": message,
+        "echo_length": len(message),
+    })
+
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
