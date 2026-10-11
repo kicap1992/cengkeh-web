@@ -40,7 +40,7 @@
         "memilih",
         "bibit"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Pilih bibit dari varietas unggul yang jelas asal-usulnya (misalnya Cengkeh Zanzibar, Siputih, atau Sikotok). Bibit yang baik memiliki batang kokoh, daun hijau segar tanpa bercak, tinggi minimal 40–60 cm, dan sudah berumur 8–12 bulan di persemaian. Hindari bibit yang layu, berdaun kuning, atau akarnya rusak.",
       "follow_ups": [],
       "related_qas": [
         "Q002"
@@ -63,7 +63,7 @@
         "waktu",
         "tanam"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Waktu terbaik adalah awal musim hujan (Oktober–Desember), saat tanah cukup lembap tetapi tidak tergenang. Hindari menanam di puncak musim kemarau atau saat hujan sangat deras, karena bibit muda rentan stres. Jika irigasi tersedia, penanaman juga bisa dilakukan di akhir musim hujan.",
       "follow_ups": [],
       "related_qas": [
         "Q001",
@@ -87,7 +87,7 @@
         "lubang",
         "tanam"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Buat lubang tanam berukuran 60×60×60 cm (lebih besar untuk tanah padat). Pisahkan tanah bagian atas dan bawah. Campur tanah atas dengan pupuk kandang matang (5–10 kg) dan biarkan lubang terbuka 2–4 minggu sebelum tanam agar gas dan patogen hilang. Isi kembali sebagian tanah campuran sebelum bibit dimasukkan.",
       "follow_ups": [],
       "related_qas": [
         "Q002",
@@ -111,7 +111,7 @@
         "jarak",
         "tanam"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Jarak tanam yang dianjurkan adalah 8×8 meter (sekitar 156 pohon/ha) untuk lahan datar, dan bisa lebih rapat (6×6 m) di lahan miring atau untuk sistem tumpang sari. Jarak yang terlalu rapat menghambat sirkulasi udara dan memicu penyakit, sedangkan terlalu lebar mengurangi produktivitas per hektar.",
       "follow_ups": [],
       "related_qas": [
         "Q003",
@@ -135,7 +135,7 @@
         "media",
         "tanam"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Media persemaian ideal adalah campuran tanah subur, pasir, dan pupuk kandang matang dengan perbandingan 2:1:1. Media harus gembur, drainasenya baik, dan kaya bahan organik. Untuk pembibitan di polybag, gunakan campuran tanah + kompos + pasir. Pastikan pH tanah berkisar 5,5–6,5.",
       "follow_ups": [],
       "related_qas": [
         "Q004",
@@ -159,7 +159,7 @@
         "pindah",
         "tanam"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Lakukan pemindahan pada pagi atau sore hari saat matahari tidak terik. Siram bibit 1 hari sebelumnya. Angkat bibit bersama tanah di sekitar akar (jangan sampai akar terbuka). Letakkan di lubang tanam dengan leher akar sejajar permukaan tanah, tutup tanah sambil dipadatkan perlahan, lalu siram hingga jenuh.",
       "follow_ups": [],
       "related_qas": [
         "Q005",
@@ -183,7 +183,7 @@
         "kedalaman",
         "tanam"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Tanam bibit sedalam leher akar (batas antara akar dan batang) — biasanya 3–5 cm di bawah permukaan polybag asalnya. Jangan menanam terlalu dalam (bisa memicu busuk batang) atau terlalu dangkal (akar tidak stabil). Setelah tanam, permukaan media tanam harus sejajar dengan tanah sekitar.",
       "follow_ups": [],
       "related_qas": [
         "Q006",
@@ -206,7 +206,7 @@
       "keywords": [
         "penyulaman"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Penyulaman dilakukan 2–4 minggu setelah tanam, ketika terlihat bibit yang mati, layu permanen, atau tumbuh tidak normal. Sulam dengan bibit seumur dan sejenis dari persemaian yang sama agar pertumbuhannya seragam. Lakukan penyulaman lebih cepat lebih baik — semakin lama, keseragaman pertumbuhan menurun.",
       "follow_ups": [],
       "related_qas": [
         "Q007",
@@ -230,7 +230,7 @@
         "persiapan",
         "lahan"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Bersihkan lahan dari gulma dan sisa tanaman. Olah tanah sedalam 30–40 cm untuk menggemburkan. Buat lubang tanam sesuai jarak (8×8 m atau disesuaikan). Pada lahan miring, buat teras atau guludan untuk mencegah erosi. Jika pH tanah terlalu asam, tambahkan kapur pertanian 1–2 bulan sebelum tanam.",
       "follow_ups": [],
       "related_qas": [
         "Q008",
@@ -254,7 +254,7 @@
         "adaptasi",
         "bibit"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Stres setelah tanam umumnya karena: (1) kerusakan akar saat pemindahan, (2) kekurangan atau kelebihan air, (3) sengatan matahari langsung tanpa naungan, (4) media tanam yang berbeda drastis dengan asalnya, atau (5) serangan hama/penyakit. Berikan naungan sementara, penyiraman teratur, dan biarkan bibit beradaptasi 2–3 minggu.",
       "follow_ups": [
         {
           "id": "F010-1",
@@ -354,7 +354,7 @@
       "keywords": [
         "penyiraman"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Siram pada pagi hari (sebelum jam 9) atau sore hari (setelah jam 4). Untuk bibit muda, siram 1–2 kali sehari (sekitar 1–2 liter per pohon) saat musim kemarau. Untuk pohon dewasa, penyiraman bisa 2–3 kali seminggu dengan volume lebih besar. Hindari menyiram di tengah hari dan jangan biarkan air menggenang di sekitar batang.",
       "follow_ups": [
         {
           "id": "F011-1",
@@ -453,7 +453,7 @@
       "keywords": [
         "naungan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Bibit muda (0–6 bulan) butuh naungan 50–60% untuk mencegah sengatan matahari. Gunakan paranet, pelepah kelapa, atau tanaman penaung sementara. Setelah 6–12 bulan, kurangi naungan bertahap (30–40%) agar bibit beradaptasi. Pohon dewasa membutuhkan sinar matahari penuh, jadi naungan permanen tidak dianjurkan.",
       "follow_ups": [],
       "related_qas": [
         "Q011",
@@ -475,7 +475,7 @@
       "keywords": [
         "gulma"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Kendalikan gulma secara manual (penyiangan) atau dengan mulsa organik. Penyiangan rutin dilakukan 4–6 kali per tahun, terutama saat gulma tumbuh cepat di musim hujan. Hindari herbisida berbahan aktif keras di sekitar akar cengkeh. Tanaman penutup tanah (cover crop) seperti kacang-kacangan bisa membantu menekan gulma dan menjaga kelembapan.",
       "follow_ups": [],
       "related_qas": [
         "Q012",
@@ -497,7 +497,7 @@
       "keywords": [
         "pemangkasan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, pemangkasan ranting kering penting. Pangkas ranting mati, sakit, atau saling bergesekan agar sirkulasi udara lancar dan mencegah penyebaran penyakit. Pemangkasan dilakukan 1–2 kali per tahun, sebaiknya di awal musim hujan. Gunakan alat pangkas yang bersih dan tajam, serta buang sisa pangkasan dari kebun.",
       "follow_ups": [],
       "related_qas": [
         "Q013",
@@ -520,7 +520,7 @@
         "sanitasi",
         "alat"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Sebelum dan sesudah dipakai, bersihkan alat pangkas dengan air sabun lalu lap dengan alkohol 70% atau larutan klorin encer (1:9). Ini penting untuk mencegah penyebaran patogen antar tanaman. Simpan alat di tempat kering. Untuk tanaman yang terinfeksi, sterilkan alat di antara setiap pohon.",
       "follow_ups": [],
       "related_qas": [
         "Q014",
@@ -542,7 +542,7 @@
       "keywords": [
         "monitoring"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Pemantauan rutin dianjurkan 1–2 kali per minggu, terutama saat musim hujan (risiko penyakit tinggi). Perhatikan daun, batang, buah muda, dan kondisi tanah. Untuk hama penggerek, periksa lubang dan serbuk kayu pada batang. Pemantauan lebih intensif dilakukan saat tanaman muda dan menjelang panen.",
       "follow_ups": [],
       "related_qas": [
         "Q015",
@@ -564,7 +564,7 @@
       "keywords": [
         "drainase"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Tanda drainase buruk: air menggenang lebih dari 2 jam setelah hujan, tanah selalu basah dan berbau, akar cengkeh membusuk, atau daun menguning meski penyiraman cukup. Periksa juga apakah ada lapisan kedap air di bawah permukaan. Buat saluran drainase, guludan, atau lubang biopori untuk memperbaiki aliran air.",
       "follow_ups": [
         {
           "id": "F017-1",
@@ -664,7 +664,7 @@
         "pohon",
         "mati"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Bongkar pohon mati hingga akarnya untuk mencegah sumber penyakit. Bakar atau buang bagian tanaman yang sakit — jangan dibiarkan di kebun. Periksa tanah bekas pohon mati (mungkin pH tidak cocok atau ada patogen). Biarkan lubang terbuka 2–4 minggu sebelum menanam bibit baru, dan tambahkan kompos atau kapur bila perlu.",
       "follow_ups": [],
       "related_qas": [
         "Q017",
@@ -688,7 +688,7 @@
         "tidak",
         "merata"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Pertumbuhan tidak merata biasanya karena: (1) keseragaman bibit kurang, (2) perbedaan jenis dan kesuburan tanah, (3) drainase yang tidak merata, (4) serangan hama/penyakit lokal, (5) naungan yang tidak merata, atau (6) persaingan dengan gulma. Lakukan pemetaan kebun dan perbaikan bertahap per zona.",
       "follow_ups": [
         {
           "id": "F019-1",
@@ -788,7 +788,7 @@
         "perawatan",
         "rutin"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": " Checklist perawatan rutin meliputi: (1) penyiangan gulma 4–6 kali/tahun, (2) penyiraman sesuai musim, (3) pemupukan 2–3 kali/tahun, (4) pemangkasan ranting 1–2 kali/tahun, (5) pemantauan hama/penyakit mingguan, (6) sanitasi kebun dan alat, (7) pengecekan drainase saat musim hujan. Catat setiap kegiatan untuk evaluasi.",
       "follow_ups": [],
       "related_qas": [
         "Q019",
@@ -811,7 +811,7 @@
         "kebutuhan",
         "pupuk"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, cengkeh memerlukan pupuk untuk tumbuh optimal dan berproduksi tinggi. Tanaman muda butuh pupuk nitrogen lebih banyak untuk pertumbuhan vegetatif, sedangkan tanaman dewasa butuh keseimbangan N-P-K plus unsur mikro (terutama boron dan zinc). Pemupukan rutin 2–3 kali per tahun sangat dianjurkan, disesuaikan dengan umur dan kondisi tanah.",
       "follow_ups": [],
       "related_qas": [
         "Q020",
@@ -834,7 +834,7 @@
         "daun",
         "kuning"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Daun menguning bisa disebabkan oleh banyak hal: kekurangan nitrogen, kekurangan magnesium, kekurangan air, drainase buruk, serangan hama (kutu, tungau), atau penyakit jamur. Untuk memastikan, periksa pola menguningnya — merata, di tulang daun, di pinggir, atau hanya di daun muda/tua. Cek juga kelembapan tanah dan keberadaan hama di balik daun.",
       "follow_ups": [
         {
           "id": "F022-1",
@@ -935,7 +935,7 @@
         "tua",
         "kuning"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Menguning pada daun tua biasanya menandakan kekurangan unsur hara yang bisa dipindahkan tanaman, terutama nitrogen atau magnesium. Periksa: (1) apakah pemupukan terakhir sudah lebih dari 3 bulan, (2) apakah hujan deras baru-baru ini (nitrogen tercuci), (3) apakah ada tanda khas — menguning merata (N) atau di antara tulang daun (Mg). Lakukan analisis tanah bila perlu.",
       "follow_ups": [
         {
           "id": "F023-1",
@@ -1036,7 +1036,7 @@
         "muda",
         "kuning"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Menguning pada daun muda biasanya menandakan kekurangan unsur yang tidak bisa dipindahkan tanaman — seperti besi (Fe), seng (Zn), atau boron (B). Ini sering terjadi pada tanah dengan pH terlalu tinggi atau terlalu basa. Periksa pH tanah, kondisi drainase, dan apakah ada gejala khas seperti tulang daun hijau sementara daging daun menguning (khas Fe).",
       "follow_ups": [
         {
           "id": "F024-1",
@@ -1136,7 +1136,7 @@
         "analisis",
         "tanah"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Analisis tanah menunjukkan kadar hara aktual dan pH tanah, sehingga pemupukan bisa tepat sasaran — baik jenis maupun dosisnya. Tanpa analisis, pemupukan bisa berlebihan (mencemari lingkungan, merusak akar) atau kurang (tidak menyelesaikan masalah). Analisis minimal 1 kali per 2 tahun, idealnya sebelum musim tanam.",
       "follow_ups": [],
       "related_qas": [
         "Q024",
@@ -1159,7 +1159,7 @@
         "pupuk",
         "organik"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, pupuk organik (kompos, pupuk kandang, humus) sangat bermanfaat. Selain menyediakan hara, pupuk organik memperbaiki struktur tanah, meningkatkan daya simpan air, dan menumbuhkan mikroorganisme tanah yang membantu penyerapan hara. Kombinasikan dengan pupuk anorganik untuk hasil optimal — organik tidak cukup cepat untuk kebutuhan besar, anorganik tidak cukup untuk kesehatan tanah jangka panjang.",
       "follow_ups": [],
       "related_qas": [
         "Q025",
@@ -1182,7 +1182,7 @@
         "waktu",
         "pemupukan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Pemupukan cengkeh dilakukan 2–3 kali per tahun, umumnya: (1) awal musim hujan (Oktober–November) untuk mendukung pertumbuhan, (2) akhir musim hujan (Maret–April) untuk mendukung pembungaan, dan (3) bila perlu, pertengahan musim kemarau untuk tanaman produktif. Hindari memupuk saat hujan deras — pupuk bisa tercuci.",
       "follow_ups": [],
       "related_qas": [
         "Q026",
@@ -1205,7 +1205,7 @@
         "pupuk",
         "berlebihan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, pupuk berlebihan bisa merugikan. Dosis tinggi menyebabkan akar terbakar (terutama pupuk anorganik berkonsentrasi tinggi), pertumbuhan vegetatif berlebihan tanpa buah, ketidakseimbangan hara, dan pencemaran air tanah. Ikuti dosis rekomendasi dan bagi aplikasi ke beberapa waktu — jangan berikan dosis besar sekaligus.",
       "follow_ups": [],
       "related_qas": [
         "Q027",
@@ -1228,7 +1228,7 @@
         "kurang",
         "subur"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Kemungkinan penyebabnya: (1) dosis atau jenis pupuk tidak sesuai kebutuhan, (2) pH tanah tidak sesuai sehingga hara tidak bisa diserap, (3) drainase buruk atau akar tergenang, (4) pupuk tercuci hujan sebelum diserap, (5) akar rusak karena hama/penyakit, (6) naungan atau cahaya tidak memadai. Lakukan analisis tanah dan daun untuk diagnosis akurat.",
       "follow_ups": [
         {
           "id": "F029-1",
@@ -1328,7 +1328,7 @@
         "analisis",
         "daun"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, analisis daun sangat membantu. Ini mengukur kadar hara aktual yang sudah terserap tanaman — berbeda dari analisis tanah yang mengukur hara tersedia. Ambil sampel daun dewasa sehat dari posisi yang konsisten (misalnya daun ke-3 dari pucuk). Analisis daun biasanya dikombinasikan dengan analisis tanah untuk diagnosis lengkap.",
       "follow_ups": [],
       "related_qas": [
         "Q029",
@@ -1351,7 +1351,7 @@
         "batang",
         "berlubang"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Batang berlubang hampir pasti disebabkan oleh hama penggerek batang (umumnya kumbang Xyleborus atau ngengat Zeuzera). Ciri: lubang kecil, sering ada serbuk kayu di sekitar lubang, dan kadang keluarnya getah. Periksa apakah lubang masih aktif (ada serbuk baru) atau tidak. Serangan berat bisa mematikan cabang atau pohon.",
       "follow_ups": [
         {
           "id": "F031-1",
@@ -1451,7 +1451,7 @@
         "serbuk",
         "kayu"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Ya, lubang disertai serbuk kayu adalah tanda khas serangan penggerek batang. Serbuk kayu (frass) adalah sisa gerekan larva di dalam batang. Periksa: (1) apakah serbuk masih segar (aktif) atau lama, (2) seberapa banyak lubang, (3) apakah ada cabang yang mulai mati. Serangan ringan masih bisa diselamatkan; serangan berat perlu pemangkasan atau pembongkaran.",
       "follow_ups": [
         {
           "id": "F032-1",
@@ -1551,7 +1551,7 @@
         "penggerek",
         "batang"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Untuk serangan ringan: bersihkan lubang, suntikkan insektisida sistemik atau larutan air sabun, lalu tutup dengan lilin/parafin. Untuk serangan sedang: pangkas cabang yang terserang dan bakar. Untuk serangan berat: bongkar pohon, bakar bagian yang sakit, dan sterilkan lubang tanam. Selalu jaga sanitasi kebun untuk mencegah penyebaran.",
       "follow_ups": [
         {
           "id": "F033-1",
@@ -1651,7 +1651,7 @@
         "penggerek",
         "ranting"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Lubang kecil pada ranting biasanya disebabkan oleh penggerek ranting (Xyleborus spp. atau Xylosandrus spp.). Ranting yang terserang akan mengering dan mati, kadang patah. Periksa apakah ada serbuk halus di sekitar lubang. Serangan biasanya meningkat pada tanaman yang stres (kekeringan, kekurangan hara) — jadi perbaiki kondisi tanaman sekaligus.",
       "follow_ups": [
         {
           "id": "F034-1",
@@ -1751,7 +1751,7 @@
         "lubang",
         "kecil"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Amati lubang di siang hari dengan kaca pembesar. Ciri penggerek aktif: ada serbuk kayu segar di lubang atau di bawahnya, kadang keluar getah. Coba masukkan kawat tipis untuk melihat kedalaman dan apakah ada larva. Periksa juga ranting di sekitarnya untuk melacak tingkat serangan. Catat jumlah dan lokasi untuk monitoring.",
       "follow_ups": [],
       "related_qas": [
         "Q034",
@@ -1774,7 +1774,7 @@
         "tingkat",
         "serangan"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Tingkat serangan dinilai dari: (1) ringan — kurang dari 10% cabang terserang, pohon masih sehat; (2) sedang — 10–30% cabang terserang, pertumbuhan mulai terganggu; (3) berat — lebih dari 30% cabang terserang atau batang utama terserang, pohon lemah. Lakukan pengamatan sistematis pada 10–20 pohon sampel per blok kebun.",
       "follow_ups": [
         {
           "id": "F036-1",
@@ -1874,7 +1874,7 @@
         "pengendalian",
         "ringan"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Untuk serangan ringan: (1) bersihkan lubang dengan kawat kecil, (2) suntikkan larutan insektisida atau air sabun, (3) tutup lubang dengan lilin atau parafin, (4) pangkas dan bakar cabang yang terserang parah, (5) jaga sanitasi kebun. Pantau setiap minggu selama 1 bulan untuk memastikan serangan tidak menyebar.",
       "follow_ups": [],
       "related_qas": [
         "Q036",
@@ -1897,7 +1897,7 @@
         "pengendalian",
         "sedang"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Untuk tingkat sedang: (1) lakukan penanganan awal (bersihkan, suntik, tutup lubang), (2) pangkas cabang yang terserang dan bakar di luar kebun, (3) aplikasikan insektisida sistemik pada batang, (4) perbaiki vigor tanaman dengan pemupukan berimbang dan penyiraman cukup, (5) monitoring intensif setiap 3–4 hari. Bila menular ke pohon lain, pertimbangkan insektisida area.",
       "follow_ups": [],
       "related_qas": [
         "Q037",
@@ -1920,7 +1920,7 @@
         "serangan",
         "berat"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Untuk serangan berat: (1) bongkar dan bakar pohon yang tidak bisa diselamatkan, termasuk akar, (2) sterilkan lubang tanam dengan kapur atau fungisida, (3) biarkan lubang terbuka 4–6 minggu, (4) tanam bibit baru yang sehat, (5) periksa pohon di sekitarnya — serangan berat biasanya berarti ada masalah lingkungan (stres air, hara). Perbaiki kondisi kebun secara keseluruhan. Pantau setiap minggu selama 1 bulan untuk memastikan serangan tidak menyebar.",
       "follow_ups": [],
       "related_qas": [
         "Q038",
@@ -1943,7 +1943,7 @@
         "monitoring",
         "penggerek"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Monitoring rutin setiap 1–2 minggu dengan mengamati: (1) lubang baru dan serbuk kayu di batang/cabang, (2) cabang yang tiba-tiba mengering, (3) tanda getah keluar dari batang. Gunakan perangkap feromon atau perangkap lengket untuk mendeteksi kumbang dewasa. Catat kejadian per blok kebun. Monitoring lebih intensif pada musim kemarau dan awal hujan.",
       "follow_ups": [],
       "related_qas": [
         "Q039",
@@ -1966,7 +1966,7 @@
         "daun",
         "gugur"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Gugur daun mendadak biasanya karena stres berat: kekeringan panjang, genangan air di akar, perubahan cuaca ekstrem, atau serangan penyakit (terutama BPKC — Bakteri Penyebab Kematian Cengkeh). Periksa kondisi tanah (kering atau tergenang), akar (busuk atau tidak), dan pola gugur (serentak atau bertahap). Jika disertai pucuk mati, curigai BPKC dan pisahkan pohon dari yang sehat.",
       "follow_ups": [
         {
           "id": "F041-1",
@@ -2066,7 +2066,7 @@
       "keywords": [
         "bpkc"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Ya, kombinasi gugur daun dan pucuk/cabang mati adalah gejala khas BPKC (Pseudomonas syzygii). Ciri tambahan: daun gugur tanpa menguning dulu, pucuk mengering dari ujung, dan batang bagian dalam kadang berwarna kecokelatan. BPKC sangat menular — segera isolasi pohon yang menunjukkan gejala dan jangan pindahkan alat dari pohon sakit ke pohon sehat tanpa sterilisasi.",
       "follow_ups": [
         {
           "id": "F042-1",
@@ -2167,7 +2167,7 @@
         "ranting",
         "kering"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Ranting kering tanpa lubang biasanya bukan karena penggerek, melainkan: (1) penyakit jamur pembuluh (misalnya layu Fusarium), (2) kekurangan air berkepanjangan, (3) kerusakan akar, (4) ketidakseimbangan hara, atau (5) luka mekanis yang terinfeksi. Periksa bagian dalam ranting (belah sedikit) — jika kecokelatan dan tidak ada larva, kemungkinan besar patogen atau stres fisiologis.",
       "follow_ups": [
         {
           "id": "F043-1",
@@ -2268,7 +2268,7 @@
         "bercak",
         "daun"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Bercak daun biasanya karena infeksi jamur (misalnya Colletotrichum, Pestalotiopsis, atau Cercospora). Faktor pemicu: kelembapan tinggi, sirkulasi udara buruk, dan tanaman lemah. Perhatikan warna bercak (cokelat, hitam, atau dengan cincin), ukuran, dan apakah menyebar. Kumpulkan daun yang jatuh dan bakar — jangan biarkan menjadi sumber infeksi.",
       "follow_ups": [
         {
           "id": "F044-1",
@@ -2369,7 +2369,7 @@
         "bintik",
         "daun"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Bintik kecil bisa jadi awal infeksi jamur atau serangan hama penghisap (tungau, thrips). Periksa: (1) apakah bintik berwarna seragam atau dengan cincin, (2) apakah ada serangga kecil di balik daun, (3) apakah bintik melebar atau tetap. Gunakan kaca pembesar. Jika bintik menyebar cepat dan daun menguning, kemungkinan besar penyakit jamur — perlu fungisida.",
       "follow_ups": [],
       "related_qas": [
         "Q044",
@@ -2393,7 +2393,7 @@
         "cacar",
         "daun"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "'Cacar daun' adalah istilah umum untuk penyakit bercak daun yang disebabkan jamur, biasanya Colletotrichum atau Cercospora. Gejala: bintik kecil cokelat yang membesar, kadang dengan tepi gelap dan tengah terang, lalu daun menguning dan gugur. Penyakit ini meningkat di musim hujan. Kendalikan dengan sanitasi (buang daun sakit), perbaiki drainase dan sirkulasi, serta fungisida bila perlu.",
       "follow_ups": [],
       "related_qas": [
         "Q045",
@@ -2417,7 +2417,7 @@
         "daun",
         "cokelat"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Daun cokelat 'terbakar' bisa karena: (1) sengatan matahari langsung pada daun muda, (2) kekurangan air berat, (3) keracunan hara (pupuk berlebihan atau pH ekstrem), (4) penyakit hawar daun, atau (5) kerusakan angin kencang. Periksa apakah cokelat mulai dari tepi daun (khas kekeringan) atau merata (khas keracunan). Sesuaikan penyiraman dan hentikan pemupukan sementara.",
       "follow_ups": [],
       "related_qas": [
         "Q046",
@@ -2441,7 +2441,7 @@
         "tanaman",
         "layu"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Tidak selalu. Layu pada cengkeh bisa karena: (1) penyakit (layu Fusarium, BPKC), (2) kekurangan air berat, (3) akar rusak atau tergenang, (4) keracunan hara, atau (5) stres pindah tanam. Bedakan dengan memeriksa kecepatan layu, kondisi tanah, dan apakah layu bertahap atau mendadak. Layu mendadak + tanah kering → penyiraman. Layu bertahap + daun menguning → curigai penyakit.",
       "follow_ups": [
         {
           "id": "F048-1",
@@ -2542,7 +2542,7 @@
         "penyakit",
         "menyebar"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Jika gejala menyebar cepat: (1) pisahkan/isolasi pohon yang terserang, (2) pangkas dan bakar bagian yang sakit, (3) jangan pindahkan alat tanpa sterilisasi, (4) catat pola penyebaran (dari pohon mana ke pohon mana), (5) identifikasi patogen (jamur, bakteri, atau virus) sebelum aplikasi pestisida, (6) hubungi penyuluh pertanian setempat bila perlu. Jangan tunggu — penyakit cepat menyebar berarti butuh tindakan cepat.",
       "follow_ups": [
         {
           "id": "F049-1",
@@ -2643,7 +2643,7 @@
         "pemeriksaan",
         "penyakit"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Perlu diperiksa lebih lanjut bila: (1) gejala tidak khas atau bercampur, (2) penanganan awal tidak berhasil dalam 1 minggu, (3) gejala menyebar ke pohon lain, (4) banyak pohon terserang bersamaan, (5) ada kematian cabang atau pohon. Kirim sampel ke laboratorium atau penyuluh pertanian untuk identifikasi pasti. Jangan gunakan pestisida acak tanpa diagnosis — bisa memperburuk.",
       "follow_ups": [],
       "related_qas": [
         "Q049",
@@ -2667,7 +2667,7 @@
         "mulai",
         "diagnosis"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Mulai dengan pengamatan sistematis: (1) daun — warna, bercak, gugur, bentuk; (2) batang/ranting — lubang, getah, warna, kekeringan; (3) akar — cek dengan menggali sedikit, cari busuk atau luka; (4) tanah — kelembapan, drainase, pH, kesuburan; (5) cuaca dan lingkungan sekitar. Catat gejala, bandingkan dengan pohon sehat di sekitarnya. Diagnosis yang baik berasal dari pengamatan menyeluruh.",
       "follow_ups": [
         {
           "id": "F051-1",
@@ -2768,7 +2768,7 @@
         "hama",
         "penyakit"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Hama biasanya: ada organisme yang bisa dilihat (serangga, larva, tungau), gejala ada lubang/gigitan/bekas hisapan, sering terlokalisasi. Penyakit biasanya: tidak ada organisme yang jelas, gejala berupa bercak, layu, busuk, atau kematian jaringan, sering menyebar mengikuti pola tertentu. Beberapa kasus ambigu — perlu pemeriksaan mikroskop atau lab. Fotografi gejala membantu konsultasi.",
       "follow_ups": [
         {
           "id": "F052-1",
@@ -2869,7 +2869,7 @@
         "kekurangan",
         "air"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Tanda kekurangan air: daun menggulung atau menggantung di siang hari tapi segar di pagi hari, daun tua menguning dan gugur, pertumbuhan tunas baru terhenti, tanah kering hingga kedalaman 10–15 cm. Lakukan tes sederhana: masukkan jari atau tongkat ke tanah — bila kering sampai dalam, berarti perlu penyiraman. Kekurangan air berkepanjangan memicu serangan hama penggerek.",
       "follow_ups": [
         {
           "id": "F053-1",
@@ -2970,7 +2970,7 @@
         "cepat",
         "menyebar"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Jika gejala menyebar cepat: (1) identifikasi gejala spesifik (daun, batang, akar), (2) isolasi area terserang, (3) hentikan pemindahan alat antar tanaman tanpa sterilisasi, (4) catat kecepatan penyebaran, (5) ambil foto untuk konsultasi, (6) terapkan penanganan sesuai dugaan penyebab — jangan tunggu sampai pasti. Penyebaran cepat biasanya menandakan patogen menular atau stres lingkungan berat.",
       "follow_ups": [
         {
           "id": "F054-1",
@@ -3070,7 +3070,7 @@
         "foto",
         "gejala"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Foto membantu karena: (1) gejala bisa dibandingkan dengan referensi, (2) memungkinkan konsultasi jarak jauh dengan penyuluh atau ahli, (3) merekam gejala di berbagai tahap, (4) jadi dokumentasi untuk perbandingan antar musim. Ambil foto dengan pencahayaan alami, fokus pada gejala, sertakan konteks (daun utuh, posisi di tanaman, kondisi sekitar). Foto yang baik mempercepat diagnosis yang tepat.",
       "follow_ups": [],
       "related_qas": [
         "Q054",
@@ -3093,7 +3093,7 @@
         "tingkat",
         "kerusakan"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Nilai berdasarkan: (1) ringan — gejala pada <10% bagian tanaman, pohon masih produktif; (2) sedang — 10–30% bagian terserang, pertumbuhan terganggu; (3) berat — >30% atau bagian vital (batang utama, akar) terserang, pohon lemah atau mati. Perhitungkan juga tingkat penyebaran (lokal atau menyebar) dan kecepatan progres. Semakin cepat dan luas, semakin tinggi prioritas penanganan.",
       "follow_ups": [
         {
           "id": "F056-1",
@@ -3195,7 +3195,7 @@
         "tanah",
         "basah"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Kombinasi kuning + tanah basah biasanya mengarah ke masalah drainase. Periksa: (1) apakah air menggenang setelah hujan, (2) warna akar (cokelat/hitam = busuk), (3) bau tanah (bau busuk = anaerob), (4) kedalaman muka air tanah. Perbaiki dengan saluran drainase, guludan, atau pengurangan penyiraman. Daun kuning karena akar tergenang tidak akan pulih hanya dengan pupuk.",
       "follow_ups": [
         {
           "id": "F057-1",
@@ -3295,7 +3295,7 @@
         "tanah",
         "kering"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Langkah awal: (1) siram bertahap — jangan sekaligus banyak karena bisa membanjiri, (2) tambahkan mulsa organik (jerami, daun kering) di sekitar batang untuk menahan kelembapan, (3) hindari pemupukan sementara sampai tanah cukup lembap, (4) bila musim kemarau panjang, pertimbangkan irigasi tetes. Untuk tanaman muda, naungan sementara juga membantu mengurangi penguapan.",
       "follow_ups": [],
       "related_qas": [
         "Q057",
@@ -3319,7 +3319,7 @@
         "tidak",
         "jelas"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Bila penyebab tidak jelas: (1) periksa tanah (kering/basah), (2) periksa akar (gali hati-hati), (3) periksa batang untuk lubang atau getah, (4) bandingkan dengan pohon sehat di sekitarnya, (5) catat waktu munculnya layu, (6) ambil foto. Layu yang tidak jelas sering merupakan kombinasi — misalnya stres air + serangan hama awal. Berikan perawatan suportif sambil observasi lanjutan.",
       "follow_ups": [
         {
           "id": "F059-1",
@@ -3419,7 +3419,7 @@
         "akar",
         "bermasalah"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Gali hati-hati di sekitar akar untuk memeriksa: warna (putih/krem sehat, cokelat/hitam busuk), tekstur (padat sehat, lunak busuk), bau (tidak berbau vs busuk). Cek apakah ada hama tanah atau jamur. Bila busuk: kurangi penyiraman, perbaiki drainase, aplikasikan fungisida akar bila perlu. Bila hama: aplikasikan insektisida tanah. Bila luka mekanis: biarkan pulih dengan perawatan suportif.",
       "follow_ups": [
         {
           "id": "F060-1",
@@ -3519,7 +3519,7 @@
         "awal",
         "berbunga"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Cengkeh biasanya mulai berbunga pada umur 5–7 tahun setelah tanam, tergantung varietas, kesuburan tanah, dan iklim. Beberapa pohon bisa mulai berbunga lebih awal (4 tahun) di kondisi optimal, sementara yang kurang optimal bisa 8 tahun atau lebih. Produksi puncak biasanya tercapai pada umur 15–20 tahun dan berlanjut hingga puluhan tahun.",
       "follow_ups": [],
       "related_qas": [
         "Q060",
@@ -3541,7 +3541,7 @@
         "cuaca",
         "pembungaan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Cuaca sangat mempengaruhi pembungaan. Cengkeh biasanya butuh periode kering singkat (2–4 minggu) untuk memicu pembungaan, diikuti hujan ringan untuk mendukung perkembangan bunga. Hujan deras berkepanjangan saat pembungaan bisa menggugurkan bunga muda. Suhu ideal berkisar 20–30°C, dan cengkeh tumbuh baik di dataran dengan curah hujan 1.500–2.500 mm/tahun dengan musim kering yang jelas.",
       "follow_ups": [],
       "related_qas": [
         "Q061",
@@ -3563,7 +3563,7 @@
         "belum",
         "berbunga"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Kemungkinan penyebab: (1) umur belum cukup (cengkeh baru mulai berbunga umur 5–7 tahun), (2) kekurangan cahaya matahari, (3) nutrisi berlebihan (terutama nitrogen) sehingga hanya tumbuh vegetatif, (4) kekurangan unsur mikro (boron, zinc) yang berperan dalam pembungaan, (5) stres air berkepanjangan, atau (6) pH tanah tidak sesuai. Periksa satu per satu, mulai dari umur dan cahaya.",
       "follow_ups": [
         {
           "id": "F063-1",
@@ -3664,7 +3664,7 @@
         "tidak",
         "berbunga"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Bila cengkeh sudah cukup umur tapi belum berbunga, periksa: (1) naungan — apakah terlalu teduh, (2) pemupukan — apakah terlalu banyak N tanpa P dan K, (3) kondisi akar — apakah ada kerusakan atau hama, (4) riwayat pemangkasan — apakah terlalu agresif, (5) analisis tanah dan daun untuk mengetahui kekurangan hara. Cengkeh yang 'mager' (malas) berbunga sering karena kelebihan nitrogen dan kurang P/K.",
       "follow_ups": [
         {
           "id": "F064-1",
@@ -3763,7 +3763,7 @@
         "cahaya",
         "pembungaan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, cahaya sangat memengaruhi. Cengkeh yang tumbuh di naungan terlalu rapat atau di bawah pohon besar cenderung tidak berbunga atau berbunga sedikit. Cengkeh dewasa butuh sinar matahari langsung minimal 6–8 jam sehari untuk pembungaan optimal. Bila pohon ternaungi, lakukan pemangkasan tanaman penaung atau pindahkan lokasi — jangan harap cengkeh teduh bisa berbunga lebat.",
       "follow_ups": [],
       "related_qas": [
         "Q064",
@@ -3785,7 +3785,7 @@
         "nutrisi",
         "pembungaan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya. Rasio N-P-K yang tepat sangat penting. Terlalu banyak nitrogen → pertumbuhan daun subur tapi tidak berbunga. Fosfor (P) mendukung pembentukan bunga dan buah. Kalium (K) penting untuk kualitas bunga dan ketahanan. Unsur mikro seperti boron (B) dan zinc (Zn) berperan dalam pembungaan. Untuk cengkeh dewasa, gunakan pupuk dengan P dan K lebih tinggi menjelang musim berbunga.",
       "follow_ups": [],
       "related_qas": [
         "Q065",
@@ -3808,7 +3808,7 @@
         "bunga",
         "matang"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Bunga cengkeh (sebenarnya kuncup bunga) mendekati panen bila: (1) kuncup memanjang dan membesar, (2) warna berubah dari hijau menjadi kemerahan atau merah muda, (3) ujung kuncup mulai terbuka sedikit. Waktu panen optimal sekitar 1–2 minggu setelah warna kemerahan muncul — sebelum mekar penuh. Bila dipetik terlalu hijau, mutu rendah; bila terlalu merah, kualitas menurun",
       "follow_ups": [],
       "related_qas": [
         "Q066",
@@ -3830,7 +3830,7 @@
         "bunga",
         "sedikit"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Bunga sedikit pada pohon dewasa bisa karena: (1) kelebihan nitrogen, kurang P/K, (2) kekurangan cahaya, (3) musim kering tidak cukup panjang (cengkeh butuh periode kering untuk memicu bunga), (4) stres air berkepanjangan, (5) serangan hama/penyakit yang menggerogoti energi pohon, (6) pemangkasan berat baru-baru ini, atau (7) penuaan (pohon sangat tua produksinya menurun). Periksa satu per satu.",
       "follow_ups": [],
       "related_qas": [
         "Q067",
@@ -3852,7 +3852,7 @@
         "pembungaan",
         "sehat"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Pembungaan sehat: (1) jumlah kuncup banyak dan merata di seluruh kanopi, (2) warna hijau cerah hingga kemerahan saat matang, (3) ukuran kuncup seragam, (4) tidak ada tanda serangan hama pada tangkai, (5) daun tetap hijau dan sehat selama pembungaan, (6) tunas baru tetap tumbuh untuk produksi tahun berikutnya. Pembungaan sehat adalah hasil dari pemeliharaan konsisten sepanjang tahun.",
       "follow_ups": [],
       "related_qas": [
         "Q068",
@@ -3874,7 +3874,7 @@
         "gagal",
         "berbunga"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Bila cengkeh gagal berbunga: (1) umur — apakah cukup (minimal 5–7 tahun), (2) cahaya — apakah cukup matahari langsung, (3) nutrisi — analisis tanah dan daun, terutama rasio N-P-K dan unsur mikro, (4) musim — apakah ada periode kering, (5) kesehatan akar dan batang, (6) riwayat pemangkasan. Seringkali masalahnya kombinasi — perlu pendekatan bertahap untuk memperbaiki.",
       "follow_ups": [],
       "related_qas": [
         "Q069",
@@ -3896,7 +3896,7 @@
         "waktu",
         "panen"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Cengkeh dipanen saat kuncup bunga mencapai kematangan optimal — biasanya 1–2 minggu setelah kuncup berubah warna dari hijau menjadi kemerahan. Di Indonesia, musim panen utama biasanya jatuh pada bulan Juni–Agustus untuk sebagian daerah, tergantung wilayah dan pola iklim setempat. Panen bisa berlangsung 2–4 bulan dengan beberapa kali pemetikan.",
       "follow_ups": [
         {
           "id": "F071-1",
@@ -3996,7 +3996,7 @@
         "siap",
         "petik"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Kuncup siap dipetik bila: (1) panjangnya sudah penuh (biasanya 1,5–2 cm), (2) warna berubah dari hijau menjadi kemerahan atau merah muda, (3) ujung kuncup belum terbuka penuh. Tes dengan tangan — kuncup yang siap mudah dipetik dengan diputar sedikit. Bila masih keras dan hijau, tunggu 3–7 hari lagi. Jangan terlambat memetik karena kualitas turun setelah mekar.",
       "follow_ups": [
         {
           "id": "F072-1",
@@ -4095,7 +4095,7 @@
         "kuncup",
         "hijau"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Bila kuncup masih hijau, jangan dipetik — tunggu hingga warna berubah kemerahan. Pemetikan terlalu muda menghasilkan cengkeh berkualitas rendah: kering, berkerut, dan beraroma lemah. Pantau setiap 2–3 hari karena perubahan warna berlangsung cepat (3–7 hari). Untuk panen bertahap, bisa memilih kuncup yang sudah matang sambil menunggu sisanya.",
       "follow_ups": [],
       "related_qas": [
         "Q072",
@@ -4117,7 +4117,7 @@
         "kuncup",
         "kemerahan"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Bila kuncup sudah kemerahan, segera panen dalam 1–3 hari. Warna merah menandakan kematangan optimal. Bila menunggu terlalu lama, kuncup akan mekar penuh dan kualitas turun. Panen di pagi hari setelah embun kering — hindari memetik saat hujan atau berkabut karena memicu jamur. Pemetikan dilakukan hati-hati dengan tangan atau alat khusus agar tangkai tidak rusak.",
       "follow_ups": [],
       "related_qas": [
         "Q073",
@@ -4139,7 +4139,7 @@
         "cara",
         "memetik"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Panen dengan hati-hati: (1) gunakan tangan atau gunting tajam, (2) petik dengan memutar sedikit tangkai (jangan ditarik), (3) jangan memanjat dengan menginjak ranting kecil — gunakan tangga atau alat panen panjang, (4) letakkan hasil panen di keranjang bersih, (5) hindari memetik daun atau ranting ikut terbawa. Panen yang benar menjaga kesehatan pohon untuk musim berikutnya.",
       "follow_ups": [],
       "related_qas": [
         "Q074",
@@ -4161,7 +4161,7 @@
         "setelah",
         "petik"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Setelah dipetik: (1) segera pisahkan dari kotoran (daun, tangkai panjang, serangga), (2) jemur atau keringkan dalam waktu 24 jam — jangan biarkan menumpuk karena bisa berjamur, (3) keringkan dengan sinar matahari atau alat pengering hingga kadar air 12–14%, (4) sortasi berdasarkan mutu (utuh, warna, ukuran), (5) simpan dalam wadah kedap udara di tempat kering. Kualitas pascapanen menentukan harga jual.",
       "follow_ups": [],
       "related_qas": [
         "Q075",
@@ -4183,7 +4183,7 @@
         "mutu",
         "panen"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Mutu terjaga bila: (1) dipanen pada kematangan optimal (kemerahan, belum mekar), (2) dipetik dengan hati-hati tanpa memar, (3) dikeringkan segera setelah panen, (4) dijemur merata dengan ketebalan tipis (jangan menumpuk tebal), (5) hindari kontak dengan tanah atau kotoran, (6) sortasi sesuai mutu, (7) dikemas dalam wadah bersih dan kering. Setiap tahap menentukan harga akhir.",
       "follow_ups": [],
       "related_qas": [
         "Q076",
@@ -4205,7 +4205,7 @@
         "waktu",
         "terbaik"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Waktu panen terbaik: pagi hari (setelah embun kering, sebelum jam 10) atau sore (setelah jam 4). Kuncup dipanen pada kematangan optimal (kemerahan, belum mekar). Cuaca kering ideal — hindari panen saat hujan atau berkabut. Panen bertahap dilakukan setiap 3–7 hari selama musim panen, memilih kuncup yang sudah matang. Konsistensi waktu panen menghasilkan mutu yang seragam.",
       "follow_ups": [],
       "related_qas": [
         "Q077",
@@ -4227,7 +4227,7 @@
         "panen",
         "bertahap"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Ya, panen bertahap justru dianjurkan untuk cengkeh. Kuncup tidak matang bersamaan — ada yang kemerahan lebih dulu, ada yang menyusul 3–7 hari kemudian. Panen bertahap: (1) menghasilkan mutu lebih seragam, (2) meminimalkan kerusakan pohon, (3) meningkatkan total hasil. Lakukan setiap 3–7 hari selama musim panen. Jangan menunggu semua kuncup matang karena sebagian akan mekar dan kualitasnya turun.",
       "follow_ups": [],
       "related_qas": [
         "Q078",
@@ -4250,7 +4250,7 @@
         "saat",
         "panen"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Kerusakan dihindari dengan: (1) memetik dengan tangan atau gunting tajam, bukan dipaksa, (2) jangan memanjat dan menginjak ranting kecil — gunakan tangga atau alat panjang, (3) jangan memetik daun atau ranting sehat, (4) letakkan hasil di keranjang dengan alas lembut, (5) hindari memetik saat hujan untuk mencegah jamur, (6) jangan menumpuk hasil terlalu tinggi di wadah. Panen yang hati-hati menjaga pohon produktif bertahun-tahun.",
       "follow_ups": [],
       "related_qas": [
         "Q079",
@@ -4272,7 +4272,7 @@
         "kekeringan",
         "panjang"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Cengkeh cukup tahan kekeringan singkat, tetapi tidak tahan kekeringan panjang — terutama pada tanaman muda. Kekeringan berkepanjangan menyebabkan daun gugur, tunas berhenti tumbuh, dan produksi bunga turun. Pohon dewasa lebih tahan karena akarnya dalam, tetapi tetap butuh air minimal setiap 2 minggu di musim kemarau. Mulsa dan naungan sementara membantu tanaman muda melewati musim kering.",
       "follow_ups": [],
       "related_qas": [
         "Q080",
@@ -4295,7 +4295,7 @@
         "jenis",
         "tanah"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Tanah ideal untuk cengkeh: gembur, dalam (minimal 1 meter), drainase baik, kaya bahan organik. Jenis tanah yang cocok antara lain latosol, andosol, dan podsolik merah kuning. Cengkeh tumbuh baik pada pH sekitar 5,5–6,5. Hindari tanah liat berat, tanah yang selalu tergenang, atau tanah yang miskin hara tanpa perbaikan terlebih dahulu. Lereng ringan (10–30%) justru baik karena drainase alami.",
       "follow_ups": [],
       "related_qas": [
         "Q081",
@@ -4318,7 +4318,7 @@
         "hujan",
         "deras"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Setelah hujan deras, cengkeh bisa bermasalah karena: (1) akar tergenang dan membusuk, (2) hara tercuci dari zona akar, (3) kelembapan tinggi memicu jamur dan bakteri, (4) tanah padat dan aerasi berkurang, (5) bunga/kuncup muda bisa rontok. Periksa drainase kebun, pastikan tidak ada genangan setelah hujan. Sanitasi kebun (buang daun sakit) mencegah penyebaran penyakit musim hujan.",
       "follow_ups": [
         {
           "id": "F083-1",
@@ -4418,7 +4418,7 @@
         "angin",
         "kencang"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, angin kencang bisa merusak cengkeh: (1) mematahkan ranting atau batang muda, (2) menggugurkan bunga dan buah muda, (3) mempercepat penguapan sehingga tanaman stres air, (4) menyebarkan spora penyakit. Cengkeh yang tumbuh di lokasi terbuka sebaiknya dilindungi tanaman penahan angin (misalnya lamtoro, gliricidia). Hindari pemangkasan berat sebelum musim angin.",
       "follow_ups": [],
       "related_qas": [
         "Q083",
@@ -4440,7 +4440,7 @@
       "keywords": [
         "genangan"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Tangani genangan dengan: (1) buat saluran drainase mengelilingi kebun dan di antara baris tanaman, (2) buat guludan (bedengan) untuk tanaman di area rawan genangan, (3) tambahkan bahan organik untuk memperbaiki struktur tanah, (4) bila genangan parah, buat lubang resapan atau biopori, (5) periksa dan bersihkan saluran secara rutin, terutama sebelum musim hujan. Jangan biarkan air menggenang lebih dari beberapa jam.",
       "follow_ups": [],
       "related_qas": [
         "Q084",
@@ -4463,7 +4463,7 @@
         "kelembapan",
         "tanah"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Jaga kelembapan tanah dengan: (1) mulsa organik (jerami, daun kering, sekam) setebal 5–10 cm di sekitar batang, (2) tanaman penutup tanah (kacang-kacangan) di antara baris, (3) bahan organik dalam tanah untuk daya simpan air, (4) penyiraman teratur saat kemarau, (5) hindari penyiangan terlalu bersih — beberapa gulma rendah membantu menahan kelembapan. Jaga jarak mulsa sekitar 5 cm dari batang untuk mencegah busuk.",
       "follow_ups": [],
       "related_qas": [
         "Q085",
@@ -4486,7 +4486,7 @@
         "cahaya",
         "kebun"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Ya, cahaya sangat memengaruhi pertumbuhan. Cengkeh muda butuh naungan 50–60% selama 6–12 bulan pertama, lalu dikurangi bertahap. Cengkeh dewasa butuh sinar matahari langsung 6–8 jam sehari. Kekurangan cahaya menyebabkan pertumbuhan memanjang (etiolasi), daun pucat, dan produksi rendah. Terlalu banyak cahaya pada bibit muda bisa menyebabkan daun terbakar. Sesuaikan naungan dengan umur tanaman.",
       "follow_ups": [],
       "related_qas": [
         "Q086",
@@ -4509,7 +4509,7 @@
         "drainase",
         "lingkungan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Perbaiki drainase dengan: (1) buat saluran drainase utama di sekeliling kebun dan saluran kecil di antara baris tanaman, (2) buat guludan atau bedengan untuk tanaman, (3) tambahkan pasir atau bahan organik pada tanah padat, (4) tanam tanaman penutup tanah yang tidak menahan air, (5) bila perlu, buat parit resapan. Kedalaman saluran disesuaikan dengan topografi — makin miring lahan, makin perlu saluran.",
       "follow_ups": [],
       "related_qas": [
         "Q087",
@@ -4532,7 +4532,7 @@
         "musim",
         "kemarau"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Di musim kemarau perhatikan: (1) penyiraman teratur (terutama tanaman muda), (2) mulsa untuk menahan kelembapan, (3) hindari pemupukan berat karena tanaman stres, (4) waspadai hama penggerek yang meningkat saat tanaman lemah, (5) lindungi tanaman muda dari sengatan matahari langsung, (6) panen tetap dilakukan bila ada kuncup matang. Jaga kebun tetap bersih dari gulma yang bersaing air.",
       "follow_ups": [],
       "related_qas": [
         "Q088",
@@ -4555,7 +4555,7 @@
         "perubahan",
         "cuaca"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Perubahan cuaca ekstrem memengaruhi cengkeh: (1) fluktuasi hujan-kemarau mengganggu siklus pembungaan, (2) hujan di luar musim bisa menggugurkan bunga, (3) suhu ekstrem menyebabkan stres dan menurunkan produksi, (4) kelembapan tinggi memicu penyakit jamur, (5) angin kencang merusak cabang. Strategi adaptasi: naungan sementara, drainase baik, mulsa, dan pemantauan intensif saat cuaca tidak menentu.",
       "follow_ups": [],
       "related_qas": [
         "Q089",
@@ -4577,7 +4577,7 @@
       "keywords": [
         "pengeringan"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Keringkan cengkeh dengan: (1) segera setelah panen, jemur di bawah sinar matahari dengan alas bersih (tikar, kain, atau tampah), (2) ketebalan tumpukan 2–3 cm — jangan menumpuk tebal, (3) balik setiap 3–4 jam agar kering merata, (4) lindungi dari hujan dan embun malam, (5) target kadar air akhir 12–14% (biasanya butuh 3–5 hari cuaca cerah). Bila mendung, gunakan alat pengering buatan.",
       "follow_ups": [],
       "related_qas": [
         "Q090",
@@ -4599,7 +4599,7 @@
       "keywords": [
         "penyimpanan"
       ],
-      "answer": "Kemungkinan penyebab perlu dibedakan dari gejala lain. Periksa daun, batang/ranting, akar, tanah, air, cuaca, dan pola penyebaran sebelum menyimpulkan diagnosis.",
+      "answer": "Simpan cengkeh kering dengan: (1) pastikan kadar air sudah 12–14% sebelum disimpan, (2) gunakan wadah kedap udara (karung plastik dalam, karung goni luar, atau wadah dengan tutup rapat), (3) simpan di tempat kering, sejuk, dan gelap, (4) jauhkan dari bahan berbau kuat karena cengkeh mudah menyerap bau, (5) letakkan di rak atau alas kayu — jangan langsung di lantai, (6) periksa secara berkala untuk tanda jamur atau hama.",
       "follow_ups": [
         {
           "id": "F092-1",
@@ -4699,7 +4699,7 @@
         "kelembapan",
         "produk"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Cegah penyerapan air kembali dengan: (1) wadah kedap udara atau karung plastik tebal, (2) simpan di tempat kering dan jauh dari sumber uap air, (3) tambahkan silica gel atau kapur tohor dalam wadah untuk menyerap kelembapan, (4) jangan simpan di lantai atau dinding lembap — gunakan rak, (5) periksa kadar air secara berkala bila penyimpanan lama, (6) hindari membuka wadah terlalu sering di musim hujan.",
       "follow_ups": [],
       "related_qas": [
         "Q092",
@@ -4723,7 +4723,7 @@
         "cukup",
         "kering"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Tanda cengkeh cukup kering: (1) warna cokelat tua merata, (2) permukaan kering dan tidak lengket, (3) tangkai mudah patah saat ditekuk, (4) aroma khas cengkeh kuat, (5) bila digenggam dan dilepas, cengkeh tidak saling menempel, (6) bila diukur dengan moisture meter, kadar air 12–14%. Bila masih ragu, timbang beberapa sampel dan keringkan lagi 1 hari lalu timbang ulang — bila berat stabil, sudah cukup kering.",
       "follow_ups": [],
       "related_qas": [
         "Q093",
@@ -4745,7 +4745,7 @@
       "keywords": [
         "sortasi"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Sortasi setelah panen: (1) pisahkan kotoran (daun, tangkai panjang, batu, serangga), (2) pisahkan berdasarkan mutu — kuncup utuh besar, kuncup kecil, dan cengkeh rusak atau patah, (3) buang cengkeh berjamur atau berjamur, (4) pisahkan berdasarkan warna (merata vs belang). Sortasi meningkatkan harga jual karena pembeli bisa memilih mutu yang diinginkan. Lakukan di tempat bersih dengan penerangan cukup.",
       "follow_ups": [],
       "related_qas": [
         "Q094",
@@ -4768,7 +4768,7 @@
         "kebersihan",
         "produk"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Jaga kebersihan dengan: (1) gunakan alas bersih saat menjemur (bukan di tanah langsung), (2) jauhkan dari hewan, debu, dan asap, (3) cuci tangan sebelum menangani, (4) hindari menjemur di dekat jalan atau tempat berdebu, (5) setelah kering, simpan dalam wadah bersih, (6) jangan campur dengan hasil panen lama yang mungkin berjamur. Kebersihan menentukan mutu dan keamanan pangan.",
       "follow_ups": [],
       "related_qas": [
         "Q095",
@@ -4791,7 +4791,7 @@
         "mutu",
         "penyimpanan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Mutu turun saat penyimpanan karena: (1) kadar air terlalu tinggi (jamur), (2) wadah tidak kedap udara (menyerap kelembapan), (3) suhu ruang terlalu panas (aroma hilang, warna pudar), (4) terkena sinar matahari langsung, (5) disimpan dekat bahan berbau kuat (cengkeh menyerap bau), (6) serangan hama gudang, (7) penumpukan berat yang memecah cengkeh. Kontrol kelembapan, suhu, dan wadah adalah kuncinya.",
       "follow_ups": [],
       "related_qas": [
         "Q096",
@@ -4815,7 +4815,7 @@
         "saat",
         "simpan"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Jamur saat penyimpanan muncul karena: (1) kadar air masih >14% saat disimpan, (2) wadah tidak kedap sehingga menyerap uap air, (3) penyimpanan di tempat lembap atau berventilasi buruk, (4) cengkeh terkontaminasi spora jamur saat pengeringan. Pencegahan: pastikan kering sempurna (kadar air 12–14%), gunakan wadah kedap, tambahkan silica gel, simpan di tempat kering. Bila sudah berjamur, buang cengkeh yang rusak.",
       "follow_ups": [],
       "related_qas": [
         "Q097",
@@ -4838,7 +4838,7 @@
         "wadah",
         "simpan"
       ],
-      "answer": "Lakukan tindakan awal yang aman sesuai kondisi lapangan, pantau hasilnya, dan gunakan rekomendasi resmi bila membutuhkan pengendalian OPT.",
+      "answer": "Wadah terbaik: (1) karung plastik tebal dalam karung goni (untuk skala besar), (2) wadah plastik atau logam dengan tutup rapat, (3) karung kedap udara dengan lapisan dalam food grade, (4) drum food grade untuk penyimpanan panjang. Hindari wadah kertas atau kardus untuk penyimpanan lama karena menyerap kelembapan. Tambahkan silica gel atau kapur tohor di dalam wadah untuk menjaga kelembapan rendah.",
       "follow_ups": [],
       "related_qas": [
         "Q098",
@@ -4862,7 +4862,7 @@
         "terlalu",
         "lembap"
       ],
-      "answer": "Terapkan informasi ini dengan mempertimbangkan umur tanaman, kondisi lahan, cuaca, dan praktik budidaya setempat.",
+      "answer": "Bila cengkeh terlalu lembap: (1) jangan disimpan — akan berjamur, (2) keringkan ulang di bawah sinar matahari atau alat pengering hingga kadar air 12–14%, (3) balik agar kering merata, (4) bila sudah ada bercak jamur, pisahkan dan buang yang rusak, (5) setelah kering, simpan dalam wadah kedap dengan silica gel. Jangan mengemas cengkeh lembap — kerugian bisa besar bila berjamur di penyimpanan.",
       "follow_ups": [],
       "related_qas": [
         "Q099"

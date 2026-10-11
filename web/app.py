@@ -148,6 +148,15 @@ def _load_stopwords():
 _load_stopwords()
 
 # ---------------------------------------------------------------------------
+# Error handlers
+# ---------------------------------------------------------------------------
+@app.errorhandler(404)
+def not_found(e):
+    if request.path.startswith("/api/"):
+        return jsonify({"error": "not found", "path": request.path}), 404
+    return e
+
+# ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
 @app.route("/")
@@ -338,6 +347,125 @@ def api_search():
 
     return jsonify(response)
 
+
+# ---------------------------------------------------------------------------
+# QA detail
+# ---------------------------------------------------------------------------
+def get_qa_detail(qa_id):
+    """
+    Fetch a QA with its sources, related QAs, and (if diagnostic)
+    the first follow-up question with options.
+
+    Returns a dict, or None if the QA doesn't exist.
+    """
+    with get_db() as cursor:
+        # -------------------------------------------------------------------
+        # 1. The QA itself
+        # -------------------------------------------------------------------
+        cursor.execute(
+            """
+            SELECT id, pertanyaan, jawaban, tipe
+            FROM tb_pertanyaan
+            WHERE id = %s
+            """,
+            (qa_id,),
+        )
+        qa = cursor.fetchone()
+        if qa is None:
+            return None
+
+        # -------------------------------------------------------------------
+        # 2. Sources
+        # -------------------------------------------------------------------
+        cursor.execute(
+            """
+            SELECT s.kode, s.judul
+            FROM tb_pertanyaan_sumber ps
+            JOIN tb_sumber s ON s.id = ps.sumber_id
+            WHERE ps.pertanyaan_id = %s
+            ORDER BY s.kode
+            """,
+            (qa_id,),
+        )
+        sources = cursor.fetchall()
+
+        # -------------------------------------------------------------------
+        # 3. Related QAs
+        # -------------------------------------------------------------------
+        cursor.execute(
+            """
+            SELECT r.related_id AS id, p.pertanyaan
+            FROM tb_relasi r
+            JOIN tb_pertanyaan p ON p.id = r.related_id
+            WHERE r.pertanyaan_id = %s
+            ORDER BY r.related_id
+            """,
+            (qa_id,),
+        )
+        related = cursor.fetchall()
+
+        # -------------------------------------------------------------------
+        # 4. First follow-up (if diagnostic)
+        # -------------------------------------------------------------------
+        follow_up = None
+        cursor.execute(
+            """
+            SELECT id, urutan, pertanyaan
+            FROM tb_follow_up
+            WHERE pertanyaan_id = %s
+            ORDER BY urutan
+            LIMIT 1
+            """,
+            (qa_id,),
+        )
+        fu = cursor.fetchone()
+
+        if fu:
+            cursor.execute(
+                """
+                SELECT id, label
+                FROM tb_follow_option
+                WHERE follow_up_id = %s
+                ORDER BY id
+                """,
+                (fu["id"],),
+            )
+            options = cursor.fetchall()
+
+            follow_up = {
+                "id":         fu["id"],
+                "urutan":     fu["urutan"],
+                "question":   fu["pertanyaan"],
+                "options":    [
+                    {"id": o["id"], "label": o["label"]}
+                    for o in options
+                ],
+            }
+
+    return {
+        "id":        qa["id"],
+        "question":  qa["pertanyaan"],
+        "answer":    qa["jawaban"] or "",
+        "type":      qa["tipe"],
+        "sources":   [
+            {"kode": s["kode"], "judul": s["judul"]}
+            for s in sources
+        ],
+        "related":   [
+            {"id": r["id"], "question": r["pertanyaan"]}
+            for r in related
+        ],
+        "follow_up": follow_up,
+    }
+
+
+@app.route("/api/qa/<int:qa_id>")
+def api_qa(qa_id):
+    """Return the full QA detail: answer, sources, related QAs, first follow-up."""
+    qa = get_qa_detail(qa_id)
+    if qa is None:
+        return jsonify({"error": f"QA {qa_id} not found"}), 404
+    return jsonify(qa)
 
 
 # ---------------------------------------------------------------------------

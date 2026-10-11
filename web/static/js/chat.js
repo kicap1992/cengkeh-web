@@ -15,9 +15,9 @@
     // ---------------------------------------------------------------
     // DOM elements
     // ---------------------------------------------------------------
-    const form     = document.getElementById("chat-form");
-    const input    = document.getElementById("chat-input");
-    const send     = document.getElementById("chat-send");
+    const form = document.getElementById("chat-form");
+    const input = document.getElementById("chat-input");
+    const send = document.getElementById("chat-send");
     const messages = document.getElementById("chat-messages");
 
     if (!form || !input || !send || !messages) {
@@ -42,7 +42,7 @@
             b[6] = (b[6] & 0x0f) | 0x40;
             b[8] = (b[8] & 0x3f) | 0x80;
             const hex = [...b].map(x => x.toString(16).padStart(2, "0")).join("");
-            return [hex.slice(0,8), hex.slice(8,12), hex.slice(12,16), hex.slice(16,20), hex.slice(20)].join("-");
+            return [hex.slice(0, 8), hex.slice(8, 12), hex.slice(12, 16), hex.slice(16, 20), hex.slice(20)].join("-");
         }
         return `sess-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
     }
@@ -92,15 +92,108 @@
         messages.scrollTop = messages.scrollHeight;
     }
 
+    function renderQA(qa) {
+        // --- The answer ---
+        const wrapper = document.createElement("div");
+        wrapper.className = "msg msg-bot";
+
+        // Question (bold)
+        const q = document.createElement("div");
+        q.style.fontWeight = "600";
+        q.style.marginBottom = "6px";
+        q.textContent = qa.question;
+        wrapper.appendChild(q);
+
+        // Answer text
+        if (qa.answer) {
+            const a = document.createElement("div");
+            a.textContent = qa.answer;
+            wrapper.appendChild(a);
+        }
+
+        // Sources
+        if (qa.sources && qa.sources.length > 0) {
+            const srcs = document.createElement("div");
+            srcs.className = "sources";
+            srcs.innerHTML = "<strong>📚 Sumber:</strong>";
+            qa.sources.forEach(s => {
+                const line = document.createElement("div");
+                line.textContent = `• ${s.kode} — ${s.judul}`;
+                srcs.appendChild(line);
+            });
+            wrapper.appendChild(srcs);
+        }
+
+        messages.appendChild(wrapper);
+
+        // --- Follow-up (if diagnostic) ---
+        if (qa.follow_up) {
+            renderFollowUp(qa.follow_up);
+        } else {
+            // Terminal: prompt the user to ask again
+            appendMessage("Ada pertanyaan lain? Silakan ketik di bawah.", "system");
+        }
+
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function renderFollowUp(followUp) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "msg msg-bot";
+
+        const intro = document.createElement("div");
+        intro.textContent = followUp.question;
+        intro.style.marginBottom = "6px";
+        wrapper.appendChild(intro);
+
+        const list = document.createElement("div");
+        list.className = "suggestions";
+
+        followUp.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "suggestion-btn";
+            btn.textContent = opt.label;
+            btn.dataset.optionId = opt.id;
+            btn.addEventListener("click", () => handleFollowUpClick(opt.id, opt.label));
+            list.appendChild(btn);
+        });
+
+        wrapper.appendChild(list);
+        messages.appendChild(wrapper);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function handleFollowUpClick(optionId, label) {
+        console.log("👆 Follow-up option clicked:", optionId, label);
+        appendMessage(label, "user");
+
+        // Next step: fetch /api/next/<option_id>
+        appendMessage("(Langkah berikutnya belum diimplementasi)", "system");
+    }
+
     // ---------------------------------------------------------------
     // Interaction handlers
     // ---------------------------------------------------------------
-    function handleSuggestionClick(qaId, question) {
+    async function handleSuggestionClick(qaId, question) {
         console.log("👆 Suggestion clicked, QA id:", qaId);
-        // Echo the user's choice for now
+
+        // 1. Echo the user's choice as their "message"
         appendMessage(question, "user");
-        // Step 5 will fetch /api/qa/<id> and render the answer
-        appendMessage(`(QA #${qaId} — detail akan ditampilkan di langkah berikutnya)`, "system");
+
+        // 2. Fetch the QA detail
+        try {
+            const res = await fetch(`/api/qa/${qaId}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const qa = await res.json();
+            console.log("✅ QA detail:", qa);
+
+            // 3. Render it
+            renderQA(qa);
+        } catch (err) {
+            console.error("❌ Fetch failed:", err);
+            appendMessage("Maaf, terjadi kesalahan saat mengambil detail pertanyaan.", "bot");
+        }
     }
 
     async function handleSubmit(event) {
