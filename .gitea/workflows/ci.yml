@@ -23,6 +23,9 @@ jobs:
           echo "📁 Repository structure:"
           find . -type f -not -path './.git/*' | sort
 
+      - name: copy .env.ci to .env
+        run: cp .env.ci .env
+
       - name: Check required files exist
         run: |
           echo "🔍 Checking required files..."
