@@ -26,3 +26,10 @@ __pycache__/
 
 # Flask / web venv
 web/venv/
+
+# Jupyter
+jupyter/venv/
+jupyter/.ipynb_checkpoints/
+jupyter/.jupyter/
+jupyter/.ipython/
+jupyter/__pycache__/

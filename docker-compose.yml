@@ -44,6 +44,25 @@ services:
       db:
         condition: service_healthy
 
+  jupyter:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    image: cengkeh-jupyter:local
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    profiles: ["tools"]
+    restart: unless-stopped
+    ports:
+      - "18888:8888"
+    environment:
+      JUPYTER_PASSWORD: ${JUPYTER_PASSWORD}
+    volumes:
+      - ./jupyter:/workspace:rw
+    depends_on:
+      db:
+        condition: service_healthy
+
   
   # ---------------------------------------------------------------------------
   # dbmate-dev — READ-WRITE, used locally to author new migrations.
