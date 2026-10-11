@@ -39,6 +39,7 @@ jobs:
           MYSQL_PASSWORD: dummy_pass
           HOST_UID: "1000"
           HOST_GID: "1000"
+          JUPYTER_PASSWORD: "dummy_jupyter_pass"
         run: |
           echo "🔍 Validating docker-compose.yml with docker compose config..."
           docker compose config > /dev/null
