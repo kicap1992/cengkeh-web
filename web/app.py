@@ -18,6 +18,40 @@ from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
+# this is stopwords set, it will be populated from the database on app startup
+
+
+def tokenize(text: str, min_length: int = 3) -> list[str]:
+    """
+    Turn a raw user query into a list of clean tokens.
+
+    Rules:
+        - lowercase
+        - split on whitespace
+        - strip leading/trailing punctuation
+        - drop tokens shorter than `min_length`
+        - drop stopwords (from tb_stopwords)
+        - deduplicate (preserve order)
+
+    Example:
+        "Bagaimana agar cengkeh dapat bertumbuh dengan baik"
+        → ["cengkeh", "bertumbuh", "baik"]
+    """
+    tokens = []
+    seen = set()
+
+    for raw in text.lower().split():
+        cleaned = raw.strip(".,!?;:()[]{}\"'")
+        if len(cleaned) < min_length:
+            continue
+        if cleaned in STOPWORDS:
+            continue
+        if cleaned in seen:
+            continue
+        seen.add(cleaned)
+        tokens.append(cleaned)
+
+    return tokens
 
 # ---------------------------------------------------------------------------
 # .env loading
@@ -96,6 +130,23 @@ def get_db():
         conn.close()
 
 
+STOPWORDS = set() 
+
+def _load_stopwords():
+    """Load stopwords from the DB into a module-level set."""
+    global STOPWORDS
+    try:
+        with get_db() as cursor:
+            cursor.execute("SELECT kata FROM tb_stopwords")
+            STOPWORDS = {row["kata"].lower() for row in cursor.fetchall()}
+        print(f"✅ Loaded {len(STOPWORDS)} stopwords")
+    except Exception as e:
+        print(f"⚠  Could not load stopwords: {e}", file=sys.stderr)
+        print(f"   Continuing with empty stopword set", file=sys.stderr)
+        STOPWORDS = set()
+
+_load_stopwords()
+
 # ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
@@ -118,8 +169,8 @@ def health():
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
     """
-    Echo endpoint — receives the user's message and session id,
-    prints them to the server console, returns them as JSON.
+    Receives the user's message and session id, tokenizes the message,
+    prints to the server console, returns tokens as JSON.
 
     This is a stub. It will grow into the real search/matching logic.
     """
@@ -127,15 +178,167 @@ def api_chat():
     message = (data.get("message") or "").strip()
     session_id = data.get("session_id") or "unknown"
 
+    tokens = tokenize(message)
+
     # Print to the Flask console for verification
     print(f"📨 [{session_id}] {message}")
+    print(f"   🔤 tokens: {tokens}")
 
     return jsonify({
         "status": "received",
         "session_id": session_id,
         "message": message,
-        "echo_length": len(message),
+        "tokens": tokens,
+        "token_count": len(tokens),
     })
+
+
+
+# ---------------------------------------------------------------------------
+# QA search
+# ---------------------------------------------------------------------------
+KEYWORD_WEIGHT   = 3      # each keyword match adds this many points
+VARIATION_WEIGHT = 1      # each variation match adds this many points
+
+
+def search_qa(tokens):
+    """
+    Find QAs matching the given tokens.
+
+    Scoring:
+        - Each token matching a keyword in tb_keyword    → +KEYWORD_WEIGHT
+        - Each token appearing in a variation in tb_variasi → +VARIATION_WEIGHT
+
+    Returns a list of dicts (id, question, type, score), sorted by score desc.
+    """
+    if not tokens:
+        return []
+
+    scores = {}   # qa_id -> accumulated score
+
+    with get_db() as cursor:
+        # -------------------------------------------------------------------
+        # 1. Keyword matches (weighted higher)
+        # -------------------------------------------------------------------
+        token_placeholders = ",".join(["%s"] * len(tokens))
+        cursor.execute(
+            f"""
+            SELECT pertanyaan_id, COUNT(*) AS hits
+            FROM tb_keyword
+            WHERE kata IN ({token_placeholders})
+            GROUP BY pertanyaan_id
+            """,
+            tokens,
+        )
+        for row in cursor.fetchall():
+            qa_id = row["pertanyaan_id"]
+            scores[qa_id] = scores.get(qa_id, 0) + row["hits"] * KEYWORD_WEIGHT
+
+        # -------------------------------------------------------------------
+        # 2. Variation matches (weighted lower, substring search)
+        # -------------------------------------------------------------------
+        for token in tokens:
+            cursor.execute(
+                """
+                SELECT DISTINCT pertanyaan_id
+                FROM tb_variasi
+                WHERE teks LIKE %s
+                """,
+                (f"%{token}%",),
+            )
+            for row in cursor.fetchall():
+                qa_id = row["pertanyaan_id"]
+                scores[qa_id] = scores.get(qa_id, 0) + VARIATION_WEIGHT
+
+        if not scores:
+            return []
+
+        # -------------------------------------------------------------------
+        # 3. Fetch QA details for matched IDs
+        # -------------------------------------------------------------------
+        ranked_ids = sorted(scores.keys(), key=lambda qid: -scores[qid])
+        id_placeholders = ",".join(["%s"] * len(ranked_ids))
+        cursor.execute(
+            f"""
+            SELECT id, pertanyaan, tipe
+            FROM tb_pertanyaan
+            WHERE id IN ({id_placeholders})
+            """,
+            ranked_ids,
+        )
+        qa_by_id = {row["id"]: row for row in cursor.fetchall()}
+
+    # -------------------------------------------------------------------
+    # 4. Assemble the ranked list (full list — no limit)
+    # -------------------------------------------------------------------
+    matches = []
+    for qa_id in ranked_ids:
+        qa = qa_by_id.get(qa_id)
+        if qa is None:
+            continue
+        matches.append({
+            "id":       qa["id"],
+            "question": qa["pertanyaan"],
+            "type":     qa["tipe"],
+            "score":    scores[qa_id],
+        })
+
+    return matches
+
+
+@app.route("/api/search")
+def api_search():
+    q = request.args.get("q", "").strip()
+    if not q:
+        return jsonify({"error": "missing query parameter 'q'"}), 400
+
+    try:
+        limit = int(request.args.get("limit", "3"))
+    except ValueError:
+        limit = 3
+    limit = max(1, min(limit, 50))
+
+    tokens = tokenize(q)
+
+    # ---- Case 1: no meaningful tokens ----
+    if not tokens:
+        return jsonify({
+            "query":   q,
+            "tokens":  [],
+            "matches": [],
+            "total":   0,
+            "shown":   0,
+            "message": (
+                "Pertanyaan Anda terlalu umum. "
+                "Coba tanyakan hal yang lebih spesifik, "
+                "misalnya: 'Kapan waktu menanam cengkeh?' "
+                "atau 'Kenapa daun cengkeh menguning?'"
+            ),
+        })
+
+    all_matches = search_qa(tokens)
+    shown       = all_matches[:limit]
+
+    response = {
+        "query":   q,
+        "tokens":  tokens,
+        "matches": shown,
+        "total":   len(all_matches),
+        "shown":   len(shown),
+    }
+
+    # ---- Case 2: tokens exist, but no matches found ----
+    if not all_matches:
+        response["message"] = (
+            "Maaf, tidak ada pertanyaan yang cocok dengan kata kunci Anda. "
+            "Coba gunakan kata kunci yang berbeda atau lebih umum."
+        )
+
+    # ---- Case 3: matches found — no message needed ----
+
+    return jsonify(response)
+
+
 
 # ---------------------------------------------------------------------------
 # Entry point

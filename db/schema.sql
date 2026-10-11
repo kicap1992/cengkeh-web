@@ -160,6 +160,20 @@ CREATE TABLE `tb_relasi` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `tb_stopwords`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_stopwords` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kata` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `kata` (`kata`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `tb_sumber`
 --
 
@@ -214,5 +228,6 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20261005100000'),
   ('20261005100001'),
   ('20261005162553'),
-  ('20261008060834');
+  ('20261008060834'),
+  ('20261010235705');
 UNLOCK TABLES;

@@ -1,5 +1,4 @@
 .env
-.env/
 
 # Docker volumes (if any bind-mounted data ends up here)
 db/data/
@@ -24,3 +23,6 @@ py-db-populate/venv/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Flask / web venv
+web/venv/

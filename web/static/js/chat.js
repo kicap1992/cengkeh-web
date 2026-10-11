@@ -1,7 +1,10 @@
 /**
  * chat.js — Cengkeh chatbot UI interactions.
  *
- * Step 3: generate session id (with fallback), send message to /api/chat.
+ * Flow so far:
+ *   1. User types a question and submits.
+ *   2. We POST/GET to the backend.
+ *   3. We render the response (suggestions or messages).
  */
 
 (function () {
@@ -30,26 +33,17 @@
     // Session ID
     // ---------------------------------------------------------------
     function generateSessionId() {
-        // Prefer crypto.randomUUID when available (secure contexts)
         if (window.crypto && typeof window.crypto.randomUUID === "function") {
             return window.crypto.randomUUID();
         }
-        // Fallback: build a v4-style UUID from getRandomValues
         if (window.crypto && typeof window.crypto.getRandomValues === "function") {
             const b = new Uint8Array(16);
             window.crypto.getRandomValues(b);
             b[6] = (b[6] & 0x0f) | 0x40;
             b[8] = (b[8] & 0x3f) | 0x80;
             const hex = [...b].map(x => x.toString(16).padStart(2, "0")).join("");
-            return [
-                hex.slice(0, 8),
-                hex.slice(8, 12),
-                hex.slice(12, 16),
-                hex.slice(16, 20),
-                hex.slice(20),
-            ].join("-");
+            return [hex.slice(0,8), hex.slice(8,12), hex.slice(12,16), hex.slice(16,20), hex.slice(20)].join("-");
         }
-        // Last resort
         return `sess-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
     }
 
@@ -61,7 +55,7 @@
     console.log("🆔 Session ID:", sessionId);
 
     // ---------------------------------------------------------------
-    // Append a message bubble to the chat history
+    // Rendering helpers
     // ---------------------------------------------------------------
     function appendMessage(text, who = "bot") {
         const div = document.createElement("div");
@@ -72,9 +66,43 @@
         return div;
     }
 
+    function renderMatches(data) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "msg msg-bot";
+
+        const intro = document.createElement("div");
+        intro.textContent = "Apakah maksud Anda salah satu dari pertanyaan berikut?";
+        wrapper.appendChild(intro);
+
+        const list = document.createElement("div");
+        list.className = "suggestions";
+
+        data.matches.forEach(m => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "suggestion-btn";
+            btn.textContent = m.question;
+            btn.dataset.qaId = m.id;
+            btn.addEventListener("click", () => handleSuggestionClick(m.id, m.question));
+            list.appendChild(btn);
+        });
+
+        wrapper.appendChild(list);
+        messages.appendChild(wrapper);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
     // ---------------------------------------------------------------
-    // Handle the submit event
+    // Interaction handlers
     // ---------------------------------------------------------------
+    function handleSuggestionClick(qaId, question) {
+        console.log("👆 Suggestion clicked, QA id:", qaId);
+        // Echo the user's choice for now
+        appendMessage(question, "user");
+        // Step 5 will fetch /api/qa/<id> and render the answer
+        appendMessage(`(QA #${qaId} — detail akan ditampilkan di langkah berikutnya)`, "system");
+    }
+
     async function handleSubmit(event) {
         if (event) event.preventDefault();
 
@@ -86,19 +114,21 @@
         input.focus();
 
         try {
-            const res = await fetch("/api/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    message: text,
-                    session_id: sessionId,
-                }),
-            });
+            const res = await fetch(`/api/search?q=${encodeURIComponent(text)}`);
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const data = await res.json();
-            console.log("✅ Response:", data);
+            console.log("✅ Search response:", data);
+
+            if (data.matches && data.matches.length > 0) {
+                renderMatches(data);
+            } else if (data.message) {
+                appendMessage(data.message, "bot");
+            } else {
+                appendMessage("Maaf, terjadi kesalahan. Coba lagi.", "bot");
+            }
         } catch (err) {
             console.error("❌ Fetch failed:", err);
+            appendMessage("Maaf, terjadi kesalahan teknis. Coba lagi.", "bot");
         }
     }
 
