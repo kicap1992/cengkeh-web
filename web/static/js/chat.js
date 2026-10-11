@@ -168,8 +168,24 @@
         console.log("👆 Follow-up option clicked:", optionId, label);
         appendMessage(label, "user");
 
-        // Next step: fetch /api/next/<option_id>
-        appendMessage("(Langkah berikutnya belum diimplementasi)", "system");
+        try {
+            const res = await fetch(`/api/next/${optionId}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            console.log("✅ Next step:", data);
+
+            if (data.type === "follow_up") {
+                renderFollowUp(data.follow_up);
+            } else if (data.type === "matches") {
+                // Reuse the same renderer as search results
+                renderMatches({ matches: data.matches });
+            } else {
+                appendMessage("Maaf, terjadi kesalahan.", "bot");
+            }
+        } catch (err) {
+            console.error("❌ Fetch failed:", err);
+            appendMessage("Maaf, terjadi kesalahan teknis.", "bot");
+        }
     }
 
     // ---------------------------------------------------------------

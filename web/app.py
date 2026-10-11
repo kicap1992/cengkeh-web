@@ -469,6 +469,119 @@ def api_qa(qa_id):
 
 
 # ---------------------------------------------------------------------------
+# Diagnostic flow
+# ---------------------------------------------------------------------------
+def get_next_step(option_id):
+    """
+    Given a chosen option, figure out the next step in the diagnostic flow.
+
+    Returns a dict with a `type` field:
+        - "follow_up" — there's another follow-up question to show
+        - "matches"   — no more follow-ups; here are the resulting QAs
+        - None        — option not found
+    """
+    with get_db() as cursor:
+        # -------------------------------------------------------------------
+        # 1. Find the option and its follow-up
+        # -------------------------------------------------------------------
+        cursor.execute(
+            """
+            SELECT fo.id AS option_id,
+                   fo.follow_up_id,
+                   fu.pertanyaan_id,
+                   fu.urutan
+            FROM tb_follow_option fo
+            JOIN tb_follow_up fu ON fu.id = fo.follow_up_id
+            WHERE fo.id = %s
+            """,
+            (option_id,),
+        )
+        opt = cursor.fetchone()
+        if opt is None:
+            return None
+
+        qa_id = opt["pertanyaan_id"]
+        current_urutan = opt["urutan"]
+
+        # -------------------------------------------------------------------
+        # 2. Is there a NEXT follow-up (urutan + 1) for this QA?
+        # -------------------------------------------------------------------
+        cursor.execute(
+            """
+            SELECT id, urutan, pertanyaan
+            FROM tb_follow_up
+            WHERE pertanyaan_id = %s AND urutan = %s
+            """,
+            (qa_id, current_urutan + 1),
+        )
+        next_fu = cursor.fetchone()
+
+        if next_fu:
+            # Fetch its options
+            cursor.execute(
+                """
+                SELECT id, label
+                FROM tb_follow_option
+                WHERE follow_up_id = %s
+                ORDER BY id
+                """,
+                (next_fu["id"],),
+            )
+            options = cursor.fetchall()
+
+            return {
+                "type": "follow_up",
+                "follow_up": {
+                    "id":       next_fu["id"],
+                    "urutan":   next_fu["urutan"],
+                    "question": next_fu["pertanyaan"],
+                    "options":  [
+                        {"id": o["id"], "label": o["label"]}
+                        for o in options
+                    ],
+                },
+            }
+
+        # -------------------------------------------------------------------
+        # 3. No more follow-ups — return the resulting QAs
+        # -------------------------------------------------------------------
+        cursor.execute(
+            """
+            SELECT q.next_qa_id AS id, p.pertanyaan, p.tipe
+            FROM tb_option_next_qa q
+            JOIN tb_pertanyaan p ON p.id = q.next_qa_id
+            WHERE q.option_id = %s
+            ORDER BY p.id
+            """,
+            (option_id,),
+        )
+        next_qas = cursor.fetchall()
+
+        return {
+            "type": "matches",
+            "matches": [
+                {
+                    "id":       row["id"],
+                    "question": row["pertanyaan"],
+                    "type":     row["tipe"],
+                }
+                for row in next_qas
+            ],
+        }
+
+
+@app.route("/api/next/<int:option_id>")
+def api_next(option_id):
+    """
+    Given a chosen option, return the next step in the diagnostic flow:
+    either another follow-up or a list of resulting QAs.
+    """
+    result = get_next_step(option_id)
+    if result is None:
+        return jsonify({"error": f"Option {option_id} not found"}), 404
+    return jsonify(result)
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
