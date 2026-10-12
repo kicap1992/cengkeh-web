@@ -4871,6 +4871,5094 @@
         "S1",
         "S5"
       ]
+    },
+    {
+      "id": "Q101",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Bagaimana memilih lokasi kebun cengkeh?",
+      "variations": [
+        "Cara memilih lokasi kebun cengkeh?"
+      ],
+      "keywords": [
+        "lokasi",
+        "kebun"
+      ],
+      "answer": "Pilih lokasi dengan ketinggian 600–900 mdpl, curah hujan 1.500–2.500 mm/tahun, dan drainase yang baik. Hindari daerah rawan genangan, terlalu ternaungi, atau berkabut panjang. Pastikan akses jalan tersedia untuk panen dan pengangkutan hasil.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q001",
+        "Q009"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q102",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Apakah cengkeh bisa ditanam di lahan miring?",
+      "variations": [
+        "Bisakah cengkeh ditanam di lahan miring?"
+      ],
+      "keywords": [
+        "lahan",
+        "miring"
+      ],
+      "answer": "Ya, cengkeh justru tumbuh baik di lahan miring (10–30%). Buat teras atau guludan untuk mencegah erosi dan tanam searah kontur. Untuk kemiringan lebih dari 30%, buat teras bertingkat dan perkuat dengan tanaman penutup tanah.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q101",
+        "Q009"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q103",
+      "category": "Cara Tanam",
+      "type": "diagnostic",
+      "question": "Bagaimana mengatasi tanah padat untuk tanam cengkeh?",
+      "variations": [
+        "Cara mengatasi tanah padat untuk tanam cengkeh?"
+      ],
+      "keywords": [
+        "tanah",
+        "padat"
+      ],
+      "answer": "Tanah padat menghambat penetrasi akar dan drainase. Periksa dengan menusukkan tongkat — jika sulit masuk, tanah padat. Solusi: olah tanah sedalam 30–40 cm, tambahkan bahan organik (kompos, pupuk kandang), dan tanam tanaman penutup tanah seperti kacang-kacangan untuk menggemburkan.",
+      "follow_ups": [
+        {
+          "id": "F103-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q023",
+                "Q057",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q057",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q057",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q120"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F103-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q058",
+                "Q085",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q120"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q101",
+        "Q120"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q104",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Berapa kemiringan lahan ideal untuk cengkeh?",
+      "variations": [
+        "Berapa kemiringan ideal lahan cengkeh?"
+      ],
+      "keywords": [
+        "kemiringan",
+        "lahan"
+      ],
+      "answer": "Kemiringan ideal 10–30%. Kemiringan ini memberi drainase alami tanpa memicu erosi. Kemiringan 0–10% masih bisa tapi drainase perlu diperbaiki. Kemiringan di atas 30% memerlukan teras bertingkat dan konservasi tanah yang lebih intensif.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q102",
+        "Q101"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q105",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Apakah cengkeh bisa tumpang sari dengan tanaman lain?",
+      "variations": [
+        "Bolehkah cengkeh tumpang sari?"
+      ],
+      "keywords": [
+        "tumpang",
+        "sari"
+      ],
+      "answer": "Ya, tumpang sari bisa dilakukan saat cengkeh masih muda (0–3 tahun). Pilih tanaman pendek seperti kacang-kacangan, cabai, atau sayuran. Setelah cengkeh dewasa, tumpang sari dikurangi karena kanopi cengkeh sudah menutup. Jangan tanam tanaman yang bersaing berat akan air dan hara.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q002",
+        "Q004"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q106",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Tanaman apa yang baik sebagai penaung sementara cengkeh muda?",
+      "variations": [
+        "Tanaman penaung untuk cengkeh muda?"
+      ],
+      "keywords": [
+        "penaung",
+        "sementara"
+      ],
+      "answer": "Tanaman penaung sementara yang baik: lamtoro, gliricidia, atau dadap. Tanam 6–12 bulan sebelum cengkeh. Setelah cengkeh umur 1–2 tahun, pangkas penaung secara bertahap agar cahaya matahari cukup. Hindari penaung yang tumbuh terlalu cepat dan bersaing hara.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q012",
+        "Q102"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q107",
+      "category": "Cara Tanam",
+      "type": "diagnostic",
+      "question": "Bagaimana menanam cengkeh di musim kemarau?",
+      "variations": [
+        "Cara tanam cengkeh saat kemarau?"
+      ],
+      "keywords": [
+        "tanam",
+        "kemarau"
+      ],
+      "answer": "Tanam di musim kemarau hanya jika irigasi tersedia. Siram lubang tanam sebelum tanam, beri naungan sementara, dan siram 1–2 kali sehari selama 2–3 minggu pertama. Mulsa di sekitar batang membantu menahan kelembapan. Bila tidak ada irigasi, sebaiknya tunggu awal musim hujan.",
+      "follow_ups": [
+        {
+          "id": "F107-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q053",
+                "Q058",
+                "Q011"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q058",
+                "Q011"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q053",
+                "Q058"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q011"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F107-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q058"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q011",
+                "Q058"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q058"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q002",
+        "Q058"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q108",
+      "category": "Cara Tanam",
+      "type": "informational",
+      "question": "Bagaimana menentukan arah baris tanam cengkeh?",
+      "variations": [
+        "Arah baris tanam cengkeh yang benar?"
+      ],
+      "keywords": [
+        "arah",
+        "baris"
+      ],
+      "answer": "Untuk lahan datar, arah baris sebaiknya timur–barat agar tanaman mendapat cahaya merata sepanjang hari. Untuk lahan miring, arah baris mengikuti kontur untuk mencegah erosi. Hindari baris searah lereng karena mempercepat aliran air dan erosi.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q102",
+        "Q004"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q109",
+      "category": "Cara Tanam",
+      "type": "diagnostic",
+      "question": "Perlukah pengolahan tanah dalam untuk cengkeh?",
+      "variations": [
+        "Apakah perlu olah tanah dalam untuk cengkeh?"
+      ],
+      "keywords": [
+        "olah",
+        "tanah"
+      ],
+      "answer": "Ya, pengolahan tanah dalam 30–40 cm sebelum tanam penting untuk menggemburkan tanah dan memberi ruang akar. Namun jangan terlalu dalam (lebih dari 50 cm) karena bisa merusak lapisan tanah bawah. Setelah tanam, olah tanah hanya di sekitar tanaman muda, tidak di seluruh kebun.",
+      "follow_ups": [
+        {
+          "id": "F109-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q057",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q057",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q057",
+                "Q103"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q103"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F109-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q103"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q103"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q103",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q120"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q009",
+        "Q103"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q110",
+      "category": "Cara Tanam",
+      "type": "solution",
+      "question": "Bagaimana menanam cengkeh di tanah bekas kebun lain?",
+      "variations": [
+        "Cara tanam cengkeh di bekas kebun lain?"
+      ],
+      "keywords": [
+        "bekas",
+        "kebun"
+      ],
+      "answer": "Langkah: (1) bersihkan sisa tanaman lama termasuk akar, (2) olah tanah dan biarkan 2–4 minggu, (3) periksa pH dan hara, tambah kapur atau kompos bila perlu, (4) lakukan analisis tanah untuk mendeteksi patogen atau residu, (5) bila bekas tanaman sejenis, tunggu 6–12 bulan agar patogen mati. Setelah itu tanam seperti biasa.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q018",
+        "Q009"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q111",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Bagaimana cara mulsa yang benar untuk cengkeh?",
+      "variations": [
+        "Cara mulsa yang benar untuk cengkeh?"
+      ],
+      "keywords": [
+        "mulsa"
+      ],
+      "answer": "Sebar mulsa organik (jerami, sekam, daun kering) setebal 5–10 cm di sekitar batang, tetapi sisakan jarak 5 cm dari batang agar tidak busuk. Perbarui mulsa 2–3 kali setahun, terutama sebelum musim kemarau. Mulsa membantu menahan kelembapan, menekan gulma, dan menjaga suhu tanah.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q086",
+        "Q013"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q112",
+      "category": "Perawatan",
+      "type": "diagnostic",
+      "question": "Kapan waktu pemangkasan bentuk cengkeh?",
+      "variations": [
+        "Kapan pemangkasan bentuk cengkeh dilakukan?"
+      ],
+      "keywords": [
+        "pemangkasan",
+        "bentuk"
+      ],
+      "answer": "Pemangkasan bentuk dilakukan pada cengkeh umur 1–3 tahun untuk membentuk kanopi yang seimbang dan mudah dipanen. Pangkas tunas air dan cabang yang tumbuh ke dalam. Lakukan di awal musim hujan agar tanaman cepat pulih. Hindari pemangkasan saat cuaca ekstrem.",
+      "follow_ups": [
+        {
+          "id": "F112-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q014",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q014",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q014",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q014"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F112-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q014"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q014",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q014",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q014"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q014",
+        "Q113"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q113",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Bagaimana pemangkasan pemeliharaan cengkeh?",
+      "variations": [
+        "Cara pemangkasan pemeliharaan cengkeh?"
+      ],
+      "keywords": [
+        "pemangkasan",
+        "pemeliharaan"
+      ],
+      "answer": "Pemangkasan pemeliharaan dilakukan 1–2 kali per tahun: buang cabang mati, sakit, saling bergesekan, dan tunas air. Tujuannya menjaga sirkulasi udara dan memudahkan panen. Gunakan alat bersih dan tajam. Buang sisa pangkasan dari kebun agar tidak jadi sumber penyakit.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q014",
+        "Q015"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q114",
+      "category": "Perawatan",
+      "type": "diagnostic",
+      "question": "Bagaimana pemangkasan produksi cengkeh?",
+      "variations": [
+        "Cara pemangkasan produksi cengkeh?"
+      ],
+      "keywords": [
+        "pemangkasan",
+        "produksi"
+      ],
+      "answer": "Pemangkasan produksi dilakukan pada cengkeh dewasa untuk merangsang tunas bunga dan mempertahankan kanopi terbuka. Pangkas cabang tua yang tidak produktif dan cabang yang terlalu rimbun. Lakukan setelah panen selesai, jangan saat pembungaan.",
+      "follow_ups": [
+        {
+          "id": "F114-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q061",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q063",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q061",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q113"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F114-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q061",
+                "Q113"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q113"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q014",
+        "Q063"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q115",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Alat apa saja untuk perawatan cengkeh?",
+      "variations": [
+        "Alat perawatan cengkeh?"
+      ],
+      "keywords": [
+        "alat",
+        "perawatan"
+      ],
+      "answer": "Alat dasar: gunting pangkas (besar & kecil), gergaji tangan, cangkul, kored, sekop kecil, sprayer untuk pestisida/fungisida, dan alat pelindung (sarung tangan, masker, sepatu bot). Siapkan juga tempat sampah untuk sisa pangkasan yang sakit.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q015",
+        "Q014"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q116",
+      "category": "Perawatan",
+      "type": "informational",
+      "question": "Bagaimana menyimpan alat pertanian cengkeh?",
+      "variations": [
+        "Cara menyimpan alat pertanian cengkeh?"
+      ],
+      "keywords": [
+        "simpan",
+        "alat"
+      ],
+      "answer": "Setelah dipakai, bersihkan alat dari tanah dan getah, lalu keringkan. Simpan di tempat kering dan berventilasi, gantung bila memungkinkan. Olesi bagian logam dengan minyak anti-karat bila disimpan lama. Pisahkan alat untuk tanaman sakit dari alat untuk tanaman sehat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q015",
+        "Q115"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q117",
+      "category": "Perawatan",
+      "type": "solution",
+      "question": "Perlukah sanitasi kebun rutin?",
+      "variations": [
+        "Apakah perlu sanitasi kebun rutin?"
+      ],
+      "keywords": [
+        "sanitasi",
+        "kebun"
+      ],
+      "answer": "Ya, sanitasi rutin sangat penting. Lakukan: (1) buang dan bakar daun/ranting sakit, (2) bersihkan gulma di sekitar batang, (3) periksa dan bersihkan drainase, (4) sterilkan alat antar tanaman, (5) jangan pindahkan tanah dari area sakit ke area sehat. Jadwalkan sanitasi minimal 1 kali sebulan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q016",
+        "Q015"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q118",
+      "category": "Perawatan",
+      "type": "solution",
+      "question": "Bagaimana mengelola gulma tanpa herbisida?",
+      "variations": [
+        "Cara mengelola gulma tanpa herbisida?"
+      ],
+      "keywords": [
+        "gulma",
+        "organik"
+      ],
+      "answer": "Langkah: (1) penyiangan manual rutin sebelum gulma berbunga, (2) mulsa organik tebal untuk menekan pertumbuhan gulma, (3) tanam tanaman penutup tanah (kacang-kacangan) yang menyaingi gulma, (4) bila perlu, siram dengan air panas di area kecil. Hindari mencabut gulma saat tanah terlalu basah agar akar tidak rusak.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q013",
+        "Q086"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q119",
+      "category": "Perawatan",
+      "type": "diagnostic",
+      "question": "Bagaimana pemangkasan akar cengkeh?",
+      "variations": [
+        "Cara pemangkasan akar cengkeh?"
+      ],
+      "keywords": [
+        "pangkas",
+        "akar"
+      ],
+      "answer": "Pemangkasan akar dilakukan pada cengkeh dewasa untuk meremajakan akar dan mengendalikan ukuran pohon. Gali parit melingkar 1–1.5 m dari batang sedalam 30–40 cm, potong akar yang besar dengan alat tajam, lalu isi kembali dengan kompos. Lakukan di awal musim hujan.",
+      "follow_ups": [
+        {
+          "id": "F119-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q060",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q060",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q060",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q060"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F119-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q060",
+                "Q120"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q060"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q060",
+        "Q014"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q120",
+      "category": "Perawatan",
+      "type": "solution",
+      "question": "Bagaimana memperbaiki tanah padat di kebun cengkeh?",
+      "variations": [
+        "Cara memperbaiki tanah padat di kebun cengkeh?"
+      ],
+      "keywords": [
+        "tanah",
+        "padat"
+      ],
+      "answer": "Langkah: (1) olah tanah ringan di sekitar batang tanpa merusak akar, (2) tambahkan bahan organik (kompos, pupuk kandang matang) 5–10 kg per pohon, (3) tanam tanaman penutup tanah dengan akar dalam (kacang-kacangan), (4) mulsa tebal untuk mendorong aktivitas cacing tanah, (5) hindari pengolahan tanah saat basah. Perbaikan bertahap selama 1–2 tahun.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q103",
+        "Q086"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q121",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Unsur hara apa saja yang dibutuhkan cengkeh?",
+      "variations": [
+        "Unsur hara apa yang dibutuhkan cengkeh?"
+      ],
+      "keywords": [
+        "unsur",
+        "hara"
+      ],
+      "answer": "Cengkeh butuh makro (N, P, K, Ca, Mg, S) dan mikro (B, Zn, Fe, Mn, Cu, Mo). Nitrogen untuk pertumbuhan daun, fosfor untuk akar dan bunga, kalium untuk kualitas buah dan ketahanan, boron dan zinc untuk pembungaan. Kekurangan salah satu unsur memicu gejala khas pada daun dan buah.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q021",
+        "Q066"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q122",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Berapa dosis pupuk untuk cengkeh muda?",
+      "variations": [
+        "Dosis pupuk untuk cengkeh muda?"
+      ],
+      "keywords": [
+        "dosis",
+        "pupuk"
+      ],
+      "answer": "Untuk cengkeh umur 0–3 tahun, dosis umum: 50–150 gram NPK per pohon per aplikasi, 2–3 kali setahun. Naikkan dosis sesuai umur. Kombinasikan dengan pupuk kandang matang 5–10 kg per pohon per tahun. Sesuaikan dengan hasil analisis tanah bila tersedia.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q021",
+        "Q027"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q123",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Berapa dosis pupuk untuk cengkeh produktif?",
+      "variations": [
+        "Dosis pupuk cengkeh produktif?"
+      ],
+      "keywords": [
+        "dosis",
+        "produktif"
+      ],
+      "answer": "Untuk cengkeh produktif (umur 7+ tahun), dosis umum: 500–1000 gram NPK per pohon per aplikasi, 2 kali setahun (awal dan akhir musim hujan). Tambahkan pupuk kandang 20–30 kg per pohon per tahun. Untuk pembungaan, naikkan porsi P dan K serta tambahkan boron.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q027",
+        "Q066"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q124",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Kenapa daun cengkeh berwarna pucat?",
+      "variations": [
+        "Kok daun cengkeh pucat?"
+      ],
+      "keywords": [
+        "daun",
+        "pucat"
+      ],
+      "answer": "Daun pucat sering menandakan kekurangan nitrogen, kekurangan cahaya, atau drainase buruk. Periksa: (1) apakah pupuk N terakhir sudah lebih dari 3 bulan, (2) apakah pohon ternaungi, (3) apakah tanah terlalu basah. Bila perlu, lakukan analisis daun untuk memastikan unsur yang kurang.",
+      "follow_ups": [
+        {
+          "id": "F124-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q023",
+                "Q024",
+                "Q125"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q125",
+                "Q129"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q023",
+                "Q129"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q125"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F124-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q023",
+                "Q058",
+                "Q125"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q057",
+                "Q125"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q023",
+                "Q024",
+                "Q125"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q125"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q022",
+        "Q029"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q125",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Bagaimana mengatasi kekurangan nitrogen pada cengkeh?",
+      "variations": [
+        "Cara mengatasi kekurangan nitrogen pada cengkeh?"
+      ],
+      "keywords": [
+        "nitrogen"
+      ],
+      "answer": "Kekurangan nitrogen menunjukkan daun bawah menguning merata, pertumbuhan lambat. Solusi: aplikasikan pupuk N (urea atau ZA) 100–200 g/pohon, bagi 2 aplikasi. Tambahkan bahan organik untuk memperbaiki struktur tanah. Untuk jangka panjang, lakukan pemupukan berimbang N-P-K.",
+      "follow_ups": [
+        {
+          "id": "F125-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q023",
+                "Q124",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q023",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q130"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F125-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q057",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q023",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q130"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q023",
+        "Q029"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q126",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Apa tanda kekurangan kalium pada cengkeh?",
+      "variations": [
+        "Tanda kekurangan kalium pada cengkeh?"
+      ],
+      "keywords": [
+        "kalium",
+        "kekurangan"
+      ],
+      "answer": "Kekurangan kalium menunjukkan tepi daun menguning lalu cokelat (khas), daun menggulung, dan kualitas bunga menurun. Sering muncul di tanah berpasir atau setelah hujan deras (kalium mudah tercuci). Solusi: aplikasikan KCl atau K2SO4 100–200 g/pohon, bagi 2–3 aplikasi.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q022",
+        "Q028"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q127",
+      "category": "Nutrisi & Kesuburan",
+      "type": "informational",
+      "question": "Apa tanda kekurangan boron pada cengkeh?",
+      "variations": [
+        "Tanda kekurangan boron pada cengkeh?"
+      ],
+      "keywords": [
+        "boron",
+        "kekurangan"
+      ],
+      "answer": "Kekurangan boron menyebabkan ujung tunas mati, daun muda keriput, bunga gugur sebelum mekar, dan buah muda gugur. Boron penting untuk pembungaan. Solusi: aplikasikan boraks atau asam borat 5–15 g/pohon, jangan berlebihan karena boron mudah menjadi racun. Sebaiknya lewat daun.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q063",
+        "Q066"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q128",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Kenapa cengkeh mudah gugur bunga dan buah muda?",
+      "variations": [
+        "Kok bunga dan buah muda cengkeh gugur?"
+      ],
+      "keywords": [
+        "gugur",
+        "bunga"
+      ],
+      "answer": "Gugur bunga/buah muda bisa karena: (1) kekurangan boron atau zinc, (2) kekurangan air, (3) hujan deras saat pembungaan, (4) angin kencang, (5) serangan hama penghisap, atau (6) pemupukan nitrogen berlebihan. Periksa satu per satu sebelum menentukan solusi.",
+      "follow_ups": [
+        {
+          "id": "F128-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q127",
+                "Q124",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q129",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q057",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q130"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F128-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q127"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q127",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q127"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q066",
+        "Q084"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q129",
+      "category": "Nutrisi & Kesuburan",
+      "type": "diagnostic",
+      "question": "Kenapa cengkeh pertumbuhannya lambat?",
+      "variations": [
+        "Kok cengkeh lambat tumbuh?"
+      ],
+      "keywords": [
+        "lambat",
+        "tumbuh"
+      ],
+      "answer": "Pertumbuhan lambat bisa karena: (1) kekurangan nitrogen atau unsur mikro, (2) pH tanah tidak sesuai (terlalu asam/basa), (3) tanah padat atau drainase buruk, (4) naungan terlalu rapat, (5) akar rusak, (6) persaingan gulma. Periksa satu per satu dari yang paling mudah: cahaya, drainase, kesuburan.",
+      "follow_ups": [
+        {
+          "id": "F129-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q124",
+                "Q125",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q060",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q057",
+                "Q130"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q130"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F129-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q125"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q057",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q124",
+                "Q125"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q130"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q029",
+        "Q087"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q130",
+      "category": "Nutrisi & Kesuburan",
+      "type": "solution",
+      "question": "Bagaimana mengatasi tanah asam untuk cengkeh?",
+      "variations": [
+        "Cara mengatasi tanah asam untuk cengkeh?"
+      ],
+      "keywords": [
+        "tanah",
+        "asam"
+      ],
+      "answer": "Langkah: (1) lakukan analisis tanah untuk mengetahui pH pasti, (2) bila pH < 5.5, tambahkan kapur pertanian (dolomit atau kalsit) 1–3 ton/ha, (3) aplikasikan 1–2 bulan sebelum tanam atau awal musim hujan, (4) campur dengan tanah atas, (5) tambahkan bahan organik untuk buffer pH. Ulangi analisis setelah 6 bulan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q025",
+        "Q082"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q131",
+      "category": "Hama",
+      "type": "informational",
+      "question": "Hama utama apa saja pada tanaman cengkeh?",
+      "variations": [
+        "Apa saja hama utama cengkeh?"
+      ],
+      "keywords": [
+        "hama",
+        "utama"
+      ],
+      "answer": "Hama utama cengkeh: (1) penggerek batang (Xyleborus, Zeuzera), (2) penggerek ranting (Xylosandrus), (3) kutu daun dan tungau, (4) thrips pada bunga muda, (5) ulat daun, (6) tikus dan tupai pada buah. Serangan berat biasanya terjadi pada tanaman yang stres atau lemah.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q031",
+        "Q040"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q132",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Kenapa daun cengkeh berlubang-lubang?",
+      "variations": [
+        "Kok daun cengkeh berlubang?"
+      ],
+      "keywords": [
+        "daun",
+        "berlubang"
+      ],
+      "answer": "Daun berlubang biasanya karena ulat atau kumbang pemakan daun. Periksa: (1) apakah ada larva/ulat di balik daun atau di sekitar, (2) apakah lubang besar (ulat) atau kecil berkelompok (kumbang), (3) apakah ada kotoran serangga. Untuk serangan ringan, bisa dipetik manual; untuk berat, aplikasikan insektisida selektif.",
+      "follow_ups": [
+        {
+          "id": "F132-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q135",
+                "Q035",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q035",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q135"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F132-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q035",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q035",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q035",
+                "Q135"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q135"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q035",
+        "Q040"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q133",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Kenapa daun cengkeh menggulung?",
+      "variations": [
+        "Kok daun cengkeh menggulung?"
+      ],
+      "keywords": [
+        "daun",
+        "menggulung"
+      ],
+      "answer": "Daun menggulung bisa karena: (1) serangan kutu atau tungau penghisap di balik daun, (2) kekurangan air berat, (3) keracunan hara, atau (4) virus. Periksa balik daun dengan kaca pembesar — bila ada serangga kecil, kemungkinan hama penghisap. Bila tidak ada, cek kelembapan tanah.",
+      "follow_ups": [
+        {
+          "id": "F133-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q134",
+                "Q135",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q134",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q053",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q134"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F133-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q134"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q134",
+                "Q135"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q134"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q035",
+        "Q053"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q134",
+      "category": "Hama",
+      "type": "informational",
+      "question": "Bagaimana mengenali serangan kutu daun cengkeh?",
+      "variations": [
+        "Ciri serangan kutu daun cengkeh?"
+      ],
+      "keywords": [
+        "kutu",
+        "daun"
+      ],
+      "answer": "Kutu daun terlihat sebagai serangga kecil hijau/hitam berkelompok di pucuk muda dan balik daun. Tanda: daun menggulung, pucuk kerdil, ada cairan manis (embun madu) yang memicu jamur hitam. Periksa pagi hari saat kutu aktif. Kendalikan dengan predator alami (kepik) atau sabun insektisida.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q035",
+        "Q133"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q135",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Bagaimana mengenali serangan tungau pada cengkeh?",
+      "variations": [
+        "Ciri serangan tungau pada cengkeh?"
+      ],
+      "keywords": [
+        "tungau"
+      ],
+      "answer": "Tungau sangat kecil (perlu kaca pembesar), menyebabkan daun berbintik kuning lalu mengering, kadang ada jaring halus di balik daun. Serangan meningkat di musim kemarau. Kendalikan dengan menjaga kelembapan (semprot air), predator alami, atau akarisida bila berat.",
+      "follow_ups": [
+        {
+          "id": "F135-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q134",
+                "Q133",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q053",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q134"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F135-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q058"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q053",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q140"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q133",
+        "Q045"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q136",
+      "category": "Hama",
+      "type": "informational",
+      "question": "Bagaimana mencegah serangan thrips pada bunga cengkeh?",
+      "variations": [
+        "Cara mencegah thrips pada bunga cengkeh?"
+      ],
+      "keywords": [
+        "thrips",
+        "bunga"
+      ],
+      "answer": "Thrips menyerang bunga muda dengan menghisap cairan — bunga jadi kecokelatan dan gugur. Pencegahan: (1) jaga kebersihan kebun, (2) buang bunga yang terserang, (3) gunakan perangkap lengket warna biru, (4) aplikasikan insektisida selektif bila populasi tinggi, (5) hindari pemupukan nitrogen berlebihan yang mengundang thrips.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q067",
+        "Q131"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q137",
+      "category": "Hama",
+      "type": "diagnostic",
+      "question": "Bagaimana mengendalikan tikus di kebun cengkeh?",
+      "variations": [
+        "Cara mengendalikan tikus di kebun cengkeh?"
+      ],
+      "keywords": [
+        "tikus"
+      ],
+      "answer": "Tikus memakan buah muda dan merusak akar. Kendalikan dengan: (1) sanitasi — buang sarang dan sisa panen, (2) pasang perangkap atau umpan, (3) pelihara predator alami (ular, burung hantu), (4) tanam tanaman pengusir (serai wangi), (5) hindari genangan yang jadi tempat tikus minum.",
+      "follow_ups": [
+        {
+          "id": "F137-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q060",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q060",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q140"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F137-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q140"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q140"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q140"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q140"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q040",
+        "Q131"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q138",
+      "category": "Hama",
+      "type": "solution",
+      "question": "Bagaimana membuat perangkap hama sederhana?",
+      "variations": [
+        "Cara membuat perangkap hama sederhana?"
+      ],
+      "keywords": [
+        "perangkap",
+        "hama"
+      ],
+      "answer": "Langkah: (1) perangkap lengket kuning/biru — beli atau buat dari kertas berwarna + lem, (2) perangkap feromon — untuk penggerek batang, (3) perangkap cahaya — untuk ngengat malam, (4) perangkap buah — untuk lalat buah. Ganti perangkap tiap 2–4 minggu. Catat hasil tangkapan untuk memantau populasi.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q040",
+        "Q131"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q139",
+      "category": "Hama",
+      "type": "solution",
+      "question": "Kapan waktu tepat aplikasi insektisida untuk cengkeh?",
+      "variations": [
+        "Kapan waktu tepat aplikasi insektisida untuk cengkeh?"
+      ],
+      "keywords": [
+        "waktu",
+        "insektisida"
+      ],
+      "answer": "Waktu terbaik: (1) pagi sebelum jam 9 atau sore setelah jam 4, (2) saat cuaca cerah tanpa hujan, (3) saat hama masih stadia awal (larva muda), (4) sesuai siklus hama — untuk penggerek, aplikasi saat kumbang dewasa aktif. Hindari aplikasi saat pembungaan agar tidak membunuh lebah penyerbuk.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q033",
+        "Q037"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q140",
+      "category": "Hama",
+      "type": "solution",
+      "question": "Bagaimana menerapkan pengendalian hama terpadu (PHT)?",
+      "variations": [
+        "Cara menerapkan pengendalian hama terpadu (PHT)?"
+      ],
+      "keywords": [
+        "terpadu",
+        "PHT"
+      ],
+      "answer": "Langkah PHT: (1) monitoring rutin 1–2 kali seminggu, (2) identifikasi hama dengan tepat, (3) dahulukan cara fisik/mekanis (pemangkasan, perangkap), (4) dorong predator alami, (5) gunakan pestisida selektif sebagai pilihan terakhir, (6) rotasi jenis pestisida agar hama tidak kebal, (7) catat setiap tindakan. PHT bukan 'tanpa pestisida' — tapi pakai dengan bijak.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q037",
+        "Q038"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q141",
+      "category": "Penyakit",
+      "type": "informational",
+      "question": "Penyakit utama apa saja pada tanaman cengkeh?",
+      "variations": [
+        "Apa saja penyakit utama cengkeh?"
+      ],
+      "keywords": [
+        "penyakit",
+        "utama"
+      ],
+      "answer": "Penyakit utama cengkeh: (1) BPKC (Bakteri Penyebab Kematian Cengkeh — Pseudomonas syzygii), (2) bercak daun (Colletotrichum, Cercospora), (3) layu Fusarium, (4) busuk akar (Phytophthora), (5) jamur upas pada batang, (6) hawar daun. Sebagian besar meningkat pada musim hujan atau tanaman yang lemah.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q041",
+        "Q042"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q142",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Bagaimana membedakan bercak daun karena jamur dan bakteri?",
+      "variations": [
+        "Cara membedakan bercak daun jamur dan bakteri?"
+      ],
+      "keywords": [
+        "bercak",
+        "jamur",
+        "bakteri"
+      ],
+      "answer": "Bercak jamur biasanya berbentuk bulat/oval dengan tepi gelap, kadang berlapis spora. Bercak bakteri tidak beraturan, berminyak, dan bisa mengeluarkan cairan. Keduanya bisa menyebar di musim hujan. Diagnosis pasti perlu lab. Untuk penanganan awal, sanitasi dan fungisida/bakterisida sesuai dugaan.",
+      "follow_ups": [
+        {
+          "id": "F142-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q044",
+                "Q046",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q045",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q057",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q045"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F142-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q045",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q046",
+                "Q049"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q045",
+                "Q046"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q045"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q044",
+        "Q046"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q143",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Kenapa batang cengkeh mengeluarkan getah?",
+      "variations": [
+        "Kok batang cengkeh keluar getah?"
+      ],
+      "keywords": [
+        "batang",
+        "getah"
+      ],
+      "answer": "Getah keluar dari batang biasanya karena luka (mekanis, hama penggerek, atau jamur upas). Getah yang mengalir terus bisa menandakan infeksi. Periksa: (1) apakah ada lubang penggerek di sekitar, (2) apakah ada bercak gelap (jamur), (3) apakah getah berbau busuk. Bersihkan luka dan olesi fungisida bila perlu.",
+      "follow_ups": [
+        {
+          "id": "F143-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q031",
+                "Q041",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q033",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q033"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F143-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q031",
+                "Q033"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q044",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q033",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q033"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q031",
+        "Q044"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q144",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Bagaimana mengenali serangan jamur upas pada batang?",
+      "variations": [
+        "Ciri jamur upas pada batang cengkeh?"
+      ],
+      "keywords": [
+        "upas",
+        "jamur"
+      ],
+      "answer": "Jamur upas (Upasia / Corticium salmonicolor) menunjukkan lapisan putih/merah muda pada batang atau cabang, mirip kerak. Kulit di bawahnya membusuk. Serangan berat mematikan cabang. Kendalikan dengan mengerik lapisan jamur, olesi fungisida, dan perbaiki sirkulasi udara.",
+      "follow_ups": [
+        {
+          "id": "F144-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q041",
+                "Q043",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q044",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q057",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q044"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F144-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q044",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q046",
+                "Q049"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q044",
+                "Q145"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q044"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q044",
+        "Q046"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q145",
+      "category": "Penyakit",
+      "type": "informational",
+      "question": "Bagaimana mencegah busuk akar pada cengkeh?",
+      "variations": [
+        "Cara mencegah busuk akar pada cengkeh?"
+      ],
+      "keywords": [
+        "busuk",
+        "akar"
+      ],
+      "answer": "Pencegahan busuk akar (Phytophthora atau Fusarium): (1) pastikan drainase baik, hindari genangan, (2) jangan melukai akar saat olah tanah, (3) gunakan bibit sehat dan steril, (4) hindari penyiraman berlebihan, (5) tambahkan bahan organik untuk menekan patogen, (6) bila muncul gejala, aplikasikan fungisida akar dan perbaiki drainase.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q060",
+        "Q085"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q146",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Kenapa cabang cengkeh mati mendadak?",
+      "variations": [
+        "Kok cabang cengkeh mati mendadak?"
+      ],
+      "keywords": [
+        "cabang",
+        "mati"
+      ],
+      "answer": "Cabang mati mendadak bisa karena: (1) BPKC, (2) jamur pembuluh (Fusarium, Ceratocystis), (3) penggerek batang, (4) kerusakan akar berat, (5) sengatan matahari atau angin. Periksa bagian dalam cabang — bila kecokelatan tanpa larva, kemungkinan patogen atau stres. Bila ada lubang, penggerek.",
+      "follow_ups": [
+        {
+          "id": "F146-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q042",
+                "Q043",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q043",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q060",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q043"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F146-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q043",
+                "Q053"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q044",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q043",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q043"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q042",
+        "Q043"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q147",
+      "category": "Penyakit",
+      "type": "informational",
+      "question": "Apa itu penyakit BPKC dan bagaimana penyebarannya?",
+      "variations": [
+        "Apa itu BPKC dan bagaimana penyebarannya?"
+      ],
+      "keywords": [
+        "BPKC",
+        "penyebaran"
+      ],
+      "answer": "BPKC (Bakteri Penyebab Kematian Cengkeh) disebabkan Pseudomonas syzygii, ditularkan oleh kutu loncat (Hindola striata). Ciri: daun gugur mendadak, pucuk mati, cabang mengering dari ujung. Penyebaran cepat melalui serangga vektor. Pengendalian: kendalikan vektor, pangkas dan bakar bagian sakit, karantina pohon terserang.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q042",
+        "Q041"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q148",
+      "category": "Penyakit",
+      "type": "diagnostic",
+      "question": "Bagaimana penyebaran penyakit antar pohon cengkeh?",
+      "variations": [
+        "Cara penyakit menyebar antar pohon cengkeh?"
+      ],
+      "keywords": [
+        "penyebaran",
+        "antar",
+        "pohon"
+      ],
+      "answer": "Penyakit menyebar melalui: (1) angin (spora jamur), (2) air hujan/hujan cipratan, (3) serangga vektor, (4) alat pertanian yang tidak steril, (5) tanah yang terbawa, (6) bibit yang tidak sehat. Pencegahan: sanitasi, sterilisasi alat, kendalikan vektor, karantina pohon sakit, gunakan bibit bersertifikat.",
+      "follow_ups": [
+        {
+          "id": "F148-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q049",
+                "Q045",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q049",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q049"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F148-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q045",
+                "Q050"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q046",
+                "Q049"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q049",
+                "Q150"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q049"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q049",
+        "Q050"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q149",
+      "category": "Penyakit",
+      "type": "informational",
+      "question": "Bagaimana memilih bibit bebas penyakit?",
+      "variations": [
+        "Cara memilih bibit bebas penyakit?"
+      ],
+      "keywords": [
+        "bibit",
+        "bebas",
+        "penyakit"
+      ],
+      "answer": "Pilih bibit dari sumber terpercaya (penangkar bersertifikat), dengan ciri: batang kokoh, daun hijau cerah tanpa bercak, akar bersih tanpa busuk, tidak ada gejala hawar. Karantina bibit baru 2–4 minggu sebelum tanam di kebun. Bila ragu, aplikasikan fungisida dan bakterisida pada bibit sebelum tanam.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q001",
+        "Q145"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q150",
+      "category": "Penyakit",
+      "type": "solution",
+      "question": "Bagaimana mengendalikan penyakit dengan sanitasi kebun?",
+      "variations": [
+        "Cara mengendalikan penyakit dengan sanitasi kebun?"
+      ],
+      "keywords": [
+        "sanitasi",
+        "penyakit"
+      ],
+      "answer": "Langkah: (1) buang dan bakar daun/ranting/buah sakit, (2) bersihkan gulma di sekitar batang, (3) perbaiki drainase agar tidak ada genangan, (4) sterilkan alat pangkas antar pohon dengan alkohol 70% atau klorin, (5) karantina pohon sakit bila memungkinkan, (6) catat lokasi dan waktu munculnya gejala. Sanitasi rutin 1 kali sebulan mengurangi sumber inokulum.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q049",
+        "Q050"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q151",
+      "category": "Diagnosa Tanaman",
+      "type": "informational",
+      "question": "Apa langkah pertama diagnosis masalah cengkeh?",
+      "variations": [
+        "Langkah pertama diagnosis masalah cengkeh?"
+      ],
+      "keywords": [
+        "langkah",
+        "diagnosis"
+      ],
+      "answer": "Langkah pertama: (1) observasi menyeluruh — daun, batang, akar, tanah, lingkungan, (2) catat gejala spesifik dan waktu munculnya, (3) bandingkan dengan pohon sehat di sekitarnya, (4) foto gejala untuk referensi. Hindari langsung menyimpulkan — kumpulkan bukti dulu. Diagnosis yang baik berasal dari pengamatan menyeluruh.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q051",
+        "Q055"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q152",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana mengidentifikasi kekurangan hara vs serangan hama?",
+      "variations": [
+        "Cara membedakan kekurangan hara vs serangan hama?"
+      ],
+      "keywords": [
+        "kekurangan",
+        "hara",
+        "vs",
+        "hama"
+      ],
+      "answer": "Kekurangan hara: gejala merata di banyak daun, pola khas (menguning merata, tepi cokelat, dll), tidak ada serangga. Serangan hama: gejala tidak merata (berkelompok), ada bukti serangga (kutu, lubang, kotoran), sering ada kerusakan mekanis. Kekurangan hara diperbaiki dengan pupuk; hama dengan pengendalian OPT.",
+      "follow_ups": [
+        {
+          "id": "F152-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q022",
+                "Q135",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q031",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q060",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q022"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F152-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q022",
+                "Q031"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q022"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q022",
+        "Q031"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q153",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana membedakan layu karena penyakit vs kekeringan?",
+      "variations": [
+        "Cara membedakan layu karena penyakit vs kekeringan?"
+      ],
+      "keywords": [
+        "layu",
+        "penyakit",
+        "kekeringan"
+      ],
+      "answer": "Layu karena kekeringan: pulih setelah disiram, tanah kering, daun tidak berubah warna. Layu karena penyakit: tidak pulih setelah disiram, sering ada perubahan warna, batang/akar menunjukkan gejala (cokelat, busuk). Cek tanah dulu — bila kering, coba siram. Bila tidak pulih dalam 1 hari, curigai penyakit.",
+      "follow_ups": [
+        {
+          "id": "F153-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q048",
+                "Q049",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q049",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q053",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q048"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F153-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q058"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q057",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q048",
+                "Q049"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q048"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q048",
+        "Q053"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q154",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana mendiagnosis masalah akar cengkeh?",
+      "variations": [
+        "Cara mendiagnosis masalah akar cengkeh?"
+      ],
+      "keywords": [
+        "diagnosis",
+        "akar"
+      ],
+      "answer": "Diagnosis akar: (1) gali hati-hati di 3–4 titik sekitar tanaman, (2) periksa warna akar (putih/krem sehat, cokelat/hitam busuk), (3) periksa tekstur (padat sehat, lunak busuk), (4) periksa bau (bau busuk = anaerob), (5) cek keberadaan hama tanah. Bandingkan dengan akar pohon sehat.",
+      "follow_ups": [
+        {
+          "id": "F154-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q060",
+                "Q022",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q060",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q060"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F154-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q060",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q060"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q060",
+        "Q085"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q155",
+      "category": "Diagnosa Tanaman",
+      "type": "informational",
+      "question": "Bagaimana teknik pengambilan sampel tanah untuk diagnosis?",
+      "variations": [
+        "Cara ambil sampel tanah untuk diagnosis?"
+      ],
+      "keywords": [
+        "sampel",
+        "tanah"
+      ],
+      "answer": "Teknik: (1) ambil 10–15 titik per blok dengan pola zigzag, (2) ambil pada kedalaman 0–20 cm, (3) campur semua menjadi 1 sampel komposit 500 g, (4) keringkan angin, masukkan kantong bersih, (5) beri label (lokasi, tanggal, kedalaman), (6) kirim ke lab. Hindari sampel dari area bekas pupuk atau genangan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q025",
+        "Q154"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q156",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana mengidentifikasi stres air pada cengkeh?",
+      "variations": [
+        "Cara mengidentifikasi stres air pada cengkeh?"
+      ],
+      "keywords": [
+        "stres",
+        "air"
+      ],
+      "answer": "Stres air terbagi dua: (1) Kekurangan air: daun menggulung siang hari, tepi mengering, daun tua gugur, pertumbuhan lambat. (2) Kelebihan air: daun menguning, akar busuk, batang lembek, tanah berbau. Periksa kelembapan tanah dengan tes jari atau tongkat. Sesuaikan penyiraman dan drainase.",
+      "follow_ups": [
+        {
+          "id": "F156-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q053",
+                "Q057",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q057",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q060"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q053"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F156-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q058"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q057",
+                "Q085"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q053",
+                "Q057"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q053"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q053",
+        "Q057"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q157",
+      "category": "Diagnosa Tanaman",
+      "type": "informational",
+      "question": "Bagaimana menentukan tingkat keparahan serangan?",
+      "variations": [
+        "Cara menentukan tingkat keparahan serangan?"
+      ],
+      "keywords": [
+        "tingkat",
+        "keparahan"
+      ],
+      "answer": "Tingkat keparahan dinilai dari: (1) persentase bagian tanaman terserang, (2) kecepatan penyebaran, (3) dampak pada produksi, (4) potensi kematian pohon. Klasifikasi umum: ringan (<10%), sedang (10–30%), berat (>30%). Semakin tinggi tingkat, semakin agresif penanganan yang diperlukan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q036",
+        "Q056"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "Q158",
+      "category": "Diagnosa Tanaman",
+      "type": "diagnostic",
+      "question": "Bagaimana menilai kondisi kesehatan pohon secara keseluruhan?",
+      "variations": [
+        "Cara menilai kondisi kesehatan pohon cengkeh?"
+      ],
+      "keywords": [
+        "kesehatan",
+        "pohon"
+      ],
+      "answer": "Nilai dari 4 aspek: (1) Kanopi — kepadatan daun, warna, vigor tunas baru, (2) Batang — warna, getah, luka, keberadaan hama, (3) Akar — warna, tekstur, bau (perlu penggalian), (4) Produksi — jumlah bunga, kualitas, konsistensi. Pohon sehat: kanopi rapat, warna hijau cerah, tunas aktif, produksi stabil.",
+      "follow_ups": [
+        {
+          "id": "F158-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q022",
+                "Q124",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q031",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q060",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q022"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F158-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q022",
+                "Q159"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q022"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q051",
+        "Q056"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q159",
+      "category": "Diagnosa Tanaman",
+      "type": "solution",
+      "question": "Bagaimana menyusun rencana perbaikan bertahap?",
+      "variations": [
+        "Cara menyusun rencana perbaikan bertahap?"
+      ],
+      "keywords": [
+        "rencana",
+        "perbaikan"
+      ],
+      "answer": "Langkah: (1) catat semua gejala dan diagnosis, (2) prioritaskan yang paling mendesak (pohon hampir mati), (3) bagi menjadi 3 tahap: minggu ini, bulan ini, 6 bulan ke depan, (4) tulis tindakan konkret per masalah, (5) anggarkan biaya dan waktu, (6) jadwalkan pemantauan mingguan, (7) evaluasi hasil setiap bulan dan sesuaikan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q020",
+        "Q050"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q160",
+      "category": "Diagnosa Tanaman",
+      "type": "solution",
+      "question": "Bagaimana membuat peta zonasi kebun untuk perbaikan?",
+      "variations": [
+        "Cara membuat peta zonasi kebun?"
+      ],
+      "keywords": [
+        "peta",
+        "zonasi"
+      ],
+      "answer": "Langkah: (1) gambar sketsa kebun dengan posisi pohon, (2) bagi menjadi zona A/B/C sesuai kondisi (sehat, sedang, bermasalah), (3) tandai area dengan masalah spesifik (drainase buruk, serangan hama, dll), (4) catat karakteristik tanah per zona, (5) tentukan tindakan per zona, (6) perbarui peta setiap 3 bulan. Zonasi membantu intervensi yang lebih tepat sasaran.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q019",
+        "Q159"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q161",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apa saja fase pembungaan cengkeh?",
+      "variations": [
+        "Apa saja fase pembungaan cengkeh?"
+      ],
+      "keywords": [
+        "fase",
+        "pembungaan"
+      ],
+      "answer": "Fase pembungaan cengkeh: (1) inisiasi kuncup (dipicu musim kering singkat), (2) pembengkakan kuncup, (3) kuncup memanjang (hijau), (4) perubahan warna (hijau → kemerahan), (5) siap panen (merah, belum mekar), (6) mekar penuh (kualitas turun). Waktu total dari inisiasi ke siap panen sekitar 6–8 bulan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q061",
+        "Q067"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q162",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Berapa lama proses dari kuncup sampai mekar?",
+      "variations": [
+        "Berapa lama kuncup cengkeh sampai mekar?"
+      ],
+      "keywords": [
+        "lama",
+        "kuncup",
+        "mekar"
+      ],
+      "answer": "Dari kuncup kecil sampai mekar penuh memerlukan 5–7 bulan, tergantung varietas dan iklim. Kuncup matang (siap panen) muncul sekitar 6–8 minggu sebelum mekar penuh. Waktu kritis: saat perubahan warna dari hijau ke merah — hanya 5–10 hari, dan setelah itu kualitas menurun cepat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q061",
+        "Q067"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q163",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "diagnostic",
+      "question": "Kenapa bunga cengkeh rontok sebelum mekar?",
+      "variations": [
+        "Kok bunga cengkeh rontok sebelum mekar?"
+      ],
+      "keywords": [
+        "bunga",
+        "rontok"
+      ],
+      "answer": "Bunga rontok sebelum mekar bisa karena: (1) kekurangan boron atau zinc, (2) kekurangan air saat pembungaan, (3) hujan deras atau angin kencang, (4) serangan thrips, (5) perubahan cuaca ekstrem, (6) pemupukan nitrogen berlebihan. Periksa satu per satu — seringkali kombinasi cuaca dan hara.",
+      "follow_ups": [
+        {
+          "id": "F163-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q127",
+                "Q128",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q127",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q058",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q127"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F163-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q127"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q127",
+                "Q128"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q127"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q066",
+        "Q127"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q164",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apa pengaruh musim kemarau terhadap pembungaan cengkeh?",
+      "variations": [
+        "Pengaruh musim kemarau terhadap pembungaan cengkeh?"
+      ],
+      "keywords": [
+        "kemarau",
+        "pembungaan"
+      ],
+      "answer": "Musim kemarau singkat (2–4 minggu) justru memicu pembungaan cengkeh — inilah 'stres positif'. Namun kemarau panjang (lebih dari 2 bulan) menyebabkan tanaman stres berat, kuncup kering, dan gagal berbunga. Idealnya: kemarau singkat → hujan ringan → pembungaan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q062",
+        "Q089"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q165",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "diagnostic",
+      "question": "Bagaimana meningkatkan jumlah bunga cengkeh?",
+      "variations": [
+        "Cara meningkatkan jumlah bunga cengkeh?"
+      ],
+      "keywords": [
+        "meningkatkan",
+        "bunga"
+      ],
+      "answer": "Untuk meningkatkan bunga: (1) pastikan cahaya matahari cukup (minimal 6–8 jam), (2) hindari nitrogen berlebihan, (3) naikkan porsi P dan K sebelum musim berbunga, (4) tambahkan boron dan zinc, (5) jaga stres air yang tepat (kemarau singkat), (6) pemangkasan ringan untuk membuka kanopi, (7) kendalikan hama dan penyakit.",
+      "follow_ups": [
+        {
+          "id": "F165-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q066",
+                "Q127",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q113",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q066"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F165-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q066"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q066",
+                "Q127"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q066"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q066",
+        "Q068"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q166",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "diagnostic",
+      "question": "Kenapa bunga cengkeh kecil-kecil?",
+      "variations": [
+        "Kok bunga cengkeh kecil?"
+      ],
+      "keywords": [
+        "bunga",
+        "kecil"
+      ],
+      "answer": "Bunga kecil bisa karena: (1) kekurangan air saat pembentukan kuncup, (2) kekurangan boron, zinc, atau kalium, (3) serangan hama pada tangkai bunga, (4) cuaca ekstrem saat inisiasi, (5) umur pohon masih muda (produksi belum optimal). Perbaiki hara dan air, serta kendalikan hama.",
+      "follow_ups": [
+        {
+          "id": "F166-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q126",
+                "Q127",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q126",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q058",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q126"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F166-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q127"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q127",
+                "Q126"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q127"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q068",
+        "Q126"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q167",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Apakah umur pohon mempengaruhi kualitas bunga?",
+      "variations": [
+        "Pengaruh umur pohon terhadap kualitas bunga cengkeh?"
+      ],
+      "keywords": [
+        "umur",
+        "kualitas",
+        "bunga"
+      ],
+      "answer": "Ya. Cengkeh muda (5–7 tahun) mulai berbunga tetapi kualitas belum optimal. Puncak kualitas biasanya pada umur 15–25 tahun. Pohon sangat tua (>40 tahun) produksi dan kualitas menurun karena cabang sudah tua dan pemeliharaan lebih sulit. Rotasi atau peremajaan pohon produktif dianjurkan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q061",
+        "Q069"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q168",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "informational",
+      "question": "Bagaimana memperpanjang masa produktif pohon cengkeh?",
+      "variations": [
+        "Cara memperpanjang masa produktif cengkeh?"
+      ],
+      "keywords": [
+        "produktif",
+        "masa"
+      ],
+      "answer": "Kunci: (1) pemeliharaan rutin sejak muda — pupuk, pangkas, sanitasi, (2) hindari kerusakan akar, (3) kendalikan hama dan penyakit sejak dini, (4) pemangkasan peremajaan ringan setiap 2–3 tahun, (5) jaga kesuburan tanah dengan bahan organik, (6) hindari over-pemupukan. Pohon yang dijaga baik bisa produktif hingga 60+ tahun.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q113",
+        "Q020"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q169",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "diagnostic",
+      "question": "Kenapa pembungaan tidak serentak dalam satu kebun?",
+      "variations": [
+        "Kok pembungaan cengkeh tidak serentak?"
+      ],
+      "keywords": [
+        "pembungaan",
+        "tidak",
+        "serentak"
+      ],
+      "answer": "Pembungaan tidak serentak bisa karena: (1) variasi umur pohon, (2) perbedaan jenis tanah antar zona, (3) perbedaan drainase, (4) perbedaan naungan, (5) variasi mikro-iklim. Tidak selalu masalah — justru bisa menguntungkan karena panen bertahap. Namun bila ingin seragam, tanam bibit seumur dari sumber yang sama.",
+      "follow_ups": [
+        {
+          "id": "F169-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q062",
+                "Q063",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q063",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q062"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F169-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q062",
+                "Q063"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q170"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q062",
+                "Q063"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q062"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q019",
+        "Q062"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q170",
+      "category": "Bunga & Pembentukan Bunga",
+      "type": "solution",
+      "question": "Bagaimana mengatur hara untuk mendukung pembungaan?",
+      "variations": [
+        "Cara mengatur hara untuk mendukung pembungaan?"
+      ],
+      "keywords": [
+        "hara",
+        "pembungaan"
+      ],
+      "answer": "Langkah: (1) kurangi nitrogen 2–3 bulan sebelum musim berbunga, (2) naikkan P dan K — gunakan pupuk dengan rasio P dan K lebih tinggi, (3) tambahkan boron 5–15 g/pohon, (4) tambahkan zinc bila daun menunjukkan gejala kekurangan, (5) lakukan analisis daun sebelum aplikasi, (6) bagi aplikasi 2–3 kali, jangan sekaligus.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q066",
+        "Q127"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q171",
+      "category": "Panen",
+      "type": "informational",
+      "question": "Berapa kali panen cengkeh dalam setahun?",
+      "variations": [
+        "Berapa kali panen cengkeh per tahun?"
+      ],
+      "keywords": [
+        "kali",
+        "panen"
+      ],
+      "answer": "Panen utama biasanya 1 kali per tahun (musim panen besar), berlangsung 2–4 bulan dengan pemetikan bertahap setiap 3–7 hari. Beberapa daerah dengan iklim berbeda bisa mengalami 2 musim panen. Produksi tahunan bervariasi antara 3–10 kg cengkeh kering per pohon produktif.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q071",
+        "Q079"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q172",
+      "category": "Panen",
+      "type": "informational",
+      "question": "Berapa produksi rata-rata pohon cengkeh produktif?",
+      "variations": [
+        "Berapa produksi rata-rata pohon cengkeh?"
+      ],
+      "keywords": [
+        "produksi",
+        "rata-rata"
+      ],
+      "answer": "Produksi rata-rata: 3–10 kg cengkeh kering per pohon per tahun, tergantung umur dan pemeliharaan. Pohon yang dipelihara baik pada umur puncak (15–25 tahun) bisa mencapai 10–15 kg. Pada tanaman yang kurang dipelihara, bisa di bawah 2 kg. Peningkatan produksi 20–30% sering dicapai hanya dengan pemupukan dan pemangkasan yang tepat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q077",
+        "Q079"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q173",
+      "category": "Panen",
+      "type": "informational",
+      "question": "Bagaimana memisahkan cengkeh matang dan mentah saat panen?",
+      "variations": [
+        "Cara memisahkan cengkeh matang dan mentah saat panen?"
+      ],
+      "keywords": [
+        "memisahkan",
+        "matang"
+      ],
+      "answer": "Saat panen bertahap: petik hanya kuncup yang kemerahan. Kuncup hijau dibiarkan. Bila ada kuncup yang belum matang tapi harus dipetik (untuk menghindari cuaca buruk), pisahkan dari hasil panen utama — kualitasnya berbeda. Jangan campur — sortasi dimulai sejak panen.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q072",
+        "Q095"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q174",
+      "category": "Panen",
+      "type": "diagnostic",
+      "question": "Bagaimana menghindari kerusakan saat panen musim hujan?",
+      "variations": [
+        "Cara menghindari kerusakan panen saat musim hujan?"
+      ],
+      "keywords": [
+        "panen",
+        "hujan"
+      ],
+      "answer": "Bila panen jatuh di musim hujan: (1) petik saat jeda hujan, hindari saat basah, (2) keringkan dengan alat pengering buatan (oven/fan), (3) jangan menumpuk hasil basah karena cepat berjamur, (4) sortasi lebih ketat — buang cengkeh berjamur, (5) simpan di wadah kedap dengan silica gel. Kualitas bisa dipertahankan bila pengeringan tepat waktu.",
+      "follow_ups": [
+        {
+          "id": "F174-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q047",
+                "Q098",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q098",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q098"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F174-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q091",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q098",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q091",
+                "Q098"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q098"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q091",
+        "Q098"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q175",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Bagaimana memanen cengkeh di pohon tinggi?",
+      "variations": [
+        "Cara panen cengkeh di pohon tinggi?"
+      ],
+      "keywords": [
+        "panen",
+        "pohon",
+        "tinggi"
+      ],
+      "answer": "Langkah: (1) gunakan tangga yang stabil atau galah pemanen dengan gunting di ujungnya, (2) jangan memanjat pohon langsung — memanjat merusak cabang, (3) ikat diri dengan harness bila perlu, (4) kerja berpasangan untuk keselamatan, (5) letakkan jaring/net di bawah untuk menampung kuncup yang jatuh, (6) berhenti bila angin kencang atau hujan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q075",
+        "Q080"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q176",
+      "category": "Panen",
+      "type": "informational",
+      "question": "Berapa lama masa panen berlangsung?",
+      "variations": [
+        "Berapa lama masa panen cengkeh?"
+      ],
+      "keywords": [
+        "masa",
+        "panen"
+      ],
+      "answer": "Masa panen utama biasanya 2–4 bulan, mulai dari panen pertama sampai panen terakhir. Panen dilakukan bertahap setiap 3–7 hari karena kuncup tidak matang bersamaan. Setelah panen selesai, pohon masuk fase pemulihan 3–4 bulan sebelum siklus pembungaan berikutnya dimulai.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q071",
+        "Q079"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q177",
+      "category": "Panen",
+      "type": "informational",
+      "question": "Apakah cuaca mempengaruhi waktu panen?",
+      "variations": [
+        "Pengaruh cuaca terhadap waktu panen cengkeh?"
+      ],
+      "keywords": [
+        "cuaca",
+        "waktu",
+        "panen"
+      ],
+      "answer": "Ya, sangat. Cuaca kering mempercepat kematangan dan mempermudah pengeringan. Hujan deras bisa menggugurkan kuncup, mengundang jamur, dan menyulitkan panen. Idealnya panen berlangsung saat cuaca cerah dengan kelembapan rendah. Bila musim hujan, siapkan alat pengering dan sortasi lebih ketat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q090",
+        "Q174"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q178",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Bagaimana mengurangi kehilangan hasil saat panen?",
+      "variations": [
+        "Cara mengurangi kehilangan hasil saat panen?"
+      ],
+      "keywords": [
+        "kehilangan",
+        "hasil"
+      ],
+      "answer": "Langkah: (1) panen pada kematangan optimal (jangan terlalu awal/lambat), (2) petik dengan hati-hati tanpa memar, (3) gunakan jaring/net untuk menampung jatuhan, (4) keringkan segera setelah panen, (5) sortasi bertahap untuk buang yang rusak, (6) simpan dalam wadah kedap. Kehilangan 10–20% bisa ditekan dengan teknik ini.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q076",
+        "Q077"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q179",
+      "category": "Panen",
+      "type": "diagnostic",
+      "question": "Kenapa hasil panen cengkeh tahun ini lebih sedikit dari tahun lalu?",
+      "variations": [
+        "Kok hasil panen cengkeh tahun ini lebih sedikit?"
+      ],
+      "keywords": [
+        "hasil",
+        "sedikit"
+      ],
+      "answer": "Penurunan hasil bisa karena: (1) musim kering tidak cukup panjang (pembungaan kurang), (2) kekurangan hara (terutama P, K, B), (3) serangan hama/penyakit tahun sebelumnya yang melemahkan pohon, (4) pemangkasan berat, (5) cuaca ekstrem saat pembungaan, (6) umur pohon sudah tua. Bandingkan dengan catatan tahun lalu.",
+      "follow_ups": [
+        {
+          "id": "F179-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q022",
+                "Q124",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q031",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q060",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F179-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q124",
+                "Q180"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q124"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q068",
+        "Q029"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q180",
+      "category": "Panen",
+      "type": "solution",
+      "question": "Bagaimana merencanakan panen untuk mutu terbaik?",
+      "variations": [
+        "Cara merencanakan panen untuk mutu terbaik?"
+      ],
+      "keywords": [
+        "rencana",
+        "panen",
+        "mutu"
+      ],
+      "answer": "Langkah: (1) pantau kematangan setiap 2–3 hari saat mendekati musim panen, (2) siapkan tenaga kerja dan alat sebelum panen, (3) siapkan tempat pengeringan dan wadah, (4) jadwalkan panen pagi (setelah embun kering) atau sore, (5) tetapkan sistem sortasi sejak awal, (6) pisahkan hasil per blok untuk evaluasi produktivitas, (7) dokumentasikan hasil untuk perbandingan tahun depan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q076",
+        "Q095"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q181",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Berapa curah hujan ideal untuk cengkeh?",
+      "variations": [
+        "Berapa curah hujan ideal untuk cengkeh?"
+      ],
+      "keywords": [
+        "curah",
+        "hujan"
+      ],
+      "answer": "Curah hujan ideal 1.500–2.500 mm/tahun dengan distribusi merata, diselingi musim kering 2–4 minggu untuk memicu pembungaan. Di bawah 1.000 mm, cengkeh butuh irigasi. Di atas 3.000 mm, risiko jamur dan busuk akar meningkat. Yang penting bukan hanya total, tetapi juga distribusinya sepanjang tahun.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q062",
+        "Q083"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q182",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Berapa suhu optimal untuk cengkeh?",
+      "variations": [
+        "Berapa suhu optimal untuk cengkeh?"
+      ],
+      "keywords": [
+        "suhu",
+        "optimal"
+      ],
+      "answer": "Suhu optimal untuk cengkeh 20–30°C. Cengkeh toleran hingga 15°C pada malam hari, tetapi suhu di bawah 10°C menghambat pertumbuhan. Suhu di atas 35°C menyebabkan stres panas, daun terbakar, dan bunga gugur. Perbedaan suhu siang-malam yang moderat mendukung pembungaan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q062",
+        "Q090"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q183",
+      "category": "Cuaca & Lingkungan",
+      "type": "diagnostic",
+      "question": "Bagaimana melindungi cengkeh dari angin kencang?",
+      "variations": [
+        "Cara melindungi cengkeh dari angin kencang?"
+      ],
+      "keywords": [
+        "angin",
+        "kencang"
+      ],
+      "answer": "Untuk melindungi dari angin: (1) tanam pemecah angin (lamtoro, gliricidia) di sisi datangnya angin, (2) pertahankan kanopi yang seimbang — hindari pemangkasan berat, (3) pasang penopang (ajir) untuk pohon muda, (4) pangkas cabang mati/lemah untuk mengurangi beban angin, (5) untuk pohon rawan, ikat batang dengan tali.",
+      "follow_ups": [
+        {
+          "id": "F183-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q084",
+                "Q163",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q084",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q060",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q084"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F183-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q084",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q084"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q084",
+        "Q163"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q184",
+      "category": "Cuaca & Lingkungan",
+      "type": "diagnostic",
+      "question": "Bagaimana menangani kekeringan panjang?",
+      "variations": [
+        "Cara menangani kekeringan panjang pada cengkeh?"
+      ],
+      "keywords": [
+        "kekeringan",
+        "panjang"
+      ],
+      "answer": "Untuk kekeringan panjang: (1) siram teratur — 50–100 liter/pohon dewasa setiap 1–2 minggu, (2) mulsa tebal untuk menahan kelembapan, (3) hindari pemupukan N tinggi saat stres air, (4) pangkas ringan untuk mengurangi transpirasi, (5) untuk tanaman muda, beri naungan sementara, (6) jaga kebun bersih dari gulma yang bersaing air.",
+      "follow_ups": [
+        {
+          "id": "F184-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q053",
+                "Q058",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q058",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q058",
+                "Q086"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q058"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F184-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q053",
+                "Q058",
+                "Q086"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q058",
+                "Q086"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q058"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q081",
+        "Q089"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q185",
+      "category": "Cuaca & Lingkungan",
+      "type": "diagnostic",
+      "question": "Bagaimana menangani genangan air berkelanjutan?",
+      "variations": [
+        "Cara menangani genangan air berkelanjutan?"
+      ],
+      "keywords": [
+        "genangan",
+        "berkelanjutan"
+      ],
+      "answer": "Genangan berkepanjangan mematikan akar cengkeh. Langkah: (1) identifikasi sumber air (hujan, drainase buruk, mata air), (2) buat saluran drainase utama dan sekunder, (3) buat guludan/bedengan untuk pohon, (4) tambahkan bahan organik untuk memperbaiki struktur tanah, (5) untuk genangan besar, buat sumur resapan atau parit dalam. Perbaikan butuh 1–2 musim hujan.",
+      "follow_ups": [
+        {
+          "id": "F185-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q057",
+                "Q085",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q085",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q088"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q085"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F185-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q088"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q085",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q085"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q085",
+        "Q088"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q186",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Bagaimana cuaca mempengaruhi kualitas cengkeh?",
+      "variations": [
+        "Pengaruh cuaca terhadap kualitas cengkeh?"
+      ],
+      "keywords": [
+        "cuaca",
+        "kualitas"
+      ],
+      "answer": "Cuaca memengaruhi kualitas melalui: (1) hujan saat panen → jamur, warna gelap, (2) kemarau panjang saat pembungaan → kuncup kecil, (3) kelembapan tinggi saat penyimpanan → berjamur, (4) suhu ekstrem → aroma hilang. Kualitas terbaik diperoleh dari panen cuaca kering dan pengeringan tepat waktu.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q077",
+        "Q094"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q187",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Kapan waktu terbaik memulai kebun cengkeh baru?",
+      "variations": [
+        "Kapan waktu terbaik buka kebun cengkeh baru?"
+      ],
+      "keywords": [
+        "waktu",
+        "kebun",
+        "baru"
+      ],
+      "answer": "Waktu terbaik: awal musim hujan (Oktober–Desember). Pada periode ini tanah lembap cukup tetapi tidak tergenang, dan bibit punya waktu beradaptasi sebelum kemarau. Hindari memulai di akhir musim hujan — bibit akan langsung menghadapi kemarau dengan akar belum kuat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q002",
+        "Q101"
+      ],
+      "sources": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q188",
+      "category": "Cuaca & Lingkungan",
+      "type": "diagnostic",
+      "question": "Bagaimana mengurangi dampak perubahan iklim pada cengkeh?",
+      "variations": [
+        "Cara mengurangi dampak perubahan iklim pada cengkeh?"
+      ],
+      "keywords": [
+        "iklim",
+        "dampak"
+      ],
+      "answer": "Untuk mengurangi dampak perubahan iklim: (1) pilih varietas yang toleran iklim ekstrem, (2) perbaiki drainase dan sistem irigasi, (3) tanam pemecah angin, (4) mulsa untuk menstabilkan kelembapan tanah, (5) diversifikasi tumpang sari, (6) catat data cuaca untuk perencanaan, (7) jaga bahan organik tanah untuk buffer. Adaptasi jangka panjang.",
+      "follow_ups": [
+        {
+          "id": "F188-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Daun/warna berubah",
+              "value": "daun_berubah",
+              "next_qas": [
+                "Q053",
+                "Q047",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Batang/ranting bermasalah",
+              "value": "batang_ranting",
+              "next_qas": [
+                "Q084",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tanah/air bermasalah",
+              "value": "tanah_air",
+              "next_qas": [
+                "Q085",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q090"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F188-2",
+          "question": "Bagaimana kondisi lokasi?",
+          "options": [
+            {
+              "label": "Kering",
+              "value": "kering",
+              "next_qas": [
+                "Q058",
+                "Q086"
+              ]
+            },
+            {
+              "label": "Basah/tergenang",
+              "value": "basah",
+              "next_qas": [
+                "Q085",
+                "Q088"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q090",
+                "Q190"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q090"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q090",
+        "Q089"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q189",
+      "category": "Cuaca & Lingkungan",
+      "type": "informational",
+      "question": "Apa dampak kabut dan embun panjang pada cengkeh?",
+      "variations": [
+        "Dampak kabut dan embun panjang pada cengkeh?"
+      ],
+      "keywords": [
+        "kabut",
+        "embun"
+      ],
+      "answer": "Kabut dan embun panjang meningkatkan kelembapan di kanopi — memicu jamur bercak daun, antraknosa, dan busuk bunga. Daerah berkabut panjang (dataran tinggi) perlu: (1) pemangkasan untuk sirkulasi udara, (2) fungisida preventif saat musim kabut, (3) hindari penanaman di lokasi cekung (kabut menggenang).",
+      "follow_ups": [],
+      "related_qas": [
+        "Q044",
+        "Q046"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "Q190",
+      "category": "Cuaca & Lingkungan",
+      "type": "solution",
+      "question": "Bagaimana menyusun kalender pertanian berdasarkan musim?",
+      "variations": [
+        "Cara menyusun kalender pertanian berdasarkan musim?"
+      ],
+      "keywords": [
+        "kalender",
+        "musim"
+      ],
+      "answer": "Langkah: (1) catat pola cuaca lokal minimal 2 tahun, (2) tandai musim hujan, kemarau, pancaroba, (3) susun kegiatan per musim: pemupukan awal hujan, panen musim kemarau, pangkas awal hujan, (4) sisipkan pemantauan hama intensif di musim hujan, (5) rencanakan stok tenaga kerja saat panen, (6) tinjau kalender setiap tahun berdasarkan hasil.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q020",
+        "Q089"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q191",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Berapa kadar air ideal cengkeh kering?",
+      "variations": [
+        "Berapa kadar air ideal cengkeh kering?"
+      ],
+      "keywords": [
+        "kadar",
+        "air"
+      ],
+      "answer": "Kadar air ideal cengkeh kering untuk penyimpanan: 12–14%. Di atas 14% rentan jamur. Di bawah 12% bisa terlalu kering dan mudah pecah. Ukur dengan moisture meter, atau perkirakan dengan tes genggam (cengkeh tidak saling menempel) dan tes gigit (keras tetapi tidak pecah).",
+      "follow_ups": [],
+      "related_qas": [
+        "Q091",
+        "Q094"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q192",
+      "category": "Pascapanen",
+      "type": "solution",
+      "question": "Bagaimana memanggang cengkeh dengan oven?",
+      "variations": [
+        "Cara memanggang cengkeh dengan oven?"
+      ],
+      "keywords": [
+        "oven",
+        "pengeringan"
+      ],
+      "answer": "Langkah: (1) set oven 40–50°C (jangan lebih — minyak atsiri bisa hilang), (2) sebar cengkeh di loyang dengan alas kertas roti, ketebalan 1–2 cm, (3) buka ventilasi oven sedikit agar uap keluar, (4) balik setiap 30 menit, (5) total waktu 6–10 jam tergantung kadar air awal, (6) target kadar air 12–14%. Dinginkan sebelum simpan.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q091",
+        "Q094"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q193",
+      "category": "Pascapanen",
+      "type": "diagnostic",
+      "question": "Bagaimana mempertahankan aroma cengkeh saat penyimpanan?",
+      "variations": [
+        "Cara mempertahankan aroma cengkeh saat penyimpanan?"
+      ],
+      "keywords": [
+        "aroma",
+        "penyimpanan"
+      ],
+      "answer": "Aroma cengkeh berasal dari minyak atsiri yang mudah menguap. Untuk mempertahankan: (1) simpan di wadah kedap udara, (2) tempat gelap dan sejuk (18–22°C), (3) hindari sinar matahari langsung, (4) jangan simpan dengan bahan berbau kuat, (5) jangan terlalu lama — aroma menurun setelah 12 bulan, (6) hindari perubahan suhu ekstrem. Rotasi stok lebih penting dari penyimpanan lama.",
+      "follow_ups": [
+        {
+          "id": "F193-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Aroma hilang",
+              "value": "aroma_hilang",
+              "next_qas": [
+                "Q097",
+                "Q198",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Warna pudar",
+              "value": "warna_pudar",
+              "next_qas": [
+                "Q097",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Berjamur",
+              "value": "berjamur",
+              "next_qas": [
+                "Q098",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q097"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F193-2",
+          "question": "Bagaimana kondisi penyimpanan?",
+          "options": [
+            {
+              "label": "Kering/sejuk",
+              "value": "kering",
+              "next_qas": [
+                "Q200"
+              ]
+            },
+            {
+              "label": "Lembap/panas",
+              "value": "lembap",
+              "next_qas": [
+                "Q098",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q097",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q097"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q097",
+        "Q098"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q194",
+      "category": "Pascapanen",
+      "type": "diagnostic",
+      "question": "Bagaimana mengemas cengkeh untuk pengiriman jauh?",
+      "variations": [
+        "Cara mengemas cengkeh untuk pengiriman jauh?"
+      ],
+      "keywords": [
+        "kemas",
+        "pengiriman"
+      ],
+      "answer": "Untuk pengiriman jauh: (1) pastikan kadar air 12–14%, (2) kemas dalam karung plastik food-grade, lalu masukkan ke karung goni, (3) tambahkan silica gel 20–50 g per 10 kg, (4) jangan padatkan berlebihan agar tidak pecah, (5) beri label (tanggal, kadar air, berat, mutu), (6) simpan di kontainer kering dan sejuk selama transit, (7) hindari kontak dengan bahan berbau kuat.",
+      "follow_ups": [
+        {
+          "id": "F194-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Aroma hilang",
+              "value": "aroma_hilang",
+              "next_qas": [
+                "Q193",
+                "Q198",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Warna pudar",
+              "value": "warna_pudar",
+              "next_qas": [
+                "Q197",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Berjamur",
+              "value": "berjamur",
+              "next_qas": [
+                "Q098",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q097"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F194-2",
+          "question": "Bagaimana kondisi penyimpanan?",
+          "options": [
+            {
+              "label": "Kering/sejuk",
+              "value": "kering",
+              "next_qas": [
+                "Q200"
+              ]
+            },
+            {
+              "label": "Lembap/panas",
+              "value": "lembap",
+              "next_qas": [
+                "Q098",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q197",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q200"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q096",
+        "Q099"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q195",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Apa standar mutu cengkeh di pasar?",
+      "variations": [
+        "Apa standar mutu cengkeh di pasar?"
+      ],
+      "keywords": [
+        "standar",
+        "mutu"
+      ],
+      "answer": "Standar mutu umum cengkeh kering: (1) warna cokelat kemerahan merata, (2) kadar air 12–14%, (3) kotoran maksimal 1%, (4) kuncup utuh minimal 80%, (5) tidak berjamur atau berbau asing, (6) minyak atsiri minimal 15%. Kualitas premium (mutu ekspor) memiliki warna cerah, kuncup besar (>1,8 cm), dan aroma kuat.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q095",
+        "Q097"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q196",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Bagaimana mencegah serangan hama gudang?",
+      "variations": [
+        "Cara mencegah hama gudang pada cengkeh?"
+      ],
+      "keywords": [
+        "hama",
+        "gudang"
+      ],
+      "answer": "Pencegahan hama gudang: (1) pastikan cengkeh kering (12–14%), (2) simpan di wadah kedap, (3) ruang gudang bersih dan berventilasi, (4) hindari menyimpan bersama bahan pangan lain, (5) periksa stok lama sebelum menambah stok baru, (6) gunakan silica gel atau kapur tohor, (7) bila muncul hama, jemur ulang atau gunakan perangkap. Jangan pakai insektisida langsung pada produk.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q098",
+        "Q099"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q197",
+      "category": "Pascapanen",
+      "type": "diagnostic",
+      "question": "Kenapa warna cengkeh kering memudar saat disimpan?",
+      "variations": [
+        "Kok warna cengkeh kering memudar?"
+      ],
+      "keywords": [
+        "warna",
+        "memudar"
+      ],
+      "answer": "Warna memudar karena: (1) terkena sinar matahari langsung saat penyimpanan, (2) suhu penyimpanan terlalu panas, (3) kadar air terlalu rendah atau terlalu tinggi, (4) terlalu lama disimpan (lebih dari 12 bulan), (5) oksidasi minyak atsiri. Simpan di wadah kedap, tempat gelap, sejuk. Untuk stok baru, warna lebih cerah.",
+      "follow_ups": [
+        {
+          "id": "F197-1",
+          "question": "Gejala mana yang paling sesuai?",
+          "options": [
+            {
+              "label": "Aroma hilang",
+              "value": "aroma_hilang",
+              "next_qas": [
+                "Q193",
+                "Q198",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Warna pudar",
+              "value": "warna_pudar",
+              "next_qas": [
+                "Q193",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Berjamur",
+              "value": "berjamur",
+              "next_qas": [
+                "Q098",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q193"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F197-2",
+          "question": "Bagaimana kondisi penyimpanan?",
+          "options": [
+            {
+              "label": "Kering/sejuk",
+              "value": "kering",
+              "next_qas": [
+                "Q200"
+              ]
+            },
+            {
+              "label": "Lembap/panas",
+              "value": "lembap",
+              "next_qas": [
+                "Q098",
+                "Q193"
+              ]
+            },
+            {
+              "label": "Normal",
+              "value": "normal",
+              "next_qas": [
+                "Q193",
+                "Q200"
+              ]
+            },
+            {
+              "label": "Tidak tahu",
+              "value": "unknown",
+              "next_qas": [
+                "Q193"
+              ]
+            }
+          ]
+        }
+      ],
+      "related_qas": [
+        "Q097",
+        "Q094"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q198",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Berapa lama cengkeh bisa disimpan?",
+      "variations": [
+        "Berapa lama cengkeh bisa disimpan?"
+      ],
+      "keywords": [
+        "lama",
+        "simpan"
+      ],
+      "answer": "Dengan penyimpanan tepat (kadar air 12–14%, wadah kedap, tempat sejuk-gelap), cengkeh bisa disimpan 12–18 bulan tanpa kehilangan aroma signifikan. Setelah 2 tahun, aroma dan warna menurun. Untuk mutu optimal, rotasi stok setiap 6 bulan. Bila ingin simpan lebih lama, gunakan penyimpanan dingin (di bawah 15°C).",
+      "follow_ups": [],
+      "related_qas": [
+        "Q097",
+        "Q099"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q199",
+      "category": "Pascapanen",
+      "type": "informational",
+      "question": "Bagaimana menyortir cengkeh berdasarkan mutu?",
+      "variations": [
+        "Cara menyortir cengkeh berdasarkan mutu?"
+      ],
+      "keywords": [
+        "sortir",
+        "mutu"
+      ],
+      "answer": "Sortasi mutu berdasarkan: (1) ukuran kuncup (besar >1.8 cm = premium, sedang 1.5–1.8 = standar, kecil <1.5 = rendah), (2) warna (cerah merata = premium, kusam = standar), (3) kelengkapan (utuh = premium, pecah/rusak = rendah), (4) aroma (kuat = premium), (5) kadar air. Sortir di tempat bersih dengan penerangan cukup. Peralatan: ayakan/saringan ukuran.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q095",
+        "Q195"
+      ],
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "Q200",
+      "category": "Pascapanen",
+      "type": "solution",
+      "question": "Bagaimana mengurangi susut pascapanen cengkeh?",
+      "variations": [
+        "Cara mengurangi susut pascapanen cengkeh?"
+      ],
+      "keywords": [
+        "susut",
+        "pascapanen"
+      ],
+      "answer": "Langkah: (1) panen pada kematangan optimal, (2) keringkan segera setelah panen (dalam 24 jam), (3) hindari tumpukan tebal saat penjemuran (maksimal 2–3 cm), (4) balik merata setiap 3–4 jam, (5) lindungi dari hujan dan embun, (6) sortasi bertahap untuk buang yang rusak, (7) simpan dengan kadar air 12–14% di wadah kedap, (8) rotasi stok 6 bulan. Susut bisa ditekan dari 20–30% menjadi 5–10%.",
+      "follow_ups": [],
+      "related_qas": [
+        "Q091",
+        "Q096"
+      ],
+      "sources": [
+        "S5"
+      ]
     }
   ]
 }
