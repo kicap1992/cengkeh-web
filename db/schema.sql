@@ -160,6 +160,26 @@ CREATE TABLE `tb_relasi` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `tb_session`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_session` (
+  `id` char(36) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `expires_at` timestamp NOT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_expires` (`expires_at`),
+  KEY `idx_user` (`user_id`),
+  CONSTRAINT `tb_session_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `tb_stopwords`
 --
 
@@ -185,6 +205,29 @@ CREATE TABLE `tb_sumber` (
   `judul` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `kode` (`kode`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tb_user`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nomor_telepon` varchar(20) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `level` enum('user','admin') NOT NULL DEFAULT 'user',
+  `status` enum('pending','active','rejected','suspended') NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `last_login_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nomor_telepon` (`nomor_telepon`),
+  KEY `idx_status` (`status`),
+  KEY `idx_level` (`level`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -229,5 +272,7 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20261005100001'),
   ('20261005162553'),
   ('20261008060834'),
-  ('20261010235705');
+  ('20261010235705'),
+  ('20261011014149'),
+  ('20261012041633');
 UNLOCK TABLES;

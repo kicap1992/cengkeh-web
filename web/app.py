@@ -15,12 +15,54 @@ from pathlib import Path
 import pymysql
 from flask import Flask, render_template, jsonify, request
 
+import re
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 app = Flask(__name__)
 
-# this is stopwords set, it will be populated from the database on app startup
+# ---------------------------------------------------------------------------
+# Auth helpers
+# ---------------------------------------------------------------------------
+PHONE_RE = re.compile(r"^08\d{8,13}$")   # 08 + 8–13 digits (10–15 total)
 
 
+def validate_phone(phone: str) -> str | None:
+    """
+    Return the normalized phone number, or None if invalid.
+    Indonesian format: starts with 08, 10–15 digits total.
+    """
+    if not phone:
+        return None
+    phone = phone.strip().replace(" ", "").replace("-", "").replace("+62", "08")
+    if not PHONE_RE.match(phone):
+        return None
+    return phone
+
+
+def validate_password(password: str) -> str | None:
+    """Return None if valid, or an error message if invalid."""
+    if not password or len(password) < 8:
+        return "Password minimal 8 karakter."
+    if password.lower() in {"password", "12345678", "qwertyui"}:
+        return "Password terlalu mudah ditebak."
+    return None
+
+
+def validate_name(name: str) -> str | None:
+    """Return None if valid, or an error message."""
+    if not name or len(name.strip()) < 2:
+        return "Nama minimal 2 karakter."
+    if len(name) > 100:
+        return "Nama maksimal 100 karakter."
+    return None
+
+# ---------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------
+# Tokenization
+# ---------------------------------------------------------------------------
 def tokenize(text: str, min_length: int = 3) -> list[str]:
     """
     Turn a raw user query into a list of clean tokens.
@@ -163,6 +205,98 @@ def not_found(e):
 def index():
     """Serve the chat UI."""
     return render_template("index.html")
+
+
+# login route
+@app.route("/login")
+def login():
+    """Serve the login page."""
+    return render_template("login.html")
+
+# register route
+@app.route("/register")
+def register():
+    """Serve the register page."""
+    return render_template("register.html")
+
+
+@app.route("/api/register", methods=["POST"])
+def api_register():
+    """
+    Register a new user (status='pending', awaiting admin approval).
+
+    Request body (JSON):
+        {
+            "nomor_telepon": "081234567890",
+            "nama": "Budi",
+            "password": "rahasia123"
+        }
+
+    Response:
+        201 { "status": "ok", "message": "Registrasi berhasil. Menunggu persetujuan admin." }
+        400 { "error": "..." }
+        409 { "error": "Nomor telepon sudah terdaftar." }
+    """
+    data = request.get_json(silent=True) or {}
+
+    phone = (data.get("nomor_telepon") or "").strip()
+    name = (data.get("nama") or "").strip()
+    password = data.get("password") or ""
+
+    # --- Validate ----------------------------------------------------------
+    normalized_phone = validate_phone(phone)
+    if normalized_phone is None:
+        return jsonify({
+            "error": "Nomor telepon tidak valid. Harus dimulai dengan 08 dan 10–15 digit."
+        }), 400
+
+    name_err = validate_name(name)
+    if name_err:
+        return jsonify({"error": name_err}), 400
+
+    pass_err = validate_password(password)
+    if pass_err:
+        return jsonify({"error": pass_err}), 400
+
+    # --- Insert ------------------------------------------------------------
+    with get_db() as cursor:
+        # Check for existing phone (any status)
+        cursor.execute(
+            "SELECT id, status FROM tb_user WHERE nomor_telepon = %s",
+            (normalized_phone,),
+        )
+        existing = cursor.fetchone()
+        if existing:
+            # Tailor the message based on status
+            status = existing["status"]
+            if status == "pending":
+                msg = "Nomor ini sudah terdaftar dan sedang menunggu persetujuan admin."
+            elif status == "active":
+                msg = "Nomor ini sudah terdaftar. Silakan login."
+            elif status == "rejected":
+                msg = "Registrasi nomor ini sebelumnya ditolak. Hubungi admin."
+            elif status == "suspended":
+                msg = "Akun nomor ini sedang ditangguhkan. Hubungi admin."
+            else:
+                msg = "Nomor ini sudah terdaftar."
+            return jsonify({"error": msg}), 409
+
+        password_hash = generate_password_hash(password)
+
+        cursor.execute(
+            """
+            INSERT INTO tb_user
+                (nomor_telepon, nama, password_hash, level, status)
+            VALUES
+                (%s, %s, %s, 'user', 'pending')
+            """,
+            (normalized_phone, name, password_hash),
+        )
+
+    return jsonify({
+        "status": "ok",
+        "message": "Registrasi berhasil. Akun Anda menunggu persetujuan admin.",
+    }), 201
 
 
 @app.route("/api/health")

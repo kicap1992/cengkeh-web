@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Cengkeh-Web | Halaman Login</title>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.min.css') }}">
+
+	<!-- Waves Effect -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/waves/waves.min.css') }}">
+
+</head>
+
+<body>
+
+	<div id="single-wrapper">
+		<form action="#" class="frm-single" id="register-form">
+			<div class="inside">
+				<div class="title"><strong>Cengkeh </strong>WEB</div>
+				<!-- /.title -->
+				<div class="frm-title">Halaman Pendaftaran</div>
+				<!-- /.frm-title -->
+				<div class="frm-input">
+					<input type="tel" placeholder="No Telepon (08xxxxxxxxxx)" class="frm-inp" id="phone"
+						name="nomor_telepon" inputmode="numeric" pattern="08[0-9]{8,13}" maxlength="15"
+						autocomplete="tel" required>
+					<i class="fa fa-phone frm-ico"></i>
+				</div>
+				<div class="frm-input">
+					<input type="text" placeholder="Nama Lengkap" class="frm-inp" id="name" name="nama" minlength="2"
+						maxlength="100" autocomplete="name" required>
+					<i class="fa fa-user frm-ico"></i>
+				</div>
+
+				<div class="frm-input">
+					<input type="password" placeholder="Password (min 8 karakter)" class="frm-inp" id="password"
+						name="password" minlength="8" autocomplete="new-password" required>
+					<i class="fa fa-lock frm-ico"></i>
+				</div>
+
+				<div class="frm-input">
+					<input type="password" placeholder="Konfirmasi Password" class="frm-inp" id="confirm_password"
+						name="confirm_password" minlength="8" autocomplete="new-password" required>
+					<i class="fa fa-lock frm-ico"></i>
+				</div>
+				<div id="form-message" style="display:none; padding: 10px; margin: 10px 0; border-radius: 4px;"></div>
+
+				<!-- /.clearfix -->
+				<button type="submit" class="frm-submit" id="register-submit">
+					Register <i class="fa fa-arrow-circle-right"></i>
+				</button>
+				<!-- /.row -->
+				<a href="/login" class="a-link"><i class="fa fa-sign-in"></i>Sudah Punya Akun. Silahkan Login</a>
+				<div class="frm-footer">NinjaAdmin © 2016.</div>
+				<!-- /.footer -->
+			</div>
+			<!-- .inside -->
+		</form>
+		<!-- /.frm-single -->
+	</div><!--/#single-wrapper -->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="{{ url_for('static', filename='script/html5shiv.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='script/respond.min.js') }}"></script>
+	<![endif]-->
+	<!-- 
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='scripts/modernizr.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='plugin/bootstrap/js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='plugin/nprogress/nprogress.js') }}"></script>
+	<script src="{{ url_for('static', filename='plugin/waves/waves.min.js') }}"></script>
+
+	<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+
+	<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
+</body>
+
+</html>
