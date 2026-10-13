@@ -33,3 +33,6 @@ jupyter/.ipynb_checkpoints/
 jupyter/.jupyter/
 jupyter/.ipython/
 jupyter/__pycache__/
+
+# Uploaded files (keep the dir, ignore the contents)
+web/static/uploads/**/*
