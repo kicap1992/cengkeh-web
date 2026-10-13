@@ -318,6 +318,42 @@ def index():
     """Serve the chat UI."""
     return render_template("index.html")
 
+# ---------------------------------------------------------------------------
+# Page decorators (redirect instead of returning JSON errors)
+# ---------------------------------------------------------------------------
+def page_login_required(f):
+    """
+    Page decorator: redirects to /login if not logged in.
+    """
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        user = current_user()
+        if user is None:
+            return redirect("/login")
+        return f(*args, **kwargs)
+    return wrapper
+
+
+def page_admin_required(f):
+    """
+    Page decorator: requires admin level. Redirects:
+      - to /login if not logged in
+      - to /user if logged in but not admin
+    """
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        user = current_user()
+        if user is None:
+            return redirect("/login")
+        if user["level"] != "admin":
+            return redirect("/user")
+        return f(*args, **kwargs)
+    return wrapper
+
+   
+# ----------------------------------------------------------------------------
+
+
 @app.route("/user")
 def user_page():
     """
@@ -329,19 +365,220 @@ def user_page():
     return render_template("user/index.html")
 
 
+#  ----------------------------------------------------------------------------
+# Below are admin-only routes. They require login AND level='admin'.
+# ----------------------------------------------------------------------------
 @app.route("/admin")
+@page_admin_required
 def admin_page():
-    """
-    Admin dashboard.
-    Requires login AND level='admin'.
-    """
-    user = current_user()
-    if user is None:
-        return redirect("/login")
-    if user["level"] != "admin":
-        # Non-admin trying to reach admin — send them to their page
-        return redirect("/user")
+    """ Admin page. Requires login AND level='admin'."""
     return render_template("admin/index.html")
+
+
+# create a user_list route
+@app.route("/user_list")
+@page_admin_required
+def user_list():
+    """Admin page to list all users. Requires login AND level='admin'."""
+    return render_template("admin/user-list.html")
+
+
+@app.route("/api/admin/users")
+@admin_required
+def api_admin_users():
+    """
+    Return the full user list for the admin panel.
+
+    Query params:
+        status — optional filter: pending / active / rejected / suspended
+        level  — optional filter: user / admin
+
+    Response:
+        {
+            "status": "ok",
+            "users": [
+                { id, nomor_telepon, nama, level, status, created_at, last_login_at },
+                ...
+            ],
+            "counts": {
+                "pending":   N,
+                "active":    N,
+                "rejected":  N,
+                "suspended": N,
+                "total":     N,
+            }
+        }
+    """
+    status_filter = request.args.get("status")
+    level_filter = request.args.get("level")
+
+    # Build WHERE clause safely
+    where = []
+    params = []
+    if status_filter:
+        where.append("status = %s")
+        params.append(status_filter)
+    if level_filter:
+        where.append("level = %s")
+        params.append(level_filter)
+
+    where_sql = ("WHERE " + " AND ".join(where)) if where else ""
+
+    with get_db() as cursor:
+        # Fetch users
+        cursor.execute(
+            f"""
+            SELECT id, nomor_telepon, nama, level, status,
+                   created_at, updated_at, last_login_at
+            FROM tb_user
+            {where_sql}
+            ORDER BY
+                FIELD(status, 'pending', 'active', 'suspended', 'rejected'),
+                created_at DESC
+            """,
+            params,
+        )
+        users = cursor.fetchall()
+
+        # Counts per status (unfiltered — always the full picture)
+        cursor.execute(
+            """
+            SELECT status, COUNT(*) AS cnt
+            FROM tb_user
+            GROUP BY status
+            """
+        )
+        counts = {r["status"]: r["cnt"] for r in cursor.fetchall()}
+        counts["total"] = sum(counts.values())
+
+    return jsonify({
+        "status": "ok",
+        "users": [
+            {
+                "id":            u["id"],
+                "nomor_telepon": u["nomor_telepon"],
+                "nama":          u["nama"],
+                "level":         u["level"],
+                "status":        u["status"],
+                "created_at":    u["created_at"].isoformat() if u["created_at"] else None,
+                "updated_at":    u["updated_at"].isoformat() if u["updated_at"] else None,
+                "last_login_at": u["last_login_at"].isoformat() if u["last_login_at"] else None,
+            }
+            for u in users
+        ],
+        "counts": counts,
+    })
+
+
+
+@app.route("/api/admin/approve/<int:user_id>", methods=["POST"])
+@admin_required
+def api_admin_approve(user_id):
+    """
+    Approve a user: set status='active'.
+
+    Allowed source statuses:
+        pending   → first-time approval
+        rejected  → admin changed their mind
+        suspended → reactivate
+    """
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT id, nama, status, level FROM tb_user WHERE id = %s",
+            (user_id,),
+        )
+        row = cursor.fetchone()
+        if row is None:
+            return jsonify({"error": f"User {user_id} tidak ditemukan."}), 404
+
+        if row["status"] == "active":
+            return jsonify({
+                "status": "ok",
+                "message": f"{row['nama']} sudah aktif.",
+            })
+
+        if row["status"] not in ("pending", "rejected", "suspended"):
+            return jsonify({
+                "error": f"Status '{row['status']}' tidak bisa disetujui."
+            }), 400
+
+        cursor.execute(
+            "UPDATE tb_user SET status='active' WHERE id = %s",
+            (user_id,),
+        )
+
+    return jsonify({
+        "status": "ok",
+        "message": f"{row['nama']} berhasil disetujui.",
+    })
+
+
+@app.route("/api/admin/reject/<int:user_id>", methods=["POST"])
+@admin_required
+def api_admin_reject(user_id):
+    """
+    Reject a user: set status='rejected'.
+
+    Allowed source statuses:
+        pending   → decline a new registration
+    """
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT id, nama, status, level FROM tb_user WHERE id = %s",
+            (user_id,),
+        )
+        row = cursor.fetchone()
+        if row is None:
+            return jsonify({"error": f"User {user_id} tidak ditemukan."}), 404
+
+        if row["level"] == "admin":
+            return jsonify({"error": "Akun admin tidak bisa ditolak."}), 400
+
+        if row["status"] != "pending":
+            return jsonify({
+                "error": f"Hanya pendaftar 'pending' yang bisa ditolak. "
+                         f"Status sekarang: '{row['status']}'."
+            }), 400
+
+        cursor.execute(
+            "UPDATE tb_user SET status='rejected' WHERE id = %s",
+            (user_id,),
+        )
+
+    return jsonify({
+        "status": "ok",
+        "message": f"{row['nama']} ditolak.",
+    })
+
+@app.route("/api/admin/suspend/<int:user_id>", methods=["POST"])
+@admin_required
+def api_admin_suspend(user_id):
+    """Set a user's status to 'suspended'."""
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT id, status, level FROM tb_user WHERE id = %s",
+            (user_id,),
+        )
+        row = cursor.fetchone()
+        if row is None:
+            return jsonify({"error": f"User {user_id} tidak ditemukan."}), 404
+        if row["level"] == "admin":
+            return jsonify({"error": "Admin tidak bisa ditangguhkan."}), 400
+        if row["status"] != "active":
+            return jsonify({
+                "error": f"Hanya user aktif yang bisa ditangguhkan. Status sekarang: '{row['status']}'."
+            }), 400
+
+        cursor.execute(
+            "UPDATE tb_user SET status='suspended' WHERE id = %s",
+            (user_id,),
+        )
+
+    return jsonify({"status": "ok", "message": "User ditangguhkan."})
+
+# ---------------------------------------------------------------------------
+# end of admin-only routes
+# ---------------------------------------------------------------------------
 
 
 # login route
