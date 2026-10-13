@@ -13,10 +13,122 @@ from contextlib import contextmanager
 from pathlib import Path
 
 import pymysql
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, redirect, make_response, g
 
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
+
+import uuid
+from datetime import datetime, timedelta
+from functools import wraps
+from flask import session, g
+
+
+# ---------------------------------------------------------------------------
+# Session helpers
+# ---------------------------------------------------------------------------
+SESSION_COOKIE = "cengkeh_session"
+SESSION_TTL_DAYS = 7        # sessions expire after 7 days
+
+
+def create_session(user_id: int, ip: str, user_agent: str) -> str:
+    """
+    Create a new session for a user and return the session ID (UUID).
+    """
+    session_id = str(uuid.uuid4())
+    expires_at = datetime.utcnow() + timedelta(days=SESSION_TTL_DAYS)
+
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            INSERT INTO tb_session (id, user_id, expires_at, ip_address, user_agent)
+            VALUES (%s, %s, %s, %s, %s)
+            """,
+            (session_id, user_id, expires_at, ip, (user_agent or "")[:255]),
+        )
+        cursor.execute(
+            "UPDATE tb_user SET last_login_at = NOW() WHERE id = %s",
+            (user_id,),
+        )
+
+    return session_id
+
+
+def get_session_user(session_id: str):
+    """
+    Look up the user for a given session ID.
+    Returns a dict, or None if the session is invalid or expired.
+    """
+    if not session_id:
+        return None
+
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            SELECT u.id, u.nomor_telepon, u.nama, u.level, u.status,
+                   s.id AS session_id, s.expires_at
+            FROM tb_session s
+            JOIN tb_user u ON u.id = s.user_id
+            WHERE s.id = %s AND s.expires_at > NOW()
+            """,
+            (session_id,),
+        )
+        row = cursor.fetchone()
+
+    if row is None:
+        return None
+
+    # Only active users
+    if row["status"] != "active":
+        return None
+
+    return row
+
+
+def delete_session(session_id: str):
+    """Delete a session (logout)."""
+    if not session_id:
+        return
+    with get_db() as cursor:
+        cursor.execute("DELETE FROM tb_session WHERE id = %s", (session_id,))
+
+
+def current_user():
+    """
+    Flask `g`-based helper. Returns the current user dict or None.
+    Cached per-request.
+    """
+    if hasattr(g, "_current_user"):
+        return g._current_user
+
+    sid = request.cookies.get(SESSION_COOKIE)
+    user = get_session_user(sid) if sid else None
+    g._current_user = user
+    return user
+
+
+def login_required(f):
+    """Decorator: route requires a logged-in user."""
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        if current_user() is None:
+            return jsonify({"error": "Login diperlukan."}), 401
+        return f(*args, **kwargs)
+    return wrapper
+
+
+def admin_required(f):
+    """Decorator: route requires an admin user."""
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        user = current_user()
+        if user is None:
+            return jsonify({"error": "Login diperlukan."}), 401
+        if user["level"] != "admin":
+            return jsonify({"error": "Hanya admin yang boleh mengakses."}), 403
+        return f(*args, **kwargs)
+    return wrapper
+
 
 
 app = Flask(__name__)
@@ -206,12 +318,136 @@ def index():
     """Serve the chat UI."""
     return render_template("index.html")
 
+@app.route("/user")
+def user_page():
+    """
+    Chat page for logged-in regular users.
+    If not logged in → redirect to /login.
+    """
+    if current_user() is None:
+        return redirect("/login")
+    return render_template("user/index.html")
+
+
+@app.route("/admin")
+def admin_page():
+    """
+    Admin dashboard.
+    Requires login AND level='admin'.
+    """
+    user = current_user()
+    if user is None:
+        return redirect("/login")
+    if user["level"] != "admin":
+        # Non-admin trying to reach admin — send them to their page
+        return redirect("/user")
+    return render_template("admin/index.html")
+
 
 # login route
 @app.route("/login")
 def login():
     """Serve the login page."""
     return render_template("login.html")
+
+@app.route("/api/login", methods=["POST"])
+def api_login():
+    """
+    Log in a user.
+
+    Request body (JSON):
+        {
+            "nomor_telepon": "081234567890",
+            "password": "rahasia123"
+        }
+
+    Response:
+        200 {
+            "status": "ok",
+            "user": { "id":..., "nama":..., "level":... }
+        }
+        400 { "error": "..." }
+        401 { "error": "Nomor telepon atau password salah." }
+        403 { "error": "..." }    (pending/rejected/suspended)
+    """
+    data = request.get_json(silent=True) or {}
+
+    phone_raw = (data.get("nomor_telepon") or "").strip()
+    password = data.get("password") or ""
+
+    # Normalize phone (same helper as register)
+    phone = validate_phone(phone_raw)
+    if phone is None:
+        # Don't reveal whether it's phone or password that's wrong
+        return jsonify({"error": "Nomor telepon atau password salah."}), 401
+
+    if not password:
+        return jsonify({"error": "Nomor telepon atau password salah."}), 401
+
+    # --- Lookup user -------------------------------------------------------
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT id, nomor_telepon, nama, password_hash, level, status "
+            "FROM tb_user WHERE nomor_telepon = %s",
+            (phone,),
+        )
+        user = cursor.fetchone()
+
+    # Generic error to avoid user enumeration
+    GENERIC_ERROR = "Nomor telepon atau password salah."
+
+    if user is None:
+        return jsonify({"error": GENERIC_ERROR}), 401
+
+    # --- Verify password ---------------------------------------------------
+    if not check_password_hash(user["password_hash"], password):
+        return jsonify({"error": GENERIC_ERROR}), 401
+
+    # --- Check status ------------------------------------------------------
+    status = user["status"]
+    if status == "pending":
+        return jsonify({
+            "error": "Akun Anda masih menunggu persetujuan admin."
+        }), 403
+    if status == "rejected":
+        return jsonify({
+            "error": "Registrasi akun ini ditolak. Hubungi admin."
+        }), 403
+    if status == "suspended":
+        return jsonify({
+            "error": "Akun ini sedang ditangguhkan. Hubungi admin."
+        }), 403
+    if status != "active":
+        return jsonify({"error": GENERIC_ERROR}), 401
+
+    # --- Create session ----------------------------------------------------
+    ip = request.remote_addr or ""
+    ua = request.headers.get("User-Agent", "")
+    session_id = create_session(user["id"], ip, ua)
+
+    # --- Build response ----------------------------------------------------
+    response = jsonify({
+        "status": "ok",
+        "user": {
+            "id":             user["id"],
+            "nomor_telepon":  user["nomor_telepon"],
+            "nama":           user["nama"],
+            "level":          user["level"],
+        },
+    })
+
+    # Set the session cookie (HttpOnly, SameSite=Lax)
+    response.set_cookie(
+        SESSION_COOKIE,
+        session_id,
+        max_age=SESSION_TTL_DAYS * 24 * 3600,
+        httponly=True,
+        samesite="Lax",
+        secure=False,   # ← set to True once we have HTTPS
+        path="/",
+    )
+
+    return response, 200
 
 # register route
 @app.route("/register")
@@ -297,6 +533,15 @@ def api_register():
         "status": "ok",
         "message": "Registrasi berhasil. Akun Anda menunggu persetujuan admin.",
     }), 201
+
+@app.route("/api/logout", methods=["POST"])
+def api_logout():
+    sid = request.cookies.get(SESSION_COOKIE)
+    if sid:
+        delete_session(sid)
+    response = jsonify({"status": "ok", "message": "Logout berhasil."})
+    response.delete_cookie(SESSION_COOKIE, path="/")
+    return response, 200
 
 
 @app.route("/api/health")

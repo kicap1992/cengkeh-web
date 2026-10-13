@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Cengkeh-Web | Halaman Login</title>
+	<title>Cengkeh-Web | Halaman Pendaftaran</title>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
 	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
@@ -60,8 +60,11 @@
 					Register <i class="fa fa-arrow-circle-right"></i>
 				</button>
 				<!-- /.row -->
-				<a href="/login" class="a-link"><i class="fa fa-sign-in"></i>Sudah Punya Akun. Silahkan Login</a>
-				<div class="frm-footer">NinjaAdmin © 2016.</div>
+				<a href="{{ url_for('login') }}" class="a-link"><i class="fa fa-sign-in"></i>Sudah Punya Akun. Silahkan Login</a>
+				<br>
+				<!-- create to halaman utama -->
+				<a href="{{ url_for('index') }}" class="a-link"><i class="fa fa-home"></i>Halaman Utama</a>
+				<div class="frm-footer">CengkehWeb © 2026.</div>
 				<!-- /.footer -->
 			</div>
 			<!-- .inside -->
@@ -84,6 +87,7 @@
 	<script src="{{ url_for('static', filename='plugin/waves/waves.min.js') }}"></script>
 
 	<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+	<script src="{{ url_for('static', filename='block/jquery.blockUI.js') }}"></script>
 
 	<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
 </body>

@@ -28,9 +28,9 @@
     function showMessage(text, kind) {
         // kind: "error" | "success" | "info"
         const colors = {
-            error:   { bg: "#fdecea", fg: "#b71c1c", border: "#f5c6cb" },
+            error: { bg: "#fdecea", fg: "#b71c1c", border: "#f5c6cb" },
             success: { bg: "#e8f5e9", fg: "#1b5e20", border: "#c8e6c9" },
-            info:    { bg: "#e3f2fd", fg: "#0d47a1", border: "#bbdefb" },
+            info: { bg: "#e3f2fd", fg: "#0d47a1", border: "#bbdefb" },
         };
         const c = colors[kind] || colors.info;
         messageBox.textContent = text;
@@ -48,6 +48,22 @@
     function setLoading(isLoading) {
         submitBtn.disabled = isLoading;
         submitBtn.textContent = isLoading ? "Memproses..." : "Register";
+        if (isLoading) {
+            $.blockUI({
+                message: "Sedang Diproses",
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'
+                }
+            });
+        }else {
+            $.unblockUI();
+        }
     }
 
     // ---------------------------------------------------------------------
@@ -100,15 +116,15 @@
 
         setLoading(true);
 
-        // console.log("📤 Submitting registration:", {
-        //     nomor_telepon: phoneInput.value.trim(),
-        //     nama: nameInput.value.trim(),
-        //     password: passwordInput.value,
-        // });
+        console.log("📤 Submitting registration:", {
+            nomor_telepon: phoneInput.value.trim(),
+            nama: nameInput.value.trim(),
+            password: passwordInput.value,
+        });
 
         // // sleep 3 seconds to simulate network delay
         // await new Promise((resolve) => setTimeout(resolve, 10000));
-        
+
         // showMessage("Registrasi berhasil. Menunggu persetujuan admin.", "success");
         // form.reset();
         // setLoading(false);

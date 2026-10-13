@@ -77,8 +77,18 @@
 				<!-- /.title -->
 				<ul class="menu js__accordion">
 					<li class="current">
-						<a class="waves-effect" href="index.html"><i
+						<a class="waves-effect" href="{{ url_for('index') }}"><i
 								class="menu-icon fa fa-home"></i><span>Dashboard</span></a>
+					</li>
+
+					<li>
+						<a class="waves-effect" href="{{ url_for('login') }}"><i
+								class="menu-icon fa fa-sign-in"></i><span>Login</span></a>
+					</li>
+
+					<li>
+						<a class="waves-effect" href="{{ url_for('register') }}"><i
+								class="menu-icon fa fa-user-plus"></i><span>Daftar</span></a>
 					</li>
 
 				</ul>
