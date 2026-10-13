@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Halaman List Pemetik - ChatBot Cengkeh</title>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.min.css') }}">
+
+	<!-- mCustomScrollbar -->
+	<link rel="stylesheet"
+		href="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css') }}">
+
+	<!-- Waves Effect -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/waves/waves.min.css') }}">
+
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.css') }}">
+
+	<!-- Percent Circle -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/percircle/css/percircle.css') }}">
+
+	<!-- Chartist Chart -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/chart/chartist/chartist.min.css') }}">
+
+	<!-- FullCalendar -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.print.css') }}"
+		media='print'>
+
+	<!-- Color Picker -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='color-switcher/color-switcher.min.css') }}">
+
+	<!-- Data Tables -->
+	<link rel="stylesheet"
+		href="{{ url_for('static', filename='plugin/datatables/media/css/dataTables.bootstrap.min.css') }}">
+
+
+</head>
+
+<body>
+	<div class="main-menu">
+		<header class="header">
+			<a href="index.html" class="logo">Cengkeh</a>
+			<button type="button" class="button-close fa fa-times js__menu_close"></button>
+			<div class="user">
+				<a href="#" class="avatar"><img src="{{ url_for('static', filename='favicon/cengkeh.png') }}"
+						alt=""><span class="status online"></span></a>
+				<h5 class="name"><a href="profile.html">Cengkeh Admin</a></h5>
+				<h5 class="position">Administrator</h5>
+				<!-- /.name -->
+				<div class="control-wrap js__drop_down">
+					<i class="fa fa-caret-down js__drop_down_button"></i>
+					<div class="control-list">
+						<div class="control-item"><a href="profile.html"><i class="fa fa-user"></i> Profile</a></div>
+						<div class="control-item"><a href="#"><i class="fa fa-gear"></i> Pengaturan</a></div>
+						<div class="control-item"><a href="#" class="logout-link"><i class="fa fa-sign-out"></i> Log
+								out</a></div>
+					</div>
+					<!-- /.control-list -->
+				</div>
+				<!-- /.control-wrap -->
+			</div>
+			<!-- /.user -->
+		</header>
+		<!-- /.header -->
+		<div class="content">
+
+			<div class="navigation">
+				<h5 class="title">Navigation</h5>
+				<!-- /.title -->
+				<ul class="menu js__accordion">
+					<li>
+						<a class="waves-effect" href="{{ url_for('index') }}"><i
+								class="menu-icon fa fa-home"></i><span>Dashboard</span></a>
+					</li>
+
+					<li>
+						<a class="waves-effect" href="{{ url_for('user_list') }}"><i
+								class="menu-icon fa fa-users"></i><span>List Pengguna</span></a>
+					</li>
+
+					<li class="current">
+						<a class="waves-effect" href="{{ url_for('pemetik_list') }}"><i
+								class="menu-icon fa fa-user"></i><span>List Pemetik</span></a>
+					</li>
+
+					<!-- create a logout -->
+					<li>
+						<a class="waves-effect logout-link" href="#"><i
+								class="menu-icon fa fa-sign-out"></i><span>Logout</span></a>
+					</li>
+
+				</ul>
+
+			</div>
+			<!-- /.navigation -->
+		</div>
+		<!-- /.content -->
+	</div>
+	<!-- /.main-menu -->
+
+	<div class="fixed-navbar">
+		<div class="pull-left">
+			<button type="button"
+				class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
+			<h1 class="page-title">Halaman Utama</h1>
+			<!-- /.page-title -->
+		</div>
+		<!-- /.pull-left -->
+		<div class="pull-right">
+
+
+			<a href="#" class="ico-item fa fa-power-off logout-link"></a>
+		</div>
+		<!-- /.pull-right -->
+	</div>
+	<!-- /.fixed-navbar -->
+
+
+
+	<div id="wrapper">
+		<div class="main-content">
+
+			<!-- Stats + Add button -->
+			<div class="row" style="margin-bottom: 20px;">
+				<div class="col-md-4">
+					<div class="panel" style="padding: 15px; background: #e8f5e9;">
+						<div style="font-size: 1.5rem; font-weight: 700;" id="count-active">—</div>
+						<div style="color: #1b5e20; font-size: 0.85rem;">Pemetik Aktif</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel" style="padding: 15px; background: #e2e3e5;">
+						<div style="font-size: 1.5rem; font-weight: 700;" id="count-inactive">—</div>
+						<div style="color: #383d41; font-size: 0.85rem;">Tidak Aktif</div>
+					</div>
+				</div>
+				<div class="col-md-4" style="text-align: right;">
+					<button class="btn btn-success" id="btn-add-pemetik" style="padding: 10px 20px; font-size: 0.9rem; border-radius: 6px;
+                           border: none; background: #2d6a4f; color: #fff; cursor: pointer;">
+						<i class="fa fa-plus"></i> Tambah Pemetik
+					</button>
+				</div>
+			</div>
+
+			<!-- Pemetik table -->
+			<div class="panel" style="padding: 15px; background: #fff;">
+				<table id="pemetik-table" class="table table-striped table-bordered" style="width: 100%;">
+					<thead>
+						<tr>
+							<th style="width: 60px;">Foto</th>
+							<th>Nama</th>
+							<th>Deskripsi</th>
+							<th>No. Telepon</th>
+							<th>Status</th>
+							<th style="width: 100px;">Aksi</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<!-- /.row -->
+			<footer class="footer">
+
+				<!--/#wrapper -->
+				<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+				<!--[if lt IE 9]>
+		<script src="{{ url_for('static', filename='script/html5shiv.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='script/respond.min.js') }}"></script>
+	<![endif]-->
+				<!-- 
+	================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
+				<script src="{{ url_for('static', filename='scripts/modernizr.min.js') }}"></script>
+				<script src="{{ url_for('static', filename='plugin/bootstrap/js/bootstrap.min.js') }}"></script>
+				<script
+					src="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+				<script src="{{ url_for('static', filename='plugin/nprogress/nprogress.js') }}"></script>
+				<script src="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.min.js') }}"></script>
+				<script src="{{ url_for('static', filename='plugin/waves/waves.min.js') }}"></script>
+				<!-- Full Screen Plugin -->
+				<script src="{{ url_for('static', filename='plugin/fullscreen/jquery.fullscreen-min.js') }}"></script>
+
+				<!-- Data Tables -->
+				<script
+					src="{{ url_for('static', filename='plugin/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+				<script
+					src="{{ url_for('static', filename='plugin/datatables/media/js/dataTables.bootstrap.min.js') }}"></script>
+
+
+				<script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+				<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
+				<script src="{{ url_for('static', filename='color-switcher/color-switcher.min.js') }}"></script>
+
+				<!-- Add Pemetik modal (moved to end of body — escapes .main-content layout) -->
+				<div id="add-modal" class="modal-overlay">
+					<div class="modal-box">
+						<h3 class="modal-title">Tambah Pemetik</h3>
+
+						<!-- Photo preview + upload -->
+						<div class="modal-field">
+							<label>Foto</label>
+							<div class="photo-upload-wrap">
+								<div class="photo-preview" id="photo-preview">
+									<span>👤</span>
+								</div>
+								<div class="photo-upload-controls">
+									<input type="file" id="add-foto-input" accept="image/*" style="display: none;">
+									<button type="button" class="btn-upload" id="btn-choose-photo">
+										Pilih Foto
+									</button>
+									<div class="upload-hint">JPG/PNG/WebP, maks 2 MB</div>
+									<div class="upload-status" id="upload-status"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal-field">
+							<label>Nama <span class="req">*</span></label>
+							<input type="text" id="add-nama" maxlength="100" required>
+						</div>
+
+						<div class="modal-field">
+							<label>Deskripsi</label>
+							<textarea id="add-deskripsi" rows="3" placeholder="Pengalaman, keahlian, dll."></textarea>
+						</div>
+
+						<div class="modal-field">
+							<label>No. Telepon</label>
+							<input type="tel" id="add-nomor" maxlength="15" inputmode="numeric"
+								placeholder="08xxxxxxxxxx">
+						</div>
+
+						<div id="add-error" class="modal-error"></div>
+
+						<div class="modal-actions">
+							<button id="btn-cancel-add" class="btn-cancel">Batal</button>
+							<button id="btn-save-add" class="btn-save">Simpan</button>
+						</div>
+					</div>
+				</div>
+
+				<style>
+					/* ---------------------------------------------------------------------
+   Modal — self-contained, escapes any layout ancestor
+   --------------------------------------------------------------------- */
+					.modal-overlay {
+						display: none;
+						position: fixed;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background: rgba(0, 0, 0, 0.5);
+						z-index: 99999;
+						align-items: center;
+						justify-content: center;
+						padding: 20px;
+						overflow-y: auto;
+					}
+
+					.modal-overlay.open {
+						display: flex;
+					}
+
+					.modal-box {
+						background: #fff;
+						border-radius: 12px;
+						padding: 24px;
+						max-width: 480px;
+						width: 100%;
+						max-height: 90vh;
+						overflow-y: auto;
+						box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+					}
+
+					.modal-title {
+						margin: 0 0 16px;
+						color: #2d6a4f;
+						font-size: 1.2rem;
+						font-weight: 600;
+					}
+
+					.modal-field {
+						margin-bottom: 14px;
+					}
+
+					.modal-field label {
+						display: block;
+						font-size: 0.85rem;
+						color: #555;
+						margin-bottom: 4px;
+						font-weight: 500;
+					}
+
+					.modal-field .req {
+						color: #c33;
+					}
+
+					.modal-field input[type="text"],
+					.modal-field input[type="tel"],
+					.modal-field textarea {
+						width: 100%;
+						padding: 8px 12px;
+						border: 1px solid #ccc;
+						border-radius: 6px;
+						font-size: 0.9rem;
+						font-family: inherit;
+						transition: border-color 0.15s;
+					}
+
+					.modal-field input:focus,
+					.modal-field textarea:focus {
+						outline: none;
+						border-color: #52b788;
+					}
+
+					.modal-field textarea {
+						resize: vertical;
+					}
+
+					/* Photo upload widget */
+					.photo-upload-wrap {
+						display: flex;
+						gap: 16px;
+						align-items: flex-start;
+					}
+
+					.photo-preview {
+						width: 90px;
+						height: 90px;
+						border-radius: 50%;
+						background: #e8f5e9;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						font-size: 2rem;
+						color: #2d6a4f;
+						flex-shrink: 0;
+						overflow: hidden;
+						border: 2px solid #c8e6c9;
+					}
+
+					.photo-preview img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+
+					.photo-upload-controls {
+						flex: 1;
+						padding-top: 4px;
+					}
+
+					.btn-upload {
+						padding: 8px 16px;
+						border: 1px solid #2d6a4f;
+						background: #fff;
+						color: #2d6a4f;
+						border-radius: 6px;
+						cursor: pointer;
+						font-size: 0.85rem;
+						font-weight: 500;
+						transition: all 0.15s;
+					}
+
+					.btn-upload:hover {
+						background: #e8f5e9;
+					}
+
+					.btn-upload:disabled {
+						opacity: 0.5;
+						cursor: not-allowed;
+					}
+
+					.upload-hint {
+						font-size: 0.75rem;
+						color: #888;
+						margin-top: 6px;
+					}
+
+					.upload-status {
+						font-size: 0.8rem;
+						margin-top: 6px;
+						color: #2d6a4f;
+					}
+
+					.upload-status.error {
+						color: #b71c1c;
+					}
+
+					/* Error box */
+					.modal-error {
+						display: none;
+						padding: 10px 12px;
+						margin-bottom: 12px;
+						border-radius: 6px;
+						background: #fdecea;
+						color: #b71c1c;
+						font-size: 0.85rem;
+						border: 1px solid #f5c6cb;
+					}
+
+					.modal-error.open {
+						display: block;
+					}
+
+					/* Actions */
+					.modal-actions {
+						display: flex;
+						gap: 10px;
+						justify-content: flex-end;
+						margin-top: 20px;
+					}
+
+					.btn-cancel {
+						padding: 8px 16px;
+						border-radius: 6px;
+						border: 1px solid #ccc;
+						background: #f5f5f5;
+						cursor: pointer;
+						font-size: 0.85rem;
+					}
+
+					.btn-save {
+						padding: 8px 20px;
+						border-radius: 6px;
+						border: none;
+						background: #2d6a4f;
+						color: #fff;
+						cursor: pointer;
+						font-size: 0.85rem;
+						font-weight: 500;
+					}
+
+					.btn-save:disabled {
+						opacity: 0.5;
+						cursor: not-allowed;
+					}
+
+					.btn-save:hover:not(:disabled) {
+						background: #1b4332;
+					}
+				</style>
+				<script src="{{ url_for('static', filename='js/pemetik-list.js') }}"></script>
+</body>
+
+
+
+</html>

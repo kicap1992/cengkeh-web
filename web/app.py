@@ -23,6 +23,82 @@ from datetime import datetime, timedelta
 from functools import wraps
 from flask import session, g
 
+import os
+import uuid
+from werkzeug.utils import secure_filename
+
+
+# ---------------------------------------------------------------------------
+# Upload config
+# ---------------------------------------------------------------------------
+UPLOAD_ROOT = os.path.join(os.path.dirname(__file__), "static", "uploads")
+ALLOWED_PHOTO_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+MAX_PHOTO_SIZE_BYTES = 2 * 1024 * 1024   # 2 MB
+
+
+def _save_uploaded_photo(file_storage, subfolder: str) -> str:
+    """
+    Save an uploaded file to static/uploads/<subfolder>/<uuid>.<ext>.
+    Returns the path *relative to* /static/ (for use in <img src>).
+
+    Raises ValueError on invalid input.
+    """
+    if not file_storage or not file_storage.filename:
+        raise ValueError("File tidak ditemukan.")
+
+    # Validate extension
+    filename = secure_filename(file_storage.filename)
+    _, ext = os.path.splitext(filename)
+    ext = ext.lower()
+    if ext not in ALLOWED_PHOTO_EXTENSIONS:
+        raise ValueError(
+            f"Format file tidak didukung. Gunakan: "
+            f"{', '.join(sorted(ALLOWED_PHOTO_EXTENSIONS))}."
+        )
+
+    # Ensure directory exists
+    target_dir = os.path.join(UPLOAD_ROOT, subfolder)
+    os.makedirs(target_dir, exist_ok=True)
+
+    # Generate a unique filename (so uploads never overwrite)
+    unique_name = f"{uuid.uuid4().hex}{ext}"
+    full_path = os.path.join(target_dir, unique_name)
+
+    # Save
+    file_storage.save(full_path)
+
+    # Enforce max size *after* save (simplest)
+    size = os.path.getsize(full_path)
+    if size > MAX_PHOTO_SIZE_BYTES:
+        os.remove(full_path)
+        raise ValueError(
+            f"Ukuran file maksimal {MAX_PHOTO_SIZE_BYTES // (1024*1024)} MB."
+        )
+
+    # Return path relative to /static/
+    return f"uploads/{subfolder}/{unique_name}"
+
+
+def _delete_uploaded_photo(rel_path: str):
+    """
+    Delete a photo from disk given its path relative to /static/.
+    Silently ignores missing files.
+    """
+    if not rel_path:
+        return
+    # Only handle our uploads directory
+    if not rel_path.startswith("uploads/"):
+        return
+
+    full_path = os.path.join(
+        os.path.dirname(__file__), "static", rel_path
+    )
+    try:
+        if os.path.isfile(full_path):
+            os.remove(full_path)
+    except OSError as e:
+        # Log but don't crash — the DB is already updated
+        print(f"⚠️  Could not delete photo {full_path}: {e}", file=sys.stderr)
 
 # ---------------------------------------------------------------------------
 # Session helpers
@@ -383,6 +459,15 @@ def user_list():
     return render_template("admin/user-list.html")
 
 
+# create a pemetik_list route
+@app.route("/pemetik_list")
+@page_admin_required
+def pemetik_list():
+    """Admin page to list all pemetik. Requires login AND level='admin'."""
+    return render_template("admin/pemetik.html")
+
+
+
 @app.route("/api/admin/users")
 @admin_required
 def api_admin_users():
@@ -468,8 +553,6 @@ def api_admin_users():
         ],
         "counts": counts,
     })
-
-
 
 @app.route("/api/admin/approve/<int:user_id>", methods=["POST"])
 @admin_required
@@ -575,6 +658,291 @@ def api_admin_suspend(user_id):
         )
 
     return jsonify({"status": "ok", "message": "User ditangguhkan."})
+
+
+# ---------------------------------------------------------------------------
+# Admin — pemetik (harvesters)
+# ---------------------------------------------------------------------------
+@app.route("/api/admin/pemetik", methods=["GET"])
+@admin_required
+def api_admin_pemetik_list():
+    """
+    Return all pemetik (both active and inactive) for the admin panel.
+
+    Response:
+        {
+            "status": "ok",
+            "pemetik": [
+                { id, nama, deskripsi, foto_path, nomor_telepon,
+                  is_active, created_at, updated_at },
+                ...
+            ]
+        }
+    """
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            SELECT id, nama, deskripsi, foto_path, nomor_telepon,
+                   is_active, created_at, updated_at
+            FROM tb_pemetik
+            ORDER BY is_active DESC, nama ASC
+            """
+        )
+        rows = cursor.fetchall()
+
+    return jsonify({
+        "status": "ok",
+        "pemetik": [
+            {
+                "id":            r["id"],
+                "nama":          r["nama"],
+                "deskripsi":     r["deskripsi"] or "",
+                "foto_path":     r["foto_path"] or "",
+                "nomor_telepon": r["nomor_telepon"] or "",
+                "is_active":     bool(r["is_active"]),
+                "created_at":    r["created_at"].isoformat() if r["created_at"] else None,
+                "updated_at":    r["updated_at"].isoformat() if r["updated_at"] else None,
+            }
+            for r in rows
+        ],
+    })
+
+
+@app.route("/api/admin/pemetik", methods=["POST"])
+@admin_required
+def api_admin_pemetik_create():
+    """
+    Create a new pemetik.
+
+    Request body (JSON):
+        {
+            "nama": "Budi Santoso",
+            "deskripsi": "Berpengalaman 10 tahun...",
+            "foto_path": "pemetik/budi.jpg",   (optional)
+            "nomor_telepon": "081111111111"    (optional)
+        }
+
+    Response:
+        201 { "status": "ok", "id": N, "message": "..." }
+        400 { "error": "..." }
+    """
+    data = request.get_json(silent=True) or {}
+
+    nama = (data.get("nama") or "").strip()
+    deskripsi = (data.get("deskripsi") or "").strip()
+    foto_path = (data.get("foto_path") or "").strip() or None
+    nomor_telepon = (data.get("nomor_telepon") or "").strip() or None
+
+    # --- Validate ----------------------------------------------------------
+    if len(nama) < 2:
+        return jsonify({"error": "Nama pemetik minimal 2 karakter."}), 400
+    if len(nama) > 100:
+        return jsonify({"error": "Nama pemetik maksimal 100 karakter."}), 400
+
+    if nomor_telepon:
+        # Reuse our phone validator but make it optional
+        normalized = validate_phone(nomor_telepon)
+        if normalized is None:
+            return jsonify({
+                "error": "Nomor telepon tidak valid. Harus dimulai dengan 08."
+            }), 400
+        nomor_telepon = normalized
+
+    # --- Insert ------------------------------------------------------------
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            INSERT INTO tb_pemetik (nama, deskripsi, foto_path, nomor_telepon, is_active)
+            VALUES (%s, %s, %s, %s, 1)
+            """,
+            (nama, deskripsi or None, foto_path, nomor_telepon),
+        )
+        new_id = cursor.lastrowid
+
+    return jsonify({
+        "status": "ok",
+        "id": new_id,
+        "message": f"Pemetik '{nama}' berhasil ditambahkan.",
+    }), 201
+
+
+# ---------------------------------------------------------------------------
+# Admin — pemetik (single resource)
+# ---------------------------------------------------------------------------
+@app.route("/api/admin/pemetik/<int:pemetik_id>", methods=["GET"])
+@admin_required
+def api_admin_pemetik_get(pemetik_id):
+    """Fetch a single pemetik."""
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            SELECT id, nama, deskripsi, foto_path, nomor_telepon,
+                   is_active, created_at, updated_at
+            FROM tb_pemetik
+            WHERE id = %s
+            """,
+            (pemetik_id,),
+        )
+        row = cursor.fetchone()
+
+    if row is None:
+        return jsonify({"error": f"Pemetik {pemetik_id} tidak ditemukan."}), 404
+
+    return jsonify({
+        "status": "ok",
+        "pemetik": {
+            "id":            row["id"],
+            "nama":          row["nama"],
+            "deskripsi":     row["deskripsi"] or "",
+            "foto_path":     row["foto_path"] or "",
+            "nomor_telepon": row["nomor_telepon"] or "",
+            "is_active":     bool(row["is_active"]),
+            "created_at":    row["created_at"].isoformat() if row["created_at"] else None,
+            "updated_at":    row["updated_at"].isoformat() if row["updated_at"] else None,
+        },
+    })
+
+
+@app.route("/api/admin/pemetik/<int:pemetik_id>", methods=["PUT"])
+@admin_required
+def api_admin_pemetik_update(pemetik_id):
+    """
+    Update a pemetik.
+
+    Request body (JSON):
+        {
+            "nama": "...",
+            "deskripsi": "...",
+            "nomor_telepon": "...",
+            "foto_path": "...",      (optional — only sent if user uploaded a new photo)
+            "is_active": true/false  (optional)
+        }
+    """
+    data = request.get_json(silent=True) or {}
+
+    nama         = (data.get("nama") or "").strip()
+    deskripsi    = (data.get("deskripsi") or "").strip()
+    nomor_telepon = (data.get("nomor_telepon") or "").strip() or None
+    foto_path    = (data.get("foto_path") or "").strip() or None
+    is_active    = data.get("is_active")     # may be None → don't change
+
+    # --- Validate ----------------------------------------------------------
+    if len(nama) < 2:
+        return jsonify({"error": "Nama pemetik minimal 2 karakter."}), 400
+    if len(nama) > 100:
+        return jsonify({"error": "Nama pemetik maksimal 100 karakter."}), 400
+
+    if nomor_telepon:
+        normalized = validate_phone(nomor_telepon)
+        if normalized is None:
+            return jsonify({
+                "error": "Nomor telepon tidak valid. Harus dimulai dengan 08."
+            }), 400
+        nomor_telepon = normalized
+
+    # --- Update ------------------------------------------------------------
+    with get_db() as cursor:
+        cursor.execute("SELECT id, foto_path FROM tb_pemetik WHERE id = %s", (pemetik_id,))
+        existing = cursor.fetchone()
+        if existing is None:
+            return jsonify({"error": f"Pemetik {pemetik_id} tidak ditemukan."}), 404
+
+        # Build the update dynamically — only include fields the client sent
+        updates = ["nama = %s", "deskripsi = %s", "nomor_telepon = %s"]
+        params  = [nama, deskripsi or None, nomor_telepon]
+
+        if foto_path is not None:
+            # User uploaded a new photo — update and delete the old file
+            updates.append("foto_path = %s")
+            params.append(foto_path)
+
+            # Delete old photo from disk (if it existed and was different)
+            old_path = existing["foto_path"]
+            if old_path and old_path != foto_path:
+                _delete_uploaded_photo(old_path)
+
+        if is_active is not None:
+            updates.append("is_active = %s")
+            params.append(1 if is_active else 0)
+
+        params.append(pemetik_id)
+
+        cursor.execute(
+            f"UPDATE tb_pemetik SET {', '.join(updates)} WHERE id = %s",
+            params,
+        )
+
+    return jsonify({
+        "status": "ok",
+        "message": f"Pemetik '{nama}' berhasil diperbarui.",
+    })
+
+
+@app.route("/api/admin/pemetik/<int:pemetik_id>/toggle", methods=["POST"])
+@admin_required
+def api_admin_pemetik_toggle(pemetik_id):
+    """
+    Toggle a pemetik's is_active flag.
+
+    - Active → deactivated (is_active=0). Keeps data + photo.
+    - Inactive → reactivated (is_active=1).
+    """
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT id, nama, is_active FROM tb_pemetik WHERE id = %s",
+            (pemetik_id,),
+        )
+        row = cursor.fetchone()
+        if row is None:
+            return jsonify({"error": f"Pemetik {pemetik_id} tidak ditemukan."}), 404
+
+        new_state = 0 if row["is_active"] else 1
+
+        cursor.execute(
+            "UPDATE tb_pemetik SET is_active = %s WHERE id = %s",
+            (new_state, pemetik_id),
+        )
+
+    if new_state:
+        msg = f"Pemetik '{row['nama']}' diaktifkan kembali."
+    else:
+        msg = f"Pemetik '{row['nama']}' dinonaktifkan (tidak muncul untuk pemesanan baru)."
+
+    return jsonify({
+        "status": "ok",
+        "is_active": bool(new_state),
+        "message": msg,
+    })
+
+
+@app.route("/api/admin/pemetik/upload", methods=["POST"])
+@admin_required
+def api_admin_pemetik_upload():
+    """
+    Upload a photo for a pemetik.
+    Returns the relative path to use in the create/update endpoint.
+
+    Form field:
+        file — the image file (multipart)
+
+    Response:
+        200 { "status": "ok", "foto_path": "uploads/pemetik/abc123.jpg" }
+        400 { "error": "..." }
+    """
+    if "file" not in request.files:
+        return jsonify({"error": "Tidak ada file yang diunggah."}), 400
+
+    try:
+        path = _save_uploaded_photo(request.files["file"], "pemetik")
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+
+    return jsonify({
+        "status": "ok",
+        "foto_path": path,
+    })
+
+
 
 # ---------------------------------------------------------------------------
 # end of admin-only routes
