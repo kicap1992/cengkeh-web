@@ -29,6 +29,40 @@ CREATE TABLE `schema_migrations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `tb_booking_pemetik`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_booking_pemetik` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `pemetik_id` int(11) NOT NULL,
+  `price_per_day_at_booking` decimal(12,2) NOT NULL,
+  `total_days` int(11) NOT NULL,
+  `total_amount` decimal(12,2) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `notes` text DEFAULT NULL,
+  `status` enum('pending_payment','paid','confirmed','completed','cancelled') NOT NULL DEFAULT 'pending_payment',
+  `payment_reference` varchar(100) DEFAULT NULL,
+  `paid_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_user` (`user_id`),
+  KEY `idx_pemetik` (`pemetik_id`),
+  KEY `idx_status` (`status`),
+  KEY `idx_start` (`start_date`),
+  CONSTRAINT `tb_booking_pemetik_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tb_booking_pemetik_ibfk_2` FOREIGN KEY (`pemetik_id`) REFERENCES `tb_pemetik` (`id`),
+  CONSTRAINT `CONSTRAINT_1` CHECK (`end_date` >= `start_date`),
+  CONSTRAINT `CONSTRAINT_2` CHECK (`total_days` > 0),
+  CONSTRAINT `CONSTRAINT_3` CHECK (`total_amount` >= 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `tb_follow_option`
 --
 
@@ -110,6 +144,27 @@ CREATE TABLE `tb_option_next_qa` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `tb_pemetik`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_pemetik` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) NOT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `foto_path` varchar(255) DEFAULT NULL,
+  `nomor_telepon` varchar(20) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_active` (`is_active`),
+  KEY `idx_nama` (`nama`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `tb_pertanyaan`
 --
 
@@ -176,6 +231,21 @@ CREATE TABLE `tb_session` (
   KEY `idx_expires` (`expires_at`),
   KEY `idx_user` (`user_id`),
   CONSTRAINT `tb_session_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tb_setting`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_setting` (
+  `kunci` varchar(50) NOT NULL,
+  `nilai` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`kunci`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -274,5 +344,6 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20261008060834'),
   ('20261010235705'),
   ('20261011014149'),
-  ('20261012041633');
+  ('20261012041633'),
+  ('20261013203903');
 UNLOCK TABLES;
