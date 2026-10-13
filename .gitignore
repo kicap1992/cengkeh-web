@@ -34,5 +34,10 @@ jupyter/.jupyter/
 jupyter/.ipython/
 jupyter/__pycache__/
 
-# Uploaded files (keep the dir, ignore the contents)
-web/static/uploads/**/*
+# Uploaded files (keep the dir structure via .gitkeep, ignore uploads)
+web/static/uploads/*
+!web/static/uploads/.gitkeep
+
+# Nested subdirectories (uploads/pemetik/, uploads/future/)
+web/static/uploads/*/*
+!web/static/uploads/*/.gitkeep
