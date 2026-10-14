@@ -36,29 +36,20 @@ CREATE TABLE `schema_migrations` (
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_booking_pemetik` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
   `pemetik_id` int(11) NOT NULL,
   `price_per_day_at_booking` decimal(12,2) NOT NULL,
   `total_days` int(11) NOT NULL,
-  `total_amount` decimal(12,2) NOT NULL,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
-  `notes` text DEFAULT NULL,
-  `status` enum('pending_payment','paid','confirmed','completed','cancelled') NOT NULL DEFAULT 'pending_payment',
-  `payment_reference` varchar(100) DEFAULT NULL,
-  `paid_at` timestamp NULL DEFAULT NULL,
+  `subtotal` decimal(12,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `idx_user` (`user_id`),
+  UNIQUE KEY `uq_order_pemetik` (`order_id`,`pemetik_id`),
+  KEY `idx_order` (`order_id`),
   KEY `idx_pemetik` (`pemetik_id`),
-  KEY `idx_status` (`status`),
-  KEY `idx_start` (`start_date`),
-  CONSTRAINT `tb_booking_pemetik_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tb_booking_pemetik_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `tb_order` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tb_booking_pemetik_ibfk_2` FOREIGN KEY (`pemetik_id`) REFERENCES `tb_pemetik` (`id`),
-  CONSTRAINT `CONSTRAINT_1` CHECK (`end_date` >= `start_date`),
-  CONSTRAINT `CONSTRAINT_2` CHECK (`total_days` > 0),
-  CONSTRAINT `CONSTRAINT_3` CHECK (`total_amount` >= 0)
+  CONSTRAINT `CONSTRAINT_1` CHECK (`subtotal` >= 0),
+  CONSTRAINT `CONSTRAINT_2` CHECK (`total_days` > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -140,6 +131,37 @@ CREATE TABLE `tb_option_next_qa` (
   KEY `next_qa_id` (`next_qa_id`),
   CONSTRAINT `tb_option_next_qa_ibfk_1` FOREIGN KEY (`option_id`) REFERENCES `tb_follow_option` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tb_option_next_qa_ibfk_2` FOREIGN KEY (`next_qa_id`) REFERENCES `tb_pertanyaan` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tb_order`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `order_code` varchar(20) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `total_amount` decimal(12,2) NOT NULL,
+  `status` enum('pending_payment','paid','confirmed','completed','cancelled') NOT NULL DEFAULT 'pending_payment',
+  `payment_reference` varchar(100) DEFAULT NULL,
+  `paid_at` timestamp NULL DEFAULT NULL,
+  `notes` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `order_code` (`order_code`),
+  KEY `idx_user` (`user_id`),
+  KEY `idx_status` (`status`),
+  KEY `idx_start` (`start_date`),
+  KEY `idx_code` (`order_code`),
+  CONSTRAINT `tb_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `CONSTRAINT_1` CHECK (`end_date` >= `start_date`),
+  CONSTRAINT `CONSTRAINT_2` CHECK (`total_amount` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -345,5 +367,6 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20261010235705'),
   ('20261011014149'),
   ('20261012041633'),
-  ('20261013203903');
+  ('20261013203903'),
+  ('20261014215458');
 UNLOCK TABLES;

@@ -397,6 +397,23 @@ def index():
 # ---------------------------------------------------------------------------
 # Page decorators (redirect instead of returning JSON errors)
 # ---------------------------------------------------------------------------
+def page_user_required(f):
+    """
+    Page decorator: requires login AND level='user'.
+    Redirects:
+      - to /login if not logged in
+      - to /admin if logged in but level='admin'
+    """
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        user = current_user()
+        if user is None:
+            return redirect("/login")
+        if user["level"] != "user":
+            return redirect("/admin")
+        return f(*args, **kwargs)
+    return wrapper
+
 def page_login_required(f):
     """
     Page decorator: redirects to /login if not logged in.
@@ -431,14 +448,16 @@ def page_admin_required(f):
 
 
 @app.route("/user")
+@page_user_required
 def user_page():
-    """
-    Chat page for logged-in regular users.
-    If not logged in → redirect to /login.
-    """
-    if current_user() is None:
-        return redirect("/login")
     return render_template("user/index.html")
+
+
+# create user_sewa_pemetik
+@app.route("/user/sewa-pemetik")
+@page_user_required
+def user_sewa_pemetik():
+    return render_template("user/sewa-pemetik.html")
 
 
 #  ----------------------------------------------------------------------------
