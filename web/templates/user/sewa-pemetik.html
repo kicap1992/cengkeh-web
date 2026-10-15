@@ -45,6 +45,141 @@
 	<link rel="stylesheet"
 		href="{{ url_for('static', filename='plugin/datatables/media/css/dataTables.bootstrap.min.css') }}">
 
+	<style>
+		.pemetik-card {
+			background: #fff;
+			border-radius: 12px;
+			padding: 20px 16px;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+			border: 2px solid transparent;
+			transition: all 0.15s ease;
+			cursor: pointer;
+			text-align: center;
+			position: relative;
+		}
+
+		.pemetik-card:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+		}
+
+		.pemetik-card.selected {
+			border-color: #2d6a4f;
+			background: #f0fdf4;
+		}
+
+		.pemetik-card .check-mark {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background: #2d6a4f;
+			color: #fff;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.8rem;
+		}
+
+		.pemetik-card.selected .check-mark {
+			display: flex;
+		}
+
+		.pemetik-photo {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			background: #e8f5e9;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2rem;
+			color: #2d6a4f;
+			margin: 0 auto 12px;
+			overflow: hidden;
+			border: 2px solid #c8e6c9;
+		}
+
+		.pemetik-photo img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.pemetik-name {
+			font-weight: 600;
+			color: #2d6a4f;
+			font-size: 1rem;
+			margin-bottom: 6px;
+		}
+
+		.pemetik-desc {
+			font-size: 0.8rem;
+			color: #666;
+			line-height: 1.4;
+			min-height: 2.8em;
+		}
+
+		/* Banner styles */
+		.order-banner {
+			padding: 16px 20px;
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			border: 1px solid;
+		}
+
+		.order-banner.ongoing {
+			background: #e8f5e9;
+			color: #1b5e20;
+			border-color: #c8e6c9;
+		}
+
+		.order-banner.soon {
+			background: #fff3cd;
+			color: #664d03;
+			border-color: #ffecb5;
+		}
+
+		.order-banner.pending {
+			background: #e3f2fd;
+			color: #0d47a1;
+			border-color: #bbdefb;
+		}
+
+		.order-banner-icon {
+			font-size: 1.8rem;
+			flex-shrink: 0;
+		}
+
+		.order-banner-content {
+			flex: 1;
+		}
+
+		.order-banner-title {
+			font-weight: 600;
+			font-size: 0.95rem;
+			margin-bottom: 4px;
+		}
+
+		.order-banner-detail {
+			font-size: 0.85rem;
+			opacity: 0.9;
+		}
+
+		.order-banner-code {
+			font-family: monospace;
+			background: rgba(0, 0, 0, 0.05);
+			padding: 2px 6px;
+			border-radius: 4px;
+			font-size: 0.8rem;
+		}
+	</style>
+
+
 </head>
 
 <body>
@@ -124,7 +259,54 @@
 
 	<div id="wrapper">
 		<div class="main-content">
-			<p>Selamat datang di halaman sewa pemetik!</p>
+
+			<!-- Current order banner (dynamic) -->
+			<div id="order-banner" style="display: none; margin-bottom: 20px;"></div>
+
+			<!-- Main content: header + pemetik grid -->
+			<div style="display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px;">
+				<div>
+					<h2 style="margin: 0; color: #2d6a4f; font-size: 1.3rem;">Pilih Pemetik</h2>
+					<div style="font-size: 0.85rem; color: #666; margin-top: 4px;">
+						Harga: <strong id="price-display">—</strong> /hari per pemetik
+					</div>
+				</div>
+				<div style="font-size: 0.85rem; color: #666;">
+					<span id="selected-count">0</span> pemetik dipilih
+				</div>
+			</div>
+
+			<!-- Pemetik grid -->
+			<div id="pemetik-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px; margin-bottom: 20px;">
+				<!-- Filled by JS -->
+			</div>
+
+			<!-- Empty state -->
+			<div id="pemetik-empty" style="display: none; padding: 40px 20px; text-align: center;
+            background: #f7f7f7; border-radius: 12px; color: #888;">
+				Belum ada pemetik yang tersedia saat ini.
+			</div>
+
+			<!-- Sticky bottom action bar (only when >0 pemetik selected) -->
+			<div id="action-bar" style="display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+            padding: 14px 20px; z-index: 999; align-items: center;
+            justify-content: space-between;">
+				<div style="font-size: 0.9rem; color: #333;">
+					<strong id="action-count">0</strong> pemetik dipilih
+				</div>
+				<button id="btn-lanjut" style="background: #2d6a4f; color: #fff; border: none;
+                padding: 10px 24px; border-radius: 8px; font-size: 0.9rem;
+                font-weight: 600; cursor: pointer;">
+					Lanjutkan <i class="fa fa-arrow-right"></i>
+				</button>
+			</div>
+
+			<!-- Card styles (in <style> — or move to static/css/sewa-pemetik.css later) -->
+
+
 			<footer class="footer">
 
 				<!--/#wrapper -->
@@ -148,6 +330,11 @@
 				<script src="{{ url_for('static', filename='plugin/fullscreen/jquery.fullscreen-min.js') }}"></script>
 
 				<script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+
+				<script src="{{ url_for('static', filename='js/sewa-pemetik.js') }}"></script>
+			
+
+
 				<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
 				<script src="{{ url_for('static', filename='color-switcher/color-switcher.min.js') }}"></script>
 </body>

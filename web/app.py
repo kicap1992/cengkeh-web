@@ -445,7 +445,8 @@ def page_admin_required(f):
 
    
 # ----------------------------------------------------------------------------
-
+# Below are user-only routes. They require login AND level='user'.
+# ----------------------------------------------------------------------------
 
 @app.route("/user")
 @page_user_required
@@ -458,6 +459,160 @@ def user_page():
 @page_user_required
 def user_sewa_pemetik():
     return render_template("user/sewa-pemetik.html")
+
+
+@app.route("/api/user/pemetik")
+@login_required
+def api_user_pemetik_list():
+    """
+    List all ACTIVE pemetik + current daily price from tb_setting.
+    For the user-facing browse page.
+    """
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            SELECT id, nama, deskripsi, foto_path
+            FROM tb_pemetik
+            WHERE is_active = 1
+            ORDER BY nama ASC
+            """
+        )
+        rows = cursor.fetchall()
+
+        cursor.execute("SELECT nilai FROM tb_setting WHERE kunci = 'price_per_day'")
+        price_row = cursor.fetchone()
+        price_per_day = int(price_row["nilai"]) if price_row else 0
+
+    return jsonify({
+        "status": "ok",
+        "price_per_day": price_per_day,
+        "pemetik": [
+            {
+                "id":        r["id"],
+                "nama":      r["nama"],
+                "deskripsi": r["deskripsi"] or "",
+                "foto_path": r["foto_path"] or "",
+            }
+            for r in rows
+        ],
+    })
+
+
+@app.route("/api/user/current-order")
+@login_required
+def api_user_current_order():
+    """
+    Return the user's most relevant active order, if any.
+
+    Priority:
+        1. ongoing  — start_date <= today <= end_date, status paid/confirmed
+        2. soon     — start_date > today, status paid/confirmed
+        3. pending  — status pending_payment
+        4. none
+
+    Response:
+        {
+            "status": "ok",
+            "state": "ongoing" | "soon" | "pending" | "none",
+            "order": { ... } | null   (may include pemetik summary)
+        }
+    """
+    user = current_user()
+
+    with get_db() as cursor:
+        # Ongoing first
+        cursor.execute(
+            """
+            SELECT o.*, DATEDIFF(o.end_date, o.start_date) + 1 AS total_days
+            FROM tb_order o
+            WHERE o.user_id = %s
+              AND o.status IN ('paid', 'confirmed')
+              AND CURDATE() BETWEEN o.start_date AND o.end_date
+            ORDER BY o.start_date ASC
+            LIMIT 1
+            """,
+            (user["id"],),
+        )
+        order = cursor.fetchone()
+        state = "ongoing" if order else None
+
+        # Then soon
+        if not order:
+            cursor.execute(
+                """
+                SELECT o.*, DATEDIFF(o.end_date, o.start_date) + 1 AS total_days
+                FROM tb_order o
+                WHERE o.user_id = %s
+                  AND o.status IN ('paid', 'confirmed')
+                  AND o.start_date > CURDATE()
+                ORDER BY o.start_date ASC
+                LIMIT 1
+                """,
+                (user["id"],),
+            )
+            order = cursor.fetchone()
+            if order:
+                state = "soon"
+
+        # Then pending payment
+        if not order:
+            cursor.execute(
+                """
+                SELECT o.*, DATEDIFF(o.end_date, o.start_date) + 1 AS total_days
+                FROM tb_order o
+                WHERE o.user_id = %s
+                  AND o.status = 'pending_payment'
+                ORDER BY o.created_at DESC
+                LIMIT 1
+                """,
+                (user["id"],),
+            )
+            order = cursor.fetchone()
+            if order:
+                state = "pending"
+
+    if not order:
+        return jsonify({"status": "ok", "state": "none", "order": None})
+
+    # Fetch the pemetik for this order (for a compact summary)
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            SELECT p.id, p.nama, p.foto_path
+            FROM tb_booking_pemetik bp
+            JOIN tb_pemetik p ON p.id = bp.pemetik_id
+            WHERE bp.order_id = %s
+            ORDER BY p.nama ASC
+            """,
+            (order["id"],),
+        )
+        pemetik_rows = cursor.fetchall()
+
+    return jsonify({
+        "status": "ok",
+        "state": state,
+        "order": {
+            "id":             order["id"],
+            "order_code":     order["order_code"],
+            "start_date":     order["start_date"].isoformat() if order["start_date"] else None,
+            "end_date":       order["end_date"].isoformat() if order["end_date"] else None,
+            "total_days":     order["total_days"],
+            "total_amount":   float(order["total_amount"]),
+            "status":         order["status"],
+            "pemetik": [
+                {
+                    "id":        p["id"],
+                    "nama":      p["nama"],
+                    "foto_path": p["foto_path"] or "",
+                }
+                for p in pemetik_rows
+            ],
+        },
+    })
+
+# ----------------------------------------------------------------------------
+# end of user-only routes
+# ----------------------------------------------------------------------------
 
 
 #  ----------------------------------------------------------------------------
