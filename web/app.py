@@ -26,6 +26,7 @@ from flask import session, g
 import os
 import uuid
 from werkzeug.utils import secure_filename
+from datetime import datetime, timedelta
 
 
 # ---------------------------------------------------------------------------
@@ -460,6 +461,12 @@ def user_page():
 def user_sewa_pemetik():
     return render_template("user/sewa-pemetik.html")
 
+@app.route("/user/booking/new")
+@page_user_required
+def user_booking_new():
+    """Booking form page — creates an order with selected pemetik."""
+    return render_template("user/booking-new.html")
+
 
 @app.route("/api/user/pemetik")
 @login_required
@@ -479,13 +486,18 @@ def api_user_pemetik_list():
         )
         rows = cursor.fetchall()
 
-        cursor.execute("SELECT nilai FROM tb_setting WHERE kunci = 'price_per_day'")
-        price_row = cursor.fetchone()
-        price_per_day = int(price_row["nilai"]) if price_row else 0
+        cursor.execute(
+            "SELECT kunci, nilai FROM tb_setting "
+            "WHERE kunci IN ('price_per_day', 'min_lead_days')"
+        )
+        settings = {r["kunci"]: int(r["nilai"]) for r in cursor.fetchall()}
+        price_per_day = settings.get("price_per_day", 0)
+        min_lead_days = settings.get("min_lead_days", 1)
 
     return jsonify({
         "status": "ok",
         "price_per_day": price_per_day,
+        "min_lead_days": min_lead_days, 
         "pemetik": [
             {
                 "id":        r["id"],
@@ -496,6 +508,191 @@ def api_user_pemetik_list():
             for r in rows
         ],
     })
+
+
+def _generate_order_code() -> str:
+    """
+    Generate a human-readable order code: ORD-YYYYMMDD-####
+    The #### is sequential per day.
+    """
+    today = datetime.utcnow().strftime("%Y%m%d")
+    prefix = f"ORD-{today}-"
+
+    with get_db() as cursor:
+        cursor.execute(
+            """
+            SELECT order_code FROM tb_order
+            WHERE order_code LIKE %s
+            ORDER BY order_code DESC
+            LIMIT 1
+            """,
+            (prefix + "%",),
+        )
+        row = cursor.fetchone()
+
+    if row:
+        last_seq = int(row["order_code"].split("-")[-1])
+        next_seq = last_seq + 1
+    else:
+        next_seq = 1
+
+    return f"{prefix}{next_seq:04d}"
+
+
+@app.route("/api/user/order", methods=["POST"])
+@login_required
+def api_user_order_create():
+    """
+    Create a new order (with N booking lines, one per selected pemetik).
+
+    Request body (JSON):
+        {
+            "pemetik_ids": [1, 3, 7],
+            "start_date": "2026-11-01",
+            "end_date": "2026-11-05",
+            "notes": "Optional notes"
+        }
+
+    Response:
+        201 {
+            "status": "ok",
+            "order_id": N,
+            "order_code": "ORD-20261015-0001",
+            "total_amount": 1500000,
+            "total_days": 5,
+            "pemetik_count": 3,
+        }
+        400 { "error": "..." }
+        404 { "error": "Pemetik X tidak ditemukan." }
+    """
+    user = current_user()
+    data = request.get_json(silent=True) or {}
+
+    pemetik_ids = data.get("pemetik_ids") or []
+    start_date_str = (data.get("start_date") or "").strip()
+    end_date_str = (data.get("end_date") or "").strip()
+    notes = (data.get("notes") or "").strip() or None
+
+    # -------------------------------------------------------------------
+    # Validate pemetik_ids
+    # -------------------------------------------------------------------
+    if not isinstance(pemetik_ids, list) or len(pemetik_ids) == 0:
+        return jsonify({"error": "Pilih minimal satu pemetik."}), 400
+
+    # Deduplicate + force int
+    try:
+        pemetik_ids = list({int(x) for x in pemetik_ids})
+    except (ValueError, TypeError):
+        return jsonify({"error": "Format pemetik_ids tidak valid."}), 400
+
+    # -------------------------------------------------------------------
+    # Validate dates
+    # -------------------------------------------------------------------
+    try:
+        start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
+        end_date   = datetime.strptime(end_date_str, "%Y-%m-%d").date()
+    except ValueError:
+        return jsonify({"error": "Format tanggal tidak valid (YYYY-MM-DD)."}), 400
+
+    # Enforce minimum lead time
+    with get_db() as cursor:
+        cursor.execute("SELECT nilai FROM tb_setting WHERE kunci = 'min_lead_days'")
+        row = cursor.fetchone()
+        min_lead_days = int(row["nilai"]) if row else 1
+
+    earliest_start = datetime.utcnow().date() + timedelta(days=min_lead_days)
+    if start_date < earliest_start:
+        return jsonify({
+            "error": f"Tanggal mulai minimal {min_lead_days} hari dari sekarang "
+                    f"(paling awal: {earliest_start.isoformat()})."
+        }), 400
+
+
+    total_days = (end_date - start_date).days + 1
+
+    # Load min/max from settings
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT kunci, nilai FROM tb_setting "
+            "WHERE kunci IN ('min_booking_days', 'max_booking_days', 'price_per_day')"
+        )
+        settings = {r["kunci"]: int(r["nilai"]) for r in cursor.fetchall()}
+
+    min_days = settings.get("min_booking_days", 1)
+    max_days = settings.get("max_booking_days", 30)
+    price_per_day = settings.get("price_per_day", 0)
+
+    if total_days < min_days:
+        return jsonify({"error": f"Minimum pemesanan {min_days} hari."}), 400
+    if total_days > max_days:
+        return jsonify({"error": f"Maksimum pemesanan {max_days} hari."}), 400
+
+    # -------------------------------------------------------------------
+    # Verify all pemetik exist and are active
+    # -------------------------------------------------------------------
+    with get_db() as cursor:
+        placeholders = ",".join(["%s"] * len(pemetik_ids))
+        cursor.execute(
+            f"SELECT id FROM tb_pemetik WHERE id IN ({placeholders}) AND is_active = 1",
+            pemetik_ids,
+        )
+        found_ids = {r["id"] for r in cursor.fetchall()}
+
+    missing = set(pemetik_ids) - found_ids
+    if missing:
+        return jsonify({
+            "error": f"Pemetik tidak ditemukan atau tidak aktif: {sorted(missing)}"
+        }), 404
+
+    # -------------------------------------------------------------------
+    # Compute totals
+    # -------------------------------------------------------------------
+    subtotal_per_pemetik = total_days * price_per_day
+    total_amount = subtotal_per_pemetik * len(pemetik_ids)
+
+    # -------------------------------------------------------------------
+    # Insert order + lines in a single transaction
+    # -------------------------------------------------------------------
+    try:
+        with get_db() as cursor:
+            order_code = _generate_order_code()
+
+            cursor.execute(
+                """
+                INSERT INTO tb_order
+                    (user_id, order_code, start_date, end_date, total_amount, status, notes)
+                VALUES
+                    (%s, %s, %s, %s, %s, 'pending_payment', %s)
+                """,
+                (user["id"], order_code, start_date, end_date, total_amount, notes),
+            )
+            order_id = cursor.lastrowid
+
+            # Insert one line per pemetik
+            for pid in pemetik_ids:
+                cursor.execute(
+                    """
+                    INSERT INTO tb_booking_pemetik
+                        (order_id, pemetik_id, price_per_day_at_booking, total_days, subtotal)
+                    VALUES
+                        (%s, %s, %s, %s, %s)
+                    """,
+                    (order_id, pid, price_per_day, total_days, subtotal_per_pemetik),
+                )
+    except Exception as e:
+        # get_db() context manager rolls back automatically
+        print(f"❌ Order creation failed: {e}", file=sys.stderr)
+        return jsonify({"error": "Gagal membuat pesanan."}), 500
+
+    return jsonify({
+        "status": "ok",
+        "order_id": order_id,
+        "order_code": order_code,
+        "total_amount": total_amount,
+        "total_days": total_days,
+        "pemetik_count": len(pemetik_ids),
+        "message": f"Pesanan {order_code} berhasil dibuat. Menunggu pembayaran.",
+    }), 201
 
 
 @app.route("/api/user/current-order")
@@ -1460,7 +1657,7 @@ def api_search():
         return jsonify({"error": "missing query parameter 'q'"}), 400
 
     try:
-        limit = int(request.args.get("limit", "3"))
+        limit = int(request.args.get("limit", "4"))
     except ValueError:
         limit = 3
     limit = max(1, min(limit, 50))
