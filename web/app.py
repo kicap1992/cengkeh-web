@@ -819,7 +819,7 @@ def api_user_current_order():
 @page_admin_required
 def admin_page():
     """ Admin page. Requires login AND level='admin'."""
-    return render_template("admin/index.html")
+    return render_template("admin/index.html", active_nav="dashboard")
 
 
 # create a user_list route
@@ -827,7 +827,7 @@ def admin_page():
 @page_admin_required
 def user_list():
     """Admin page to list all users. Requires login AND level='admin'."""
-    return render_template("admin/user-list.html")
+    return render_template("admin/user-list.html", active_nav="user_list")
 
 
 # create a pemetik_list route
@@ -835,9 +835,16 @@ def user_list():
 @page_admin_required
 def pemetik_list():
     """Admin page to list all pemetik. Requires login AND level='admin'."""
-    return render_template("admin/pemetik.html")
+    return render_template("admin/pemetik.html", active_nav="pemetik_list")
 
 
+
+# create a penyewaan_pemetik route
+@app.route("/penyewaan_pemetik")
+@page_admin_required
+def penyewaan_pemetik():
+    """Admin page to list all penyewaan pemetik. Requires login AND level='admin'."""
+    return render_template("admin/penyewaan-pemetik.html" , active_nav="penyewaan_pemetik")
 
 @app.route("/api/admin/users")
 @admin_required

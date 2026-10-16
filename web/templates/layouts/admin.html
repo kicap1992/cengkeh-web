@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}Admin - Cengkeh{% endblock %}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+    <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.min.css') }}">
+
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css') }}">
+
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='plugin/waves/waves.min.css') }}">
+
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.css') }}">
+
+    <!-- Percent Circle -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='plugin/percircle/css/percircle.css') }}">
+
+    <!-- Chartist Chart -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='plugin/chart/chartist/chartist.min.css') }}">
+
+    <!-- FullCalendar -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.print.css') }}"
+          media='print'>
+
+    <!-- Color Picker -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='color-switcher/color-switcher.min.css') }}">
+
+    <!-- Data Tables -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='plugin/datatables/media/css/dataTables.bootstrap.min.css') }}">
+
+    
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    <div class="main-menu">
+        <header class="header">
+            <a href="{{ url_for('admin_page') }}" class="logo">Cengkeh</a>
+            <button type="button" class="button-close fa fa-times js__menu_close"></button>
+            <div class="user">
+                <a href="#" class="avatar">
+                    <img src="{{ url_for('static', filename='favicon/cengkeh.png') }}" alt="">
+                    <span class="status online"></span>
+                </a>
+                <h5 class="name"><a href="#">Cengkeh Admin</a></h5>
+                <h5 class="position">Administrator</h5>
+                <div class="control-wrap js__drop_down">
+                    <i class="fa fa-caret-down js__drop_down_button"></i>
+                    <div class="control-list">
+                        <div class="control-item"><a href="#"><i class="fa fa-user"></i> Profile</a></div>
+                        <div class="control-item"><a href="#"><i class="fa fa-gear"></i> Pengaturan</a></div>
+                        <div class="control-item">
+                            <a href="#" class="logout-link">
+                                <i class="fa fa-sign-out"></i> Log out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="navigation">
+                <h5 class="title">Navigation</h5>
+                <ul class="menu js__accordion">
+                    {% set current_nav = active_nav|default('') %}
+
+                    <li {% if current_nav == 'dashboard' %}class="current"{% endif %}>
+                        <a class="waves-effect" href="{{ url_for('admin_page') }}">
+                            <i class="menu-icon fa fa-home"></i><span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li {% if current_nav == 'users' %}class="current"{% endif %}>
+                        <a class="waves-effect" href="{{ url_for('user_list') }}">
+                            <i class="menu-icon fa fa-users"></i><span>List Pengguna</span>
+                        </a>
+                    </li>
+
+                    <li {% if current_nav == 'pemetik_list' %}class="current"{% endif %}>
+                        <a class="waves-effect" href="{{ url_for('pemetik_list') }}">
+                            <i class="menu-icon fa fa-user"></i><span>List Pemetik</span>
+                        </a>
+                    </li>
+
+                    <li {% if current_nav == 'penyewaan' %}class="current"{% endif %}>
+                        <a class="waves-effect" href="{{ url_for('penyewaan_pemetik') }}">
+                            <i class="menu-icon fa fa-user-plus"></i><span>Penyewaan Pemetik</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="waves-effect logout-link" href="#">
+                            <i class="menu-icon fa fa-sign-out"></i><span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-navbar">
+        <div class="pull-left">
+            <button type="button"
+                    class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
+            <h1 class="page-title">{% block page_title %}Halaman Utama{% endblock %}</h1>
+        </div>
+        <div class="pull-right">
+            <a href="#" class="ico-item fa fa-power-off logout-link"></a>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div class="main-content">
+            {% block content %}{% endblock %}
+
+            <footer class="footer">
+                <!-- Empty for now -->
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/modernizr.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugin/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugin/nprogress/nprogress.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugin/waves/waves.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugin/fullscreen/jquery.fullscreen-min.js') }}"></script>
+
+    <!-- Data Tables -->
+    <script src="{{ url_for('static', filename='plugin/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='plugin/datatables/media/js/dataTables.bootstrap.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='color-switcher/color-switcher.min.js') }}"></script>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+
+</html>
