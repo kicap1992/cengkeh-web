@@ -846,6 +846,369 @@ def penyewaan_pemetik():
     """Admin page to list all penyewaan pemetik. Requires login AND level='admin'."""
     return render_template("admin/penyewaan-pemetik.html" , active_nav="penyewaan_pemetik")
 
+
+# ---------------------------------------------------------------------------
+# Admin — penyewaan pemetik (booking orders)
+# ---------------------------------------------------------------------------
+def _serialize_order_row(row):
+    """Shape a tb_order row (with joined user info) for the admin UI."""
+    return {
+        "id":             row["id"],
+        "order_code":     row["order_code"],
+        "user_id":        row["user_id"],
+        "user_nama":      row.get("user_nama") or "",
+        "user_telepon":   row.get("user_telepon") or "",
+        "start_date":     row["start_date"].isoformat() if row["start_date"] else None,
+        "end_date":       row["end_date"].isoformat() if row["end_date"] else None,
+        "total_days":     row.get("total_days"),
+        "total_amount":   float(row["total_amount"]) if row["total_amount"] is not None else 0,
+        "status":         row["status"],
+        "notes":          row.get("notes") or "",
+        "cancel_reason":  row.get("cancel_reason") or "",
+        "payment_reference": row.get("payment_reference") or "",
+        "paid_at":        row["paid_at"].isoformat() if row.get("paid_at") else None,
+        "created_at":     row["created_at"].isoformat() if row.get("created_at") else None,
+        "updated_at":     row["updated_at"].isoformat() if row.get("updated_at") else None,
+        "pemetik":        [],
+    }
+
+
+def _attach_pemetik_to_orders(cursor, orders):
+    """Bulk-load the pemetik lines for a list of serialized orders."""
+    if not orders:
+        return orders
+
+    order_ids = [o["id"] for o in orders]
+    placeholders = ",".join(["%s"] * len(order_ids))
+    cursor.execute(
+        f"""
+        SELECT bp.order_id, p.id, p.nama, p.foto_path,
+               bp.price_per_day_at_booking, bp.total_days, bp.subtotal
+        FROM tb_booking_pemetik bp
+        JOIN tb_pemetik p ON p.id = bp.pemetik_id
+        WHERE bp.order_id IN ({placeholders})
+        ORDER BY p.nama ASC
+        """,
+        order_ids,
+    )
+    by_order = {}
+    for r in cursor.fetchall():
+        by_order.setdefault(r["order_id"], []).append({
+            "id":            r["id"],
+            "nama":          r["nama"],
+            "foto_path":     r["foto_path"] or "",
+            "price_per_day": float(r["price_per_day_at_booking"]),
+            "total_days":    r["total_days"],
+            "subtotal":      float(r["subtotal"]),
+        })
+
+    for o in orders:
+        o["pemetik"] = by_order.get(o["id"], [])
+    return orders
+
+
+@app.route("/api/admin/penyewaan", methods=["GET"])
+@admin_required
+def api_admin_penyewaan_list():
+    """
+    List all booking orders for the admin panel.
+
+    Query params (all optional):
+        status — pending_payment | paid | confirmed | cancelled | completed
+        q      — search on order_code / user nama / user telepon
+    """
+    status_filter = request.args.get("status")
+    q = (request.args.get("q") or "").strip()
+
+    where = []
+    params = []
+
+    if status_filter:
+        where.append("o.status = %s")
+        params.append(status_filter)
+
+    if q:
+        like = f"%{q}%"
+        where.append(
+            "(o.order_code LIKE %s OR u.nama LIKE %s OR u.nomor_telepon LIKE %s)"
+        )
+        params.extend([like, like, like])
+
+    where_sql = ("WHERE " + " AND ".join(where)) if where else ""
+
+    with get_db() as cursor:
+        cursor.execute(
+            f"""
+            SELECT o.*,
+                   DATEDIFF(o.end_date, o.start_date) + 1 AS total_days,
+                   u.nama          AS user_nama,
+                   u.nomor_telepon AS user_telepon
+            FROM tb_order o
+            JOIN tb_user u ON u.id = o.user_id
+            {where_sql}
+            ORDER BY
+                FIELD(o.status, 'paid', 'pending_payment', 'confirmed', 'cancelled', 'completed'),
+                o.created_at DESC
+            """,
+            params,
+        )
+        orders = [_serialize_order_row(r) for r in cursor.fetchall()]
+        _attach_pemetik_to_orders(cursor, orders)
+
+        cursor.execute("SELECT status, COUNT(*) AS cnt FROM tb_order GROUP BY status")
+        counts = {r["status"]: r["cnt"] for r in cursor.fetchall()}
+        counts["total"] = sum(counts.values())
+
+    return jsonify({"status": "ok", "orders": orders, "counts": counts})
+
+
+def _overlapping_confirmed_exists(cursor, pemetik_id, start_date, end_date,
+                                  exclude_order_id=None):
+    """
+    Return True if any CONFIRMED order (other than exclude_order_id)
+    for `pemetik_id` overlaps the [start_date, end_date] window.
+
+    Overlap test: A.start <= B.end AND A.end >= B.start
+    """
+    sql = """
+        SELECT o.id
+        FROM tb_order o
+        JOIN tb_booking_pemetik bp ON bp.order_id = o.id
+        WHERE o.status = 'confirmed'
+          AND bp.pemetik_id = %s
+          AND o.start_date <= %s
+          AND o.end_date   >= %s
+    """
+    params = [pemetik_id, end_date, start_date]
+
+    if exclude_order_id is not None:
+        sql += " AND o.id <> %s"
+        params.append(exclude_order_id)
+
+    sql += " LIMIT 1"
+    cursor.execute(sql, params)
+    return cursor.fetchone() is not None
+
+
+def _overlapping_active_exists(cursor, pemetik_id, start_date, end_date, exclude_order_id=None):
+    sql = """
+        SELECT o.id FROM tb_order o 
+        JOIN tb_booking_pemetik bp ON bp.order_id = o.id
+        WHERE o.status IN ('confirmed', 'paid')
+          AND bp.pemetik_id = %s 
+          AND o.start_date <= %s 
+          AND o.end_date >= %s
+    """
+    params = [pemetik_id, end_date, start_date]
+    if exclude_order_id is not None:
+        sql += " AND o.id <> %s"
+        params.append(exclude_order_id)
+    sql += " LIMIT 1"
+    cursor.execute(sql, params)
+    return cursor.fetchone() is not None
+
+
+@app.route("/api/admin/penyewaan/<int:order_id>/mark-paid", methods=["POST"])
+@admin_required
+def api_admin_penyewaan_mark_paid(order_id):
+    with get_db() as cursor:
+        # 1. Check if the current order can be paid
+        cursor.execute("SELECT id, order_code, status, start_date, end_date FROM tb_order WHERE id = %s", (order_id,))
+        order = cursor.fetchone()
+        if order is None: return jsonify({"error": f"Order {order_id} tidak ditemukan."}), 404
+        if order["status"] != "pending_payment": return jsonify({"error": f"Hanya 'pending_payment' yang bisa jadi 'paid'."}), 400
+
+        # 2. Check if THIS order is already blocked by someone else
+        cursor.execute("SELECT pemetik_id FROM tb_booking_pemetik WHERE order_id = %s", (order_id,))
+        pemetik_ids = [r["pemetik_id"] for r in cursor.fetchall()]
+
+        for pid in pemetik_ids:
+            if _overlapping_active_exists(cursor, pid, order["start_date"], order["end_date"], exclude_order_id=order_id):
+                return jsonify({"error": "Gagal: Pemetik sudah dibayar/disewa oleh pengguna lain."}), 409
+
+        # 3. Mark this order as PAID
+        cursor.execute("UPDATE tb_order SET status='paid', paid_at=NOW() WHERE id = %s", (order_id,))
+
+        # 4. Auto-cancel other PENDING orders that overlap, and list their conflicting pemetik names
+        placeholders = ",".join(["%s"] * len(pemetik_ids))
+        query_params = [order_id] + pemetik_ids + [order["end_date"], order["start_date"]]
+        
+        cursor.execute(
+            f"""
+            SELECT 
+                o.id, 
+                o.order_code, 
+                GROUP_CONCAT(p.nama ORDER BY p.nama SEPARATOR ', ') AS pemetik_names
+            FROM tb_order o 
+            JOIN tb_booking_pemetik bp ON bp.order_id = o.id 
+            JOIN tb_pemetik p ON p.id = bp.pemetik_id
+            WHERE o.id <> %s 
+              AND o.status = 'pending_payment' 
+              AND bp.pemetik_id IN ({placeholders})
+              AND o.start_date <= %s 
+              AND o.end_date >= %s
+            GROUP BY o.id, o.order_code
+            """, 
+            query_params
+        )
+        conflicting_pending = cursor.fetchall()
+
+        if conflicting_pending:
+            for conflict in conflicting_pending:
+                # We now have the full list of pemetik names (e.g., "ARa1, aran2, aran3")
+                p_names = conflict["pemetik_names"]
+                reason = f"{p_names} sudah disewakan oleh pengguna lain."
+                
+                cursor.execute(
+                    "UPDATE tb_order SET status='cancelled', cancel_reason = %s WHERE id = %s", 
+                    (reason, conflict["id"])
+                )
+
+    return jsonify({
+        "status": "ok", 
+        "message": f"Order {order['order_code']} ditandai sudah dibayar. {len(conflicting_pending)} order bentrok otomatis dibatalkan."
+    })
+
+
+@app.route("/api/admin/penyewaan/<int:order_id>/approve", methods=["POST"])
+@admin_required
+def api_admin_penyewaan_approve(order_id):
+    """
+    Approve (confirm) a paid order.
+    Auto-cancels overlapping pending/paid orders.
+    """
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT id, order_code, status, start_date, end_date "
+            "FROM tb_order WHERE id = %s",
+            (order_id,),
+        )
+        order = cursor.fetchone()
+        if order is None:
+            return jsonify({"error": f"Order {order_id} tidak ditemukan."}), 404
+
+        if order["status"] != "paid":
+            return jsonify({
+                "error": f"Hanya order berstatus 'paid' yang bisa disetujui. "
+                         f"Status sekarang: '{order['status']}'."
+            }), 400
+
+        cursor.execute(
+            "SELECT pemetik_id FROM tb_booking_pemetik WHERE order_id = %s",
+            (order_id,),
+        )
+        pemetik_ids = [r["pemetik_id"] for r in cursor.fetchall()]
+        if not pemetik_ids:
+            return jsonify({"error": "Order ini tidak punya pemetik."}), 400
+
+        # Race-guard
+        for pid in pemetik_ids:
+            if _overlapping_confirmed_exists(
+                cursor, pid, order["start_date"], order["end_date"],
+                exclude_order_id=order_id,
+            ):
+                return jsonify({
+                    "error": "Sudah ada order lain yang dikonfirmasi untuk "
+                             "pemetik & tanggal ini. Tidak bisa disetujui."
+                }), 409
+
+        # 1. Confirm the current order
+        cursor.execute(
+            "UPDATE tb_order SET status='confirmed' WHERE id = %s",
+            (order_id,),
+        )
+
+        # 2. Auto-cancel overlapping pending_payment / paid orders
+        placeholders = ",".join(["%s"] * len(pemetik_ids))
+        
+        # We construct the params list carefully: order_id, then the pemetik_ids, then end_date, then start_date
+        # (Because the WHERE clause goes in order of appearance)
+        query_params = [order_id] + pemetik_ids + [order["end_date"], order["start_date"]]
+        
+        cursor.execute(
+            f"""
+            SELECT DISTINCT o.id, o.order_code, p.nama AS pemetik_nama
+            FROM tb_order o
+            JOIN tb_booking_pemetik bp ON bp.order_id = o.id
+            JOIN tb_pemetik p ON p.id = bp.pemetik_id
+            WHERE o.id <> %s
+              AND o.status IN ('pending_payment', 'paid')
+              AND bp.pemetik_id IN ({placeholders})
+              AND o.start_date <= %s
+              AND o.end_date   >= %s
+            """,
+            query_params,
+        )
+        conflicting = cursor.fetchall()
+
+        cancelled = []
+        if conflicting:
+            conflict_ids = [c["id"] for c in conflicting]
+            
+            # Get the name of the pemetik causing the conflict
+            pemetik_name = conflicting[0]["pemetik_nama"]
+            reason = f"{pemetik_name} sudah disewakan oleh pengguna lain."
+            
+            id_ph = ",".join(["%s"] * len(conflict_ids))
+            cursor.execute(
+                f"""
+                UPDATE tb_order
+                SET status='cancelled', cancel_reason = %s
+                WHERE id IN ({id_ph})
+                """,
+                [reason] + conflict_ids,
+            )
+            cancelled = [
+                {"id": c["id"], "order_code": c["order_code"]}
+                for c in conflicting
+            ]
+
+    msg = f"Order {order['order_code']} dikonfirmasi."
+    if cancelled:
+        msg += f" {len(cancelled)} order lain dibatalkan karena bentrok."
+
+    return jsonify({
+        "status": "ok",
+        "message": msg,
+        "cancelled": cancelled,
+    })
+
+@app.route("/api/admin/penyewaan/<int:order_id>/cancel", methods=["POST"])
+@admin_required
+def api_admin_penyewaan_cancel(order_id):
+    """
+    Manually cancel a booking order (admin action).
+
+    Body (JSON, optional):
+        { "reason": "..." }
+    """
+    data = request.get_json(silent=True) or {}
+    reason = (data.get("reason") or "").strip() or "Dibatalkan oleh admin."
+
+    with get_db() as cursor:
+        cursor.execute(
+            "SELECT id, order_code, status FROM tb_order WHERE id = %s",
+            (order_id,),
+        )
+        order = cursor.fetchone()
+        if order is None:
+            return jsonify({"error": f"Order {order_id} tidak ditemukan."}), 404
+
+        if order["status"] in ("cancelled", "completed"):
+            return jsonify({
+                "error": f"Order sudah '{order['status']}', tidak bisa dibatalkan."
+            }), 400
+
+        cursor.execute(
+            "UPDATE tb_order SET status='cancelled', cancel_reason = %s WHERE id = %s",
+            (reason, order_id),
+        )
+
+    return jsonify({
+        "status": "ok",
+        "message": f"Order {order['order_code']} dibatalkan.",
+    })
+
 @app.route("/api/admin/users")
 @admin_required
 def api_admin_users():

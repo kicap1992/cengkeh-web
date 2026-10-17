@@ -148,6 +148,7 @@ CREATE TABLE `tb_order` (
   `end_date` date NOT NULL,
   `total_amount` decimal(12,2) NOT NULL,
   `status` enum('pending_payment','paid','confirmed','completed','cancelled') NOT NULL DEFAULT 'pending_payment',
+  `cancel_reason` varchar(255) DEFAULT NULL,
   `payment_reference` varchar(100) DEFAULT NULL,
   `paid_at` timestamp NULL DEFAULT NULL,
   `notes` text DEFAULT NULL,
@@ -369,5 +370,6 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20261012041633'),
   ('20261013203903'),
   ('20261014215458'),
-  ('20261016163832');
+  ('20261016163832'),
+  ('20261017015433');
 UNLOCK TABLES;
