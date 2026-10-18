@@ -259,9 +259,17 @@
                     );
                     window.location.href = "/user/sewa-pemetik";
                 } else {
-                    showError(data.error || "Gagal membuat pesanan.");
-                    btnSubmit.disabled = false;
-                    btnSubmit.textContent = "Buat Pesanan";
+                    // --- NEW ERROR HANDLING ---
+                    if (res.status === 409) {
+                        // Conflict (already booked) — show alert then redirect
+                        alert(`⚠️ ${data.error}`);
+                        window.location.href = "/user/sewa-pemetik";
+                    } else {
+                        // Standard validation error — show inline error
+                        showError(data.error || "Gagal membuat pesanan.");
+                        btnSubmit.disabled = false;
+                        btnSubmit.textContent = "Buat Pesanan";
+                    }
                 }
             } catch (err) {
                 console.error("Order creation failed:", err);

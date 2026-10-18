@@ -542,29 +542,6 @@ def _generate_order_code() -> str:
 @app.route("/api/user/order", methods=["POST"])
 @login_required
 def api_user_order_create():
-    """
-    Create a new order (with N booking lines, one per selected pemetik).
-
-    Request body (JSON):
-        {
-            "pemetik_ids": [1, 3, 7],
-            "start_date": "2026-11-01",
-            "end_date": "2026-11-05",
-            "notes": "Optional notes"
-        }
-
-    Response:
-        201 {
-            "status": "ok",
-            "order_id": N,
-            "order_code": "ORD-20261015-0001",
-            "total_amount": 1500000,
-            "total_days": 5,
-            "pemetik_count": 3,
-        }
-        400 { "error": "..." }
-        404 { "error": "Pemetik X tidak ditemukan." }
-    """
     user = current_user()
     data = request.get_json(silent=True) or {}
 
@@ -579,7 +556,6 @@ def api_user_order_create():
     if not isinstance(pemetik_ids, list) or len(pemetik_ids) == 0:
         return jsonify({"error": "Pilih minimal satu pemetik."}), 400
 
-    # Deduplicate + force int
     try:
         pemetik_ids = list({int(x) for x in pemetik_ids})
     except (ValueError, TypeError):
@@ -594,6 +570,9 @@ def api_user_order_create():
     except ValueError:
         return jsonify({"error": "Format tanggal tidak valid (YYYY-MM-DD)."}), 400
 
+    if end_date < start_date:
+        return jsonify({"error": "Tanggal selesai tidak boleh sebelum tanggal mulai."}), 400
+
     # Enforce minimum lead time
     with get_db() as cursor:
         cursor.execute("SELECT nilai FROM tb_setting WHERE kunci = 'min_lead_days'")
@@ -606,7 +585,6 @@ def api_user_order_create():
             "error": f"Tanggal mulai minimal {min_lead_days} hari dari sekarang "
                     f"(paling awal: {earliest_start.isoformat()})."
         }), 400
-
 
     total_days = (end_date - start_date).days + 1
 
@@ -628,21 +606,53 @@ def api_user_order_create():
         return jsonify({"error": f"Maksimum pemesanan {max_days} hari."}), 400
 
     # -------------------------------------------------------------------
-    # Verify all pemetik exist and are active
+    # Verify all pemetik exist, are active, AND are available
     # -------------------------------------------------------------------
     with get_db() as cursor:
         placeholders = ",".join(["%s"] * len(pemetik_ids))
+        
+        # 1. Verify active
         cursor.execute(
             f"SELECT id FROM tb_pemetik WHERE id IN ({placeholders}) AND is_active = 1",
             pemetik_ids,
         )
         found_ids = {r["id"] for r in cursor.fetchall()}
 
-    missing = set(pemetik_ids) - found_ids
-    if missing:
-        return jsonify({
-            "error": f"Pemetik tidak ditemukan atau tidak aktif: {sorted(missing)}"
-        }), 404
+        missing = set(pemetik_ids) - found_ids
+        if missing:
+            return jsonify({
+                "error": f"Pemetik tidak ditemukan atau tidak aktif: {sorted(missing)}"
+            }), 404
+
+        # 2. Check for conflicting bookings
+        conflicts = []
+        for pid in pemetik_ids:
+            cursor.execute(
+                """
+                SELECT p.nama, o.start_date, o.end_date
+                FROM tb_order o
+                JOIN tb_booking_pemetik bp ON bp.order_id = o.id
+                JOIN tb_pemetik p ON p.id = bp.pemetik_id
+                WHERE o.status IN ('confirmed', 'paid')
+                  AND bp.pemetik_id = %s
+                  AND o.start_date <= %s
+                  AND o.end_date >= %s
+                LIMIT 1
+                """,
+                (pid, end_date, start_date)
+            )
+            conflict = cursor.fetchone()
+            if conflict:
+                # Format dates nicely (e.g., 19-10-2026)
+                tgl_mulai = conflict["start_date"].strftime("%d-%m-%Y")
+                tgl_selesai = conflict["end_date"].strftime("%d-%m-%Y")
+                conflicts.append(
+                    f"Pemetik {conflict['nama']} sudah dibooking pada tanggal {tgl_mulai} hingga {tgl_selesai}"
+                )
+
+        if conflicts:
+            error_msg = "Gagal memesan. " + ", ".join(conflicts) + "."
+            return jsonify({"error": error_msg}), 409
 
     # -------------------------------------------------------------------
     # Compute totals
@@ -680,7 +690,6 @@ def api_user_order_create():
                     (order_id, pid, price_per_day, total_days, subtotal_per_pemetik),
                 )
     except Exception as e:
-        # get_db() context manager rolls back automatically
         print(f"❌ Order creation failed: {e}", file=sys.stderr)
         return jsonify({"error": "Gagal membuat pesanan."}), 500
 
