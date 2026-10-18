@@ -5,55 +5,57 @@
 
 {% block content %}
 
-			<!-- Stats summary -->
-			<div class="row" style="margin-bottom: 20px;">
-				<div class="col-md-3">
-					<div class="panel" style="padding: 15px; background: #fff3cd;">
-						<div style="font-size: 1.5rem; font-weight: 700;" id="count-pending">—</div>
-						<div style="color: #664d03; font-size: 0.85rem;">Menunggu Persetujuan</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="panel" style="padding: 15px; background: #e8f5e9;">
-						<div style="font-size: 1.5rem; font-weight: 700;" id="count-active">—</div>
-						<div style="color: #1b5e20; font-size: 0.85rem;">Aktif</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="panel" style="padding: 15px; background: #f8d7da;">
-						<div style="font-size: 1.5rem; font-weight: 700;" id="count-rejected">—</div>
-						<div style="color: #842029; font-size: 0.85rem;">Ditolak</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="panel" style="padding: 15px; background: #e2e3e5;">
-						<div style="font-size: 1.5rem; font-weight: 700;" id="count-suspended">—</div>
-						<div style="color: #383d41; font-size: 0.85rem;">Ditangguhkan</div>
-					</div>
-				</div>
-			</div>
+<!-- Stats summary -->
+<div class="row" style="margin-bottom: 20px;">
+	<div class="col-md-3">
+		<div class="panel" style="padding: 15px; background: #fff3cd;">
+			<div style="font-size: 1.5rem; font-weight: 700;" id="count-pending">—</div>
+			<div style="color: #664d03; font-size: 0.85rem;">Menunggu Persetujuan</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel" style="padding: 15px; background: #e8f5e9;">
+			<div style="font-size: 1.5rem; font-weight: 700;" id="count-active">—</div>
+			<div style="color: #1b5e20; font-size: 0.85rem;">Aktif</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel" style="padding: 15px; background: #f8d7da;">
+			<div style="font-size: 1.5rem; font-weight: 700;" id="count-rejected">—</div>
+			<div style="color: #842029; font-size: 0.85rem;">Ditolak</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel" style="padding: 15px; background: #e2e3e5;">
+			<div style="font-size: 1.5rem; font-weight: 700;" id="count-suspended">—</div>
+			<div style="color: #383d41; font-size: 0.85rem;">Ditangguhkan</div>
+		</div>
+	</div>
+</div>
 
-			<!-- User table -->
-			<div class="panel" style="padding: 15px; background: #fff;">
-				<table id="users-table" class="table table-striped table-bordered" style="width: 100%;">
-					<thead>
-						<tr>
-							<th>No. Telepon</th>
-							<th>Nama</th>
-							<th>Level</th>
-							<th>Status</th>
-							<th>Terdaftar</th>
-							<th>Login Terakhir</th>
-							<th>Aksi</th>
-						</tr>
-					</thead>
-					<tbody><!-- filled by JS --></tbody>
-				</table>
-			</div>
+<!-- User table -->
+<div class="panel" style="padding: 15px; background: #fff;">
+	<div class="table-responsive">
+		<table id="users-table" class="table table-striped table-bordered" style="width: 100%;">
+			<thead>
+				<tr>
+					<th>No. Telepon</th>
+					<th>Nama</th>
+					<th>Level</th>
+					<th>Status</th>
+					<th>Terdaftar</th>
+					<th>Login Terakhir</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
+			<tbody><!-- filled by JS --></tbody>
+		</table>
+	</div>
+</div>
 
 
 {% endblock %}
 
 {% block extra_scripts %}
-	<script src="{{ url_for('static', filename='js/user-list.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user-list.js') }}"></script>
 {% endblock %}
