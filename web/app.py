@@ -452,14 +452,14 @@ def page_admin_required(f):
 @app.route("/user")
 @page_user_required
 def user_page():
-    return render_template("user/index.html")
+    return render_template("user/index.html", active_nav="user_page")
 
 
 # create user_sewa_pemetik
 @app.route("/user/sewa-pemetik")
 @page_user_required
 def user_sewa_pemetik():
-    return render_template("user/sewa-pemetik.html")
+    return render_template("user/sewa-pemetik.html", active_nav="user_sewa_pemetik")
 
 @app.route("/user/booking/new")
 @page_user_required

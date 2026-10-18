@@ -1,342 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layouts/user.html" %}
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+{% block title %}Halaman Sewa Pemetik - ChatBot Cengkeh{% endblock %}
+{% block page_title %}Sewa Pemetik{% endblock %}
+{% block extra_head %}
+<style>
+	.pemetik-card {
+		background: #fff;
+		border-radius: 12px;
+		padding: 20px 16px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+		border: 2px solid transparent;
+		transition: all 0.15s ease;
+		cursor: pointer;
+		text-align: center;
+		position: relative;
+	}
 
-	<title>Halaman Sewa Pemetik - ChatBot Cengkeh</title>
+	.pemetik-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+	}
 
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
+	.pemetik-card.selected {
+		border-color: #2d6a4f;
+		background: #f0fdf4;
+	}
 
-	<!-- Main Styles -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.min.css') }}">
+	.pemetik-card .check-mark {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background: #2d6a4f;
+		color: #fff;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.8rem;
+	}
 
-	<!-- mCustomScrollbar -->
-	<link rel="stylesheet"
-		href="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css') }}">
+	.pemetik-card.selected .check-mark {
+		display: flex;
+	}
 
-	<!-- Waves Effect -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/waves/waves.min.css') }}">
+	.pemetik-photo {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background: #e8f5e9;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		color: #2d6a4f;
+		margin: 0 auto 12px;
+		overflow: hidden;
+		border: 2px solid #c8e6c9;
+	}
 
-	<!-- Sweet Alert -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.css') }}">
+	.pemetik-photo img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-	<!-- Percent Circle -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/percircle/css/percircle.css') }}">
+	.pemetik-name {
+		font-weight: 600;
+		color: #2d6a4f;
+		font-size: 1rem;
+		margin-bottom: 6px;
+	}
 
-	<!-- Chartist Chart -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/chart/chartist/chartist.min.css') }}">
+	.pemetik-desc {
+		font-size: 0.8rem;
+		color: #666;
+		line-height: 1.4;
+		min-height: 2.8em;
+	}
 
-	<!-- FullCalendar -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.print.css') }}"
-		media='print'>
+	/* Banner styles */
+	.order-banner {
+		padding: 16px 20px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		border: 1px solid;
+	}
 
-	<!-- Color Picker -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='color-switcher/color-switcher.min.css') }}">
+	.order-banner.ongoing {
+		background: #e8f5e9;
+		color: #1b5e20;
+		border-color: #c8e6c9;
+	}
 
-	<!-- Data Tables -->
-	<link rel="stylesheet"
-		href="{{ url_for('static', filename='plugin/datatables/media/css/dataTables.bootstrap.min.css') }}">
+	.order-banner.soon {
+		background: #fff3cd;
+		color: #664d03;
+		border-color: #ffecb5;
+	}
 
-	<style>
-		.pemetik-card {
-			background: #fff;
-			border-radius: 12px;
-			padding: 20px 16px;
-			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-			border: 2px solid transparent;
-			transition: all 0.15s ease;
-			cursor: pointer;
-			text-align: center;
-			position: relative;
-		}
+	.order-banner.pending {
+		background: #e3f2fd;
+		color: #0d47a1;
+		border-color: #bbdefb;
+	}
 
-		.pemetik-card:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-		}
+	.order-banner-icon {
+		font-size: 1.8rem;
+		flex-shrink: 0;
+	}
 
-		.pemetik-card.selected {
-			border-color: #2d6a4f;
-			background: #f0fdf4;
-		}
+	.order-banner-content {
+		flex: 1;
+	}
 
-		.pemetik-card .check-mark {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-			width: 24px;
-			height: 24px;
-			border-radius: 50%;
-			background: #2d6a4f;
-			color: #fff;
-			display: none;
-			align-items: center;
-			justify-content: center;
-			font-size: 0.8rem;
-		}
+	.order-banner-title {
+		font-weight: 600;
+		font-size: 0.95rem;
+		margin-bottom: 4px;
+	}
 
-		.pemetik-card.selected .check-mark {
-			display: flex;
-		}
+	.order-banner-detail {
+		font-size: 0.85rem;
+		opacity: 0.9;
+	}
 
-		.pemetik-photo {
-			width: 80px;
-			height: 80px;
-			border-radius: 50%;
-			background: #e8f5e9;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 2rem;
-			color: #2d6a4f;
-			margin: 0 auto 12px;
-			overflow: hidden;
-			border: 2px solid #c8e6c9;
-		}
+	.order-banner-code {
+		font-family: monospace;
+		background: rgba(0, 0, 0, 0.05);
+		padding: 2px 6px;
+		border-radius: 4px;
+		font-size: 0.8rem;
+	}
+</style>
+{% endblock %}
 
-		.pemetik-photo img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
+{% block content %}
+<!-- Current order banner (dynamic) -->
+<div id="order-banner" style="display: none; margin-bottom: 20px;"></div>
 
-		.pemetik-name {
-			font-weight: 600;
-			color: #2d6a4f;
-			font-size: 1rem;
-			margin-bottom: 6px;
-		}
-
-		.pemetik-desc {
-			font-size: 0.8rem;
-			color: #666;
-			line-height: 1.4;
-			min-height: 2.8em;
-		}
-
-		/* Banner styles */
-		.order-banner {
-			padding: 16px 20px;
-			border-radius: 12px;
-			display: flex;
-			align-items: center;
-			gap: 16px;
-			border: 1px solid;
-		}
-
-		.order-banner.ongoing {
-			background: #e8f5e9;
-			color: #1b5e20;
-			border-color: #c8e6c9;
-		}
-
-		.order-banner.soon {
-			background: #fff3cd;
-			color: #664d03;
-			border-color: #ffecb5;
-		}
-
-		.order-banner.pending {
-			background: #e3f2fd;
-			color: #0d47a1;
-			border-color: #bbdefb;
-		}
-
-		.order-banner-icon {
-			font-size: 1.8rem;
-			flex-shrink: 0;
-		}
-
-		.order-banner-content {
-			flex: 1;
-		}
-
-		.order-banner-title {
-			font-weight: 600;
-			font-size: 0.95rem;
-			margin-bottom: 4px;
-		}
-
-		.order-banner-detail {
-			font-size: 0.85rem;
-			opacity: 0.9;
-		}
-
-		.order-banner-code {
-			font-family: monospace;
-			background: rgba(0, 0, 0, 0.05);
-			padding: 2px 6px;
-			border-radius: 4px;
-			font-size: 0.8rem;
-		}
-	</style>
-
-
-</head>
-
-<body>
-	<div class="main-menu">
-		<header class="header">
-			<a href="index.html" class="logo">Cengkeh</a>
-			<button type="button" class="button-close fa fa-times js__menu_close"></button>
-			<div class="user">
-				<a href="#" class="avatar"><img src="{{ url_for('static', filename='favicon/cengkeh.png') }}"
-						alt=""><span class="status online"></span></a>
-				<h5 class="name"><a href="profile.html">Cengkeh User</a></h5>
-				<h5 class="position">Pengguna</h5>
-				<!-- /.name -->
-				<div class="control-wrap js__drop_down">
-					<i class="fa fa-caret-down js__drop_down_button"></i>
-					<div class="control-list">
-						<div class="control-item"><a href="profile.html"><i class="fa fa-user"></i> Profile</a></div>
-						<div class="control-item"><a href="#"><i class="fa fa-gear"></i> Pengaturan</a></div>
-						<div class="control-item"><a href="#" class="logout-link"><i class="fa fa-sign-out"></i> Log
-								out</a></div>
-					</div>
-					<!-- /.control-list -->
-				</div>
-				<!-- /.control-wrap -->
-			</div>
-			<!-- /.user -->
-		</header>
-		<!-- /.header -->
-		<div class="content">
-
-			<div class="navigation">
-				<h5 class="title">Navigation</h5>
-				<!-- /.title -->
-				<ul class="menu js__accordion">
-					<li>
-						<a class="waves-effect" href="{{ url_for('user_page') }}"><i
-								class="menu-icon fa fa-home"></i><span>Halaman Utama</span></a>
-					</li>
-
-					<li class="current">
-						<a class="waves-effect" href="{{ url_for('user_sewa_pemetik') }}"><i
-								class="menu-icon fa fa-user"></i><span>Sewa Pemetik</span></a>
-					</li>
-
-					<!-- create a logout -->
-					<li>
-						<a class="waves-effect logout-link" href="#"><i
-								class="menu-icon fa fa-sign-out"></i><span>Logout</span></a>
-					</li>
-				</ul>
-
-			</div>
-			<!-- /.navigation -->
-		</div>
-		<!-- /.content -->
-	</div>
-	<!-- /.main-menu -->
-
-	<div class="fixed-navbar">
-		<div class="pull-left">
-			<button type="button"
-				class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
-			<h1 class="page-title">Halaman Sewa Pemetik</h1>
-			<!-- /.page-title -->
-		</div>
-		<!-- /.pull-left -->
-		<div class="pull-right">
-
-
-			<a href="#" class="ico-item fa fa-power-off logout-link"></a>
-		</div>
-		<!-- /.pull-right -->
-	</div>
-	<!-- /.fixed-navbar -->
-
-
-
-	<div id="wrapper">
-		<div class="main-content">
-
-			<!-- Current order banner (dynamic) -->
-			<div id="order-banner" style="display: none; margin-bottom: 20px;"></div>
-
-			<!-- Main content: header + pemetik grid -->
-			<div style="display: flex; justify-content: space-between; align-items: center;
+<!-- Main content: header + pemetik grid -->
+<div style="display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 20px;">
-				<div>
-					<h2 style="margin: 0; color: #2d6a4f; font-size: 1.3rem;">Pilih Pemetik</h2>
-					<div style="font-size: 0.85rem; color: #666; margin-top: 4px;">
-						Harga: <strong id="price-display">—</strong> /hari per pemetik
-					</div>
-				</div>
-				<div style="font-size: 0.85rem; color: #666;">
-					<span id="selected-count">0</span> pemetik dipilih
-				</div>
-			</div>
+	<div>
+		<h2 style="margin: 0; color: #2d6a4f; font-size: 1.3rem;">Pilih Pemetik</h2>
+		<div style="font-size: 0.85rem; color: #666; margin-top: 4px;">
+			Harga: <strong id="price-display">—</strong> /hari per pemetik
+		</div>
+	</div>
+	<div style="font-size: 0.85rem; color: #666;">
+		<span id="selected-count">0</span> pemetik dipilih
+	</div>
+</div>
 
-			<!-- Pemetik grid -->
-			<div id="pemetik-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+<!-- Pemetik grid -->
+<div id="pemetik-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 16px; margin-bottom: 20px;">
-				<!-- Filled by JS -->
-			</div>
+	<!-- Filled by JS -->
+</div>
 
-			<!-- Empty state -->
-			<div id="pemetik-empty" style="display: none; padding: 40px 20px; text-align: center;
+<!-- Empty state -->
+<div id="pemetik-empty" style="display: none; padding: 40px 20px; text-align: center;
             background: #f7f7f7; border-radius: 12px; color: #888;">
-				Belum ada pemetik yang tersedia saat ini.
-			</div>
+	Belum ada pemetik yang tersedia saat ini.
+</div>
 
-			<!-- Sticky bottom action bar (only when >0 pemetik selected) -->
-			<div id="action-bar" style="display: none; position: fixed; bottom: 0; left: 0; right: 0;
+<!-- Sticky bottom action bar (only when >0 pemetik selected) -->
+<div id="action-bar" style="display: none; position: fixed; bottom: 0; left: 0; right: 0;
             background: #fff; box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
             padding: 14px 20px; z-index: 999; align-items: center;
             justify-content: space-between;">
-				<div style="font-size: 0.9rem; color: #333;">
-					<strong id="action-count">0</strong> pemetik dipilih
-				</div>
-				<button id="btn-lanjut" style="background: #2d6a4f; color: #fff; border: none;
+	<div style="font-size: 0.9rem; color: #333;">
+		<strong id="action-count">0</strong> pemetik dipilih
+	</div>
+	<button id="btn-lanjut" style="background: #2d6a4f; color: #fff; border: none;
                 padding: 10px 24px; border-radius: 8px; font-size: 0.9rem;
                 font-weight: 600; cursor: pointer;">
-					Lanjutkan <i class="fa fa-arrow-right"></i>
-				</button>
-			</div>
+		Lanjutkan <i class="fa fa-arrow-right"></i>
+	</button>
+</div>
 
-			<!-- Card styles (in <style> — or move to static/css/sewa-pemetik.css later) -->
+<!-- Card styles (in <style> — or move to static/css/sewa-pemetik.css later) -->
+{% endblock %}
 
-
-			<footer class="footer">
-
-				<!--/#wrapper -->
-				<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-				<!--[if lt IE 9]>
-		<script src="{{ url_for('static', filename='script/html5shiv.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='script/respond.min.js') }}"></script>
-	<![endif]-->
-				<!-- 
-	================================================== -->
-				<!-- Placed at the end of the document so the pages load faster -->
-				<script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='scripts/modernizr.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/bootstrap/js/bootstrap.min.js') }}"></script>
-				<script
-					src="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/nprogress/nprogress.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/waves/waves.min.js') }}"></script>
-				<!-- Full Screen Plugin -->
-				<script src="{{ url_for('static', filename='plugin/fullscreen/jquery.fullscreen-min.js') }}"></script>
-
-				<script src="{{ url_for('static', filename='js/logout.js') }}"></script>
-
-				<script src="{{ url_for('static', filename='js/sewa-pemetik.js') }}"></script>
-			
-
-
-				<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='color-switcher/color-switcher.min.js') }}"></script>
-</body>
-
-</html>
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/sewa-pemetik.js') }}"></script>
+{% endblock %}

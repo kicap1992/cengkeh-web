@@ -1,236 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layouts/user.html" %}
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+{% block title %}Halaman Booking Pemetik- ChatBot Cengkeh{% endblock %}
+{% block page_title %}Halaman Booking{% endblock %}
 
-	<title>Halaman Booking Pemetik - ChatBot Cengkeh</title>
+{% block content %}
+<h2 style="margin-top: 0; color: #2d6a4f;">Buat Pesanan</h2>
 
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/cengkeh.png') }}">
-
-	<!-- Main Styles -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.min.css') }}">
-
-	<!-- mCustomScrollbar -->
-	<link rel="stylesheet"
-		href="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css') }}">
-
-	<!-- Waves Effect -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/waves/waves.min.css') }}">
-
-	<!-- Sweet Alert -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.css') }}">
-
-	<!-- Percent Circle -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/percircle/css/percircle.css') }}">
-
-	<!-- Chartist Chart -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/chart/chartist/chartist.min.css') }}">
-
-	<!-- FullCalendar -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='plugin/fullcalendar/fullcalendar.print.css') }}"
-		media='print'>
-
-	<!-- Color Picker -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='color-switcher/color-switcher.min.css') }}">
-
-</head>
-
-<body>
-	<div class="main-menu">
-		<header class="header">
-			<a href="index.html" class="logo">Cengkeh</a>
-			<button type="button" class="button-close fa fa-times js__menu_close"></button>
-			<div class="user">
-				<a href="#" class="avatar"><img src="{{ url_for('static', filename='favicon/cengkeh.png') }}"
-						alt=""><span class="status online"></span></a>
-				<h5 class="name"><a href="profile.html">Cengkeh User</a></h5>
-				<h5 class="position">Pengguna</h5>
-				<!-- /.name -->
-				<div class="control-wrap js__drop_down">
-					<i class="fa fa-caret-down js__drop_down_button"></i>
-					<div class="control-list">
-						<div class="control-item"><a href="profile.html"><i class="fa fa-user"></i> Profile</a></div>
-						<div class="control-item"><a href="#"><i class="fa fa-gear"></i> Pengaturan</a></div>
-						<div class="control-item"><a href="#" class="logout-link"><i class="fa fa-sign-out"></i> Log
-								out</a></div>
-					</div>
-				</div>
-				<!-- /.control-wrap -->
-			</div>
-			<!-- /.user -->
-		</header>
-		<!-- /.header -->
-		<div class="content">
-
-			<div class="navigation">
-				<h5 class="title">Navigation</h5>
-				<!-- /.title -->
-				<ul class="menu js__accordion">
-					<li class="current">
-						<a class="waves-effect" href="{{ url_for('user_page') }}"><i
-								class="menu-icon fa fa-home"></i><span>Halaman Utama</span></a>
-					</li>
-
-					<li>
-						<a class="waves-effect" href="{{ url_for('user_sewa_pemetik') }}"><i
-								class="menu-icon fa fa-user"></i><span>Sewa Pemetik</span></a>
-					</li>
-
-					<!-- create a logout -->
-					<li>
-						<a class="waves-effect logout-link" href="#"><i
-								class="menu-icon fa fa-sign-out"></i><span>Logout</span></a>
-					</li>
-				</ul>
-
-			</div>
-			<!-- /.navigation -->
-		</div>
-		<!-- /.content -->
+<!-- Selected pemetik summary -->
+<div class="panel" style="background: #fff; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;">
+	<div style="font-weight: 600; color: #2d6a4f; margin-bottom: 10px;">
+		Pemetik yang Dipilih (<span id="pemetik-count">0</span>)
 	</div>
-	<!-- /.main-menu -->
-
-	<div class="fixed-navbar">
-		<div class="pull-left">
-			<button type="button"
-				class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
-			<h1 class="page-title">Halaman Utama</h1>
-			<!-- /.page-title -->
-		</div>
-		<!-- /.pull-left -->
-		<div class="pull-right">
-
-
-			<a href="#" class="ico-item fa fa-power-off logout-link"></a>
-		</div>
-		<!-- /.pull-right -->
+	<div id="pemetik-summary" style="display: flex; gap: 12px; flex-wrap: wrap;">
+		<!-- Filled by JS -->
 	</div>
-	<!-- /.fixed-navbar -->
+</div>
 
-
-
-	<div id="wrapper">
-		<div class="main-content">
-			<h2 style="margin-top: 0; color: #2d6a4f;">Buat Pesanan</h2>
-
-			<!-- Selected pemetik summary -->
-			<div class="panel" style="background: #fff; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;">
-				<div style="font-weight: 600; color: #2d6a4f; margin-bottom: 10px;">
-					Pemetik yang Dipilih (<span id="pemetik-count">0</span>)
-				</div>
-				<div id="pemetik-summary" style="display: flex; gap: 12px; flex-wrap: wrap;">
-					<!-- Filled by JS -->
-				</div>
-			</div>
-
-			<!-- Booking form -->
-			<div class="panel" style="background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-				<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-					<div>
-						<label style="display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px;">
-							Tanggal Mulai <span style="color: #c33;">*</span>
-						</label>
-						<input type="date" id="start-date" style="width: 100%; padding: 10px 12px; border: 1px solid #ccc;
+<!-- Booking form -->
+<div class="panel" style="background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+	<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+		<div>
+			<label style="display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px;">
+				Tanggal Mulai <span style="color: #c33;">*</span>
+			</label>
+			<input type="date" id="start-date" style="width: 100%; padding: 10px 12px; border: 1px solid #ccc;
                               border-radius: 6px; font-size: 0.95rem;">
-					</div>
-					<div>
-						<label style="display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px;">
-							Tanggal Selesai <span style="color: #c33;">*</span>
-						</label>
-						<input type="date" id="end-date" style="width: 100%; padding: 10px 12px; border: 1px solid #ccc;
+		</div>
+		<div>
+			<label style="display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px;">
+				Tanggal Selesai <span style="color: #c33;">*</span>
+			</label>
+			<input type="date" id="end-date" style="width: 100%; padding: 10px 12px; border: 1px solid #ccc;
                               border-radius: 6px; font-size: 0.95rem;">
-					</div>
-				</div>
+		</div>
+	</div>
 
-				<div style="margin-top: 16px;">
-					<label style="display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px;">
-						Catatan (opsional)
-					</label>
-					<textarea id="notes" rows="3" placeholder="Catatan tambahan untuk pemetik..." style="width: 100%; padding: 10px 12px; border: 1px solid #ccc;
+	<div style="margin-top: 16px;">
+		<label style="display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px;">
+			Catatan (opsional)
+		</label>
+		<textarea id="notes" rows="3" placeholder="Catatan tambahan untuk pemetik..." style="width: 100%; padding: 10px 12px; border: 1px solid #ccc;
                              border-radius: 6px; font-size: 0.95rem; resize: vertical;"></textarea>
-				</div>
-			</div>
+	</div>
+</div>
 
-			<!-- Total summary -->
-			<div class="panel" style="background: #f0fdf4; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-				<div
-					style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; margin-bottom: 8px;">
-					<span>Durasi</span>
-					<span><strong id="summary-days">—</strong> hari</span>
-				</div>
-				<div
-					style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; margin-bottom: 8px;">
-					<span>Harga per pemetik per hari</span>
-					<span id="summary-price">—</span>
-				</div>
-				<div
-					style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; margin-bottom: 8px;">
-					<span>Jumlah pemetik</span>
-					<span>× <strong id="summary-count">—</strong></span>
-				</div>
-				<div style="border-top: 1px solid #c8e6c9; padding-top: 12px; margin-top: 12px;
+<!-- Total summary -->
+<div class="panel" style="background: #f0fdf4; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+	<div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; margin-bottom: 8px;">
+		<span>Durasi</span>
+		<span><strong id="summary-days">—</strong> hari</span>
+	</div>
+	<div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; margin-bottom: 8px;">
+		<span>Harga per pemetik per hari</span>
+		<span id="summary-price">—</span>
+	</div>
+	<div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; margin-bottom: 8px;">
+		<span>Jumlah pemetik</span>
+		<span>× <strong id="summary-count">—</strong></span>
+	</div>
+	<div style="border-top: 1px solid #c8e6c9; padding-top: 12px; margin-top: 12px;
                     display: flex; justify-content: space-between; align-items: center;">
-					<span style="font-weight: 600; color: #2d6a4f; font-size: 1rem;">Total</span>
-					<span id="summary-total" style="font-size: 1.3rem; font-weight: 700; color: #2d6a4f;">
-						—
-					</span>
-				</div>
-			</div>
+		<span style="font-weight: 600; color: #2d6a4f; font-size: 1rem;">Total</span>
+		<span id="summary-total" style="font-size: 1.3rem; font-weight: 700; color: #2d6a4f;">
+			—
+		</span>
+	</div>
+</div>
 
-			<!-- Error message -->
-			<div id="form-error" style="display: none; padding: 12px 16px; margin-bottom: 16px;
+<!-- Error message -->
+<div id="form-error" style="display: none; padding: 12px 16px; margin-bottom: 16px;
                 border-radius: 8px; background: #fdecea; color: #b71c1c;
                 font-size: 0.9rem; border: 1px solid #f5c6cb;"></div>
 
-			<!-- Action buttons -->
-			<div style="display: flex; gap: 12px; justify-content: flex-end;">
-				<button id="btn-cancel" style="padding: 10px 20px; border-radius: 8px; border: 1px solid #ccc;
+<!-- Action buttons -->
+<div style="display: flex; gap: 12px; justify-content: flex-end;">
+	<button id="btn-cancel" style="padding: 10px 20px; border-radius: 8px; border: 1px solid #ccc;
                        background: #f5f5f5; cursor: pointer; font-size: 0.9rem;">
-					Batal
-				</button>
-				<button id="btn-submit" style="padding: 10px 28px; border-radius: 8px; border: none;
+		Batal
+	</button>
+	<button id="btn-submit" style="padding: 10px 28px; border-radius: 8px; border: none;
                        background: #2d6a4f; color: #fff; cursor: pointer;
                        font-size: 0.9rem; font-weight: 600;">
-					Buat Pesanan
-				</button>
-			</div>
+		Buat Pesanan
+	</button>
+</div>
+{% endblock %}
 
-			<footer class="footer">
 
-				<!--/#wrapper -->
-				<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-				<!--[if lt IE 9]>
-		<script src="{{ url_for('static', filename='script/html5shiv.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='script/respond.min.js') }}"></script>
-	<![endif]-->
-				<!-- 
-	================================================== -->
-				<!-- Placed at the end of the document so the pages load faster -->
-				<script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='scripts/modernizr.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/bootstrap/js/bootstrap.min.js') }}"></script>
-				<script
-					src="{{ url_for('static', filename='plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/nprogress/nprogress.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/sweet-alert/sweetalert.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='plugin/waves/waves.min.js') }}"></script>
-				<!-- Full Screen Plugin -->
-				<script src="{{ url_for('static', filename='plugin/fullscreen/jquery.fullscreen-min.js') }}"></script>
-
-				<script src="{{ url_for('static', filename='js/logout.js') }}"></script>
-
-				<script src="{{ url_for('static', filename='js/booking-new.js') }}"></script>
-
-				<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
-				<script src="{{ url_for('static', filename='color-switcher/color-switcher.min.js') }}"></script>
-</body>
-
-</html>
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/booking-new.js') }}"></script>
+{% endblock %}
